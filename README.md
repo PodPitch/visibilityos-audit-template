@@ -4,6 +4,8 @@ A repeatable way to see whether AI assistants mention or cite your brand when bu
 
 Try the [interactive audit](https://podpitch.github.io/visibilityos-audit-template/space/) for two rounds in your browser, or use the CSV below to keep a record across several dates.
 
+Use the [AI Citation Evidence Checker](https://visibilityos-citation-audit.vercel.app/) to review whether an AI answer’s cited page supports a specific claim and export your notes.
+
 ## Run your audit
 
 1. Copy `example.csv` and replace the fictional examples with questions your sales team hears. Include a shortlist question, a use-case question, a geographic question if location matters, a comparison question, and a buying-criteria question. Leave your company name out of open-ended recommendation prompts.

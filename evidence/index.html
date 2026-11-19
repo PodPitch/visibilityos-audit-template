@@ -100,7 +100,7 @@
             <button type="button" class="secondary" id="sample">Fill fictional example</button>
           </div>
         </form>
-        <p class="note">Entries stay in this browser session. Download your CSV before closing the page.</p>
+        <p class="note">Entries stay on this page. Download your CSV before closing or refreshing it.</p>
       </section>
       <section class="panel" aria-labelledby="log-title">
         <h2 id="log-title">Audit log</h2>
@@ -129,6 +129,11 @@
     const status = document.querySelector('#status');
     const exportButton = document.querySelector('#export');
     const entries = [];
+
+    function announce(message) {
+      const noun = entries.length === 1 ? 'claim' : 'claims';
+      status.textContent = message + ' ' + entries.length + ' ' + noun + ' in the log.';
+    }
 
     function render() {
       const supported = entries.filter(entry => entry.outcome === 'Supported').length;
@@ -170,7 +175,7 @@
           entries.splice(index, 1);
           render();
           (list.querySelectorAll('button')[index] ?? list.querySelector('button') ?? claim).focus();
-          status.textContent = 'Claim removed. ' + entries.length + ' claims in the log.';
+          announce('Claim removed.');
         });
         row.append(details, remove);
         list.append(row);
@@ -195,7 +200,7 @@
       }
       entries.push({claim: claim.value.trim(), source: url, outcome: outcome.value, notes: notes.value.trim()});
       render();
-      status.textContent = 'Claim added. ' + entries.length + ' claims in the log.';
+      announce('Claim added.');
       form.reset();
       claim.focus();
     });
@@ -206,7 +211,7 @@
       claim.value = 'Northstar Analytics offers a free plan and exports CSV reports.';
       source.value = '';
       outcome.value = 'Partly supported';
-      notes.value = 'Fictional example: the cited page lists CSV export but shows paid plans only.';
+      notes.value = 'In this fictional example, the cited page lists CSV export but shows paid plans only.';
       claim.focus();
     });
 
