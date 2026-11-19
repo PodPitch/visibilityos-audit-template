@@ -4,7 +4,7 @@ A repeatable way to see whether AI assistants mention or cite your brand when bu
 
 Try the [interactive audit](https://podpitch.github.io/visibilityos-audit-template/space/) for two rounds in your browser, or use the CSV below to keep a record across several dates.
 
-Use the [AI Citation Evidence Checker](https://visibilityos-citation-audit.vercel.app/) to review whether an AI answer’s cited page supports a specific claim and export your notes.
+Use the [AI Citation Evidence Checker](https://visibilityos-citation-audit.vercel.app/) to review whether an AI answer’s cited page supports a specific claim and export your notes. To compare which citation URLs changed between two runs, try the [AI Citation Diff](https://gist.github.com/nealshulman/9bac9d3ef1045059beaea77204b0d0e3).
 
 Use the [AI Brand Match Audit](https://visibilityos-brand-match-audit.web.app/) to check whether a name in an AI answer refers to your company or a similarly named business.
 
