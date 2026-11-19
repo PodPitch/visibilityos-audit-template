@@ -6,6 +6,8 @@ Try the [interactive audit](https://podpitch.github.io/visibilityos-audit-templa
 
 Use the [AI Citation Evidence Checker](https://visibilityos-citation-audit.vercel.app/) to review whether an AI answer’s cited page supports a specific claim and export your notes.
 
+Use the [AI Brand Match Audit](https://visibilityos-brand-match-audit.web.app/) to check whether a name in an AI answer refers to your company or a similarly named business.
+
 ## Run your audit
 
 1. Copy `example.csv` and replace the fictional examples with questions your sales team hears. Include a shortlist question, a use-case question, a geographic question if location matters, a comparison question, and a buying-criteria question. Leave your company name out of open-ended recommendation prompts.
