@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A free VisibilityOS by PodPitch worksheet for checking which brand an AI answer actually names or cites.">
+  <title>AI Brand Match Audit | VisibilityOS by PodPitch</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #202539;
+      --muted: #52596d;
+      --paper: #f7f7fa;
+      --line: #d8d9e7;
+      --violet: #403087;
+      --accent: #ece8ff;
+      font: 16px/1.55 system-ui, sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    a { color: var(--violet); text-underline-offset: .2em; }
+    a:hover { text-decoration-thickness: .12em; }
+    .shell { max-width: 1056px; width: calc(100% - 36px); margin: auto; }
+    header { background: white; border-bottom: 1px solid var(--line); }
+    header .shell { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 14px 0; }
+    header a { font-weight: 650; font-size: .9rem; }
+    .intro { max-width: 720px; padding: 48px 0 24px; }
+    h1 { font-size: clamp(2.35rem, 5.4vw, 4rem); line-height: 1.04; letter-spacing: -.06em; font-weight: 700; margin: 0 0 14px; }
+    h2 { font-size: 1.16rem; margin: 0 0 11px; }
+    h3 { font-size: 1.06rem; margin: 0 0 7px; }
+    p { color: var(--muted); margin: 0; }
+    .intro p { font-size: 1.07rem; max-width: 62ch; }
+    .workbench { display: grid; grid-template-columns: minmax(0, 1.18fr) minmax(0, 1fr); gap: 18px; align-items: start; }
+    .card { background: white; border: 1px solid var(--line); padding: 23px; border-radius: 13px; min-width: 0; }
+    label { display: block; margin: 14px 0 5px; font-size: .88rem; font-weight: 650; }
+    input, select, button { font: inherit; }
+    input, select { width: 100%; min-height: 43px; padding: 9px 10px; border: 1px solid #a7a9c3; border-radius: 7px; color: var(--ink); background: white; }
+    :focus-visible { outline: 3px solid #6551a9; outline-offset: 3px; }
+    .buttons { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    button { min-height: 42px; padding: 8px 13px; border: 1px solid var(--violet); border-radius: 7px; background: var(--violet); color: white; font-weight: 650; cursor: pointer; font-size: .86rem; }
+    button:hover { background: #2f216a; }
+    .secondary { background: white; color: var(--violet); }
+    .secondary:hover { background: var(--accent); }
+    .micro { font-size: .82rem; margin-top: 12px; }
+    .result { padding: 15px; background: var(--accent); border-radius: 10px; min-height: 108px; }
+    .result p { overflow-wrap: anywhere; }
+    ol { margin: 15px 0 0; padding-left: 19px; color: var(--muted); }
+    li + li { margin-top: 6px; }
+    .notes { margin-top: 18px; padding: 0 0 36px; }
+    .notes p { max-width: 74ch; font-size: .9rem; }
+    @media (max-width: 700px) {
+      .workbench { grid-template-columns: 1fr; }
+      .intro { padding-top: 31px; }
+      .card { padding: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <header><div class="shell">
+    <a href="https://visibilityos.co/">VisibilityOS by PodPitch</a>
+    <a href="https://visibilityos.co/research/ai-answer-visibility">Read the study</a>
+  </div></header>
+  <main class="shell">
+    <section class="intro" aria-labelledby="page-title">
+      <h1 id="page-title">AI Brand Match Audit</h1>
+      <p>A name in an AI answer can refer to another business. Compare the cited website and company behind the name before you count it as your brand.</p>
+    </section>
+    <div class="workbench">
+      <section class="card" aria-labelledby="check-heading">
+        <h2 id="check-heading">Check an answer</h2>
+        <form id="match-form">
+          <label for="official">Your official website</label>
+          <input id="official" type="text" inputmode="url" required placeholder="yourbrand.com">
+          <label for="cited">Website cited for the named brand <small>(if available)</small></label>
+          <input id="cited" type="text" inputmode="url" placeholder="https://example.com/about">
+          <label for="publisher">What does the answer or source say about the company behind it?</label>
+          <select id="publisher">
+            <option value="unknown">No company identified</option>
+            <option value="same">Identifies the same company</option>
+            <option value="different">Identifies a different company</option>
+          </select>
+          <div class="buttons">
+            <button type="submit">Check brand match</button>
+            <button type="button" class="secondary" id="example">Try a fictional example</button>
+          </div>
+        </form>
+        <p class="micro">The worksheet compares the values you enter. It keeps inputs on this page and performs no website lookups.</p>
+      </section>
+      <section class="card" aria-labelledby="audit-heading">
+        <h2 id="audit-heading">Audit result</h2>
+        <div class="result" role="status" aria-atomic="true">
+          <h3 id="result-title">Ready to check</h3>
+          <p id="result-detail">Enter the official website and any citation or company information from the answer.</p>
+        </div>
+        <ol>
+          <li>Save the exact prompt, date, assistant, and answer excerpt.</li>
+          <li>Open external citations and confirm their description of the company.</li>
+          <li>Log brand identity separately from whether the answer links to your site.</li>
+        </ol>
+      </section>
+    </div>
+    <section class="notes" aria-labelledby="next-heading">
+      <h2 id="next-heading">Check what the citation supports</h2>
+      <p>Once you have identified the brand, check whether the source supports the specific claim the assistant made. Use the <a href="https://visibilityos-citation-audit.vercel.app/">VisibilityOS AI Citation Evidence Checker</a> to record that review.</p>
+    </section>
+  </main>
+  <script>
+    const form = document.querySelector('#match-form');
+    const official = document.querySelector('#official');
+    const cited = document.querySelector('#cited');
+    const publisher = document.querySelector('#publisher');
+
+    function getHost(value) {
+      const trimmed = value.trim();
+      if (!trimmed) return '';
+      const address = /^[a-z][a-z0-9+.-]*:\/\//i.test(trimmed) ? trimmed : 'https://' + trimmed;
+      try {
+        const url = new URL(address);
+        const host = url.hostname.replace(/\.$/, '').replace(/^www\./, '');
+        if (!['http:', 'https:'].includes(url.protocol) || url.username || url.password || !host.includes('.')) return '';
+        return host;
+      } catch {
+        return '';
+      }
+    }
+
+    function judge(officialHost, citedHost, company) {
+      if (company === 'different') {
+        return ['Conflicting company identity', 'The answer or citation identifies a different company. Review the answer before recording this as your brand.'];
+      }
+      if (citedHost === officialHost || citedHost.endsWith('.' + officialHost)) {
+        return ['Official domain found', 'The citation uses ' + citedHost + '. Check the linked page and answer excerpt before logging the match.'];
+      }
+      if (company === 'same') {
+        return ['Company match needs source review', 'The company name matches your record. Evaluate the cited page or answer context to confirm the identity before logging it.'];
+      }
+      return ['Insufficient evidence', citedHost
+        ? 'The citation uses ' + citedHost + ', and the company behind the name is unclear. Open the citation and verify which business it describes.'
+        : 'No domain or company confirms the brand. Keep the result unresolved until you can verify the identity.'];
+    }
+
+    function showResult(title, detail) {
+      document.querySelector('#result-title').textContent = title;
+      document.querySelector('#result-detail').textContent = detail;
+    }
+
+    for (const input of [official, cited]) {
+      input.addEventListener('input', () => input.setCustomValidity(''));
+    }
+
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      const officialHost = getHost(official.value);
+      const citedHost = getHost(cited.value);
+      if (!officialHost || (cited.value.trim() && !citedHost)) {
+        const invalid = officialHost ? cited : official;
+        invalid.setCustomValidity('Enter a website such as example.com or https://example.com.');
+        invalid.reportValidity();
+        return;
+      }
+      showResult(...judge(officialHost, citedHost, publisher.value));
+    });
+
+    document.querySelector('#example').addEventListener('click', () => {
+      official.setCustomValidity('');
+      cited.setCustomValidity('');
+      official.value = 'northstar-analytics.example';
+      cited.value = 'https://northstar-retail.example/about';
+      publisher.value = 'different';
+      form.requestSubmit();
+    });
+  </script>
+</body>
+</html>
