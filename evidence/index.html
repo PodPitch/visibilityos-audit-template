@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A free VisibilityOS by PodPitch tool for checking whether the sources in AI answers support the claims they accompany.">
+  <title>AI Citation Evidence Checker | VisibilityOS by PodPitch</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f5f5ec;
+      --white: #fffefa;
+      --ink: #1b2824;
+      --muted: #4b5d55;
+      --line: #c8d3c8;
+      --green: #185b41;
+      --lime: #ddf5aa;
+      font-family: system-ui, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    a { color: var(--green); text-underline-offset: .2em; }
+    a:hover { text-decoration-thickness: .12em; }
+    button, input, textarea, select { font: inherit; }
+    :focus-visible { outline: 3px solid #397255; outline-offset: 3px; }
+    .wrap { width: min(1080px, calc(100% - 40px)); margin: auto; }
+    header { border-bottom: 1px solid var(--line); }
+    header .wrap { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 18px 0; }
+    header a { font-size: .92rem; font-weight: 700; }
+    header a:first-child { color: var(--ink); }
+    .hero { max-width: 720px; padding: 52px 0 27px; }
+    h1 { font-family: Georgia, serif; font-weight: 500; font-size: clamp(2.45rem, 6vw, 4.3rem); line-height: 1; letter-spacing: -.045em; margin: 0 0 16px; }
+    p { margin: 0; line-height: 1.57; color: var(--muted); }
+    .hero p { font-size: 1.1rem; }
+    .workspace { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 20px; }
+    .panel { border: 1px solid var(--line); border-radius: 15px; background: var(--white); padding: 24px; }
+    h2 { margin: 0 0 12px; font-size: 1.18rem; }
+    label { display: block; font-size: .88rem; font-weight: 670; margin: 14px 0 5px; }
+    input, textarea, select { display: block; width: 100%; min-height: 42px; padding: 9px 11px; background: white; border: 1px solid #a7b7aa; border-radius: 7px; color: var(--ink); }
+    textarea { resize: vertical; min-height: 58px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+    button { border: 1px solid var(--green); border-radius: 7px; background: var(--green); color: white; min-height: 40px; padding: 7px 13px; cursor: pointer; font-weight: 650; font-size: .87rem; }
+    button:hover { background: #10432f; }
+    button.secondary { background: var(--white); color: var(--green); }
+    button.secondary:hover { background: #edf3e7; }
+    button:disabled { opacity: .5; cursor: default; }
+    .note { margin-top: 12px; font-size: .81rem; }
+    .totals { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+    .total { min-width: 0; background: var(--paper); border-radius: 8px; padding: 10px 9px; font-size: .78rem; line-height: 1.25; }
+    .total:first-child { background: var(--lime); }
+    .total strong { display: block; font-size: 1.6rem; margin-bottom: 4px; font-weight: 650; }
+    #empty { padding: 20px 0; font-size: .93rem; }
+    #entries { list-style: none; padding: 0; margin: 0; }
+    .entry { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; border-bottom: 1px solid var(--line); padding: 14px 0; align-items: start; }
+    .entry h3 { font-size: .95rem; margin: 4px 0; }
+    .entry p, .entry a { font-size: .82rem; overflow-wrap: anywhere; }
+    .entry h3 { overflow-wrap: anywhere; }
+    .entry button { min-height: 32px; }
+    .outcome { color: var(--green); font-size: .73rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+    footer .wrap { padding: 24px 0 30px; font-size: .87rem; }
+    @media (max-width: 720px) {
+      .workspace { grid-template-columns: 1fr; }
+      .hero { padding-top: 38px; }
+      .panel { padding: 19px; }
+    }
+  </style>
+</head>
+<body>
+  <header><div class="wrap">
+    <a href="https://visibilityos.co/">VisibilityOS by PodPitch</a>
+    <a href="https://visibilityos.co/research/ai-answer-visibility">Read the study</a>
+  </div></header>
+  <main class="wrap">
+    <div class="hero">
+      <h1>AI Citation Evidence Checker</h1>
+      <p>Open the source an AI answer cites. Record what the answer said, what the source actually supports, and where evidence is missing.</p>
+    </div>
+    <div class="workspace">
+      <section class="panel" aria-labelledby="capture-title">
+        <h2 id="capture-title">Check a claim</h2>
+        <form id="claim-form">
+          <label for="claim">Claim in the AI answer</label>
+          <textarea id="claim" name="claim" required maxlength="600" rows="2" placeholder="Paste one specific claim"></textarea>
+          <label for="source">Cited source URL <small>(if provided)</small></label>
+          <input id="source" name="source" type="url" placeholder="https://example.com/pricing">
+          <label for="outcome">What did the source support?</label>
+          <select id="outcome" name="outcome" required>
+            <option value="">Choose an outcome</option>
+            <option>Supported</option>
+            <option>Partly supported</option>
+            <option>Unsupported</option>
+            <option>Missing or inaccessible</option>
+          </select>
+          <label for="notes">Evidence or missing detail <small>(optional)</small></label>
+          <textarea id="notes" name="notes" maxlength="1000" rows="2" placeholder="Copy a source excerpt or note what you could not verify"></textarea>
+          <div class="actions">
+            <button type="submit">Add to audit</button>
+            <button type="button" class="secondary" id="sample">Fill fictional example</button>
+          </div>
+        </form>
+        <p class="note">Entries stay in this browser session. Download your CSV before closing the page.</p>
+      </section>
+      <section class="panel" aria-labelledby="log-title">
+        <h2 id="log-title">Audit log</h2>
+        <div class="totals">
+          <div class="total"><strong id="supported">0</strong>Supported</div>
+          <div class="total"><strong id="partial">0</strong>Partly supported</div>
+          <div class="total"><strong id="unverified">0</strong>Unverified</div>
+        </div>
+        <p class="note" id="status" role="status"></p>
+        <p id="empty">Your reviewed claims will appear here. Start with a claim about pricing, availability, or a feature a buyer would rely on.</p>
+        <ul id="entries"></ul>
+        <div class="actions"><button type="button" class="secondary" id="export" disabled>Download CSV</button></div>
+      </section>
+    </div>
+  </main>
+  <footer><div class="wrap">
+    <p>To compare how often the same brand appears across runs, try the <a href="https://podpitch.github.io/visibilityos-audit-template/space/">VisibilityOS AI answer audit</a>.</p>
+  </div></footer>
+  <script>
+    const form = document.querySelector('#claim-form');
+    const claim = document.querySelector('#claim');
+    const source = document.querySelector('#source');
+    const outcome = document.querySelector('#outcome');
+    const notes = document.querySelector('#notes');
+    const list = document.querySelector('#entries');
+    const status = document.querySelector('#status');
+    const exportButton = document.querySelector('#export');
+    const entries = [];
+
+    function render() {
+      const supported = entries.filter(entry => entry.outcome === 'Supported').length;
+      const partial = entries.filter(entry => entry.outcome === 'Partly supported').length;
+      document.querySelector('#supported').textContent = supported;
+      document.querySelector('#partial').textContent = partial;
+      document.querySelector('#unverified').textContent = entries.length - supported - partial;
+      document.querySelector('#empty').hidden = entries.length > 0;
+      exportButton.disabled = entries.length === 0;
+      list.replaceChildren();
+
+      for (const [index, entry] of entries.entries()) {
+        const row = document.createElement('li');
+        row.className = 'entry';
+        const details = document.createElement('div');
+        const label = document.createElement('span');
+        label.className = 'outcome';
+        label.textContent = entry.outcome;
+        const title = document.createElement('h3');
+        title.textContent = entry.claim;
+        details.append(label, title);
+        if (entry.notes) {
+          const excerpt = document.createElement('p');
+          excerpt.textContent = entry.notes;
+          details.append(excerpt);
+        }
+        if (entry.source) {
+          const link = document.createElement('a');
+          link.href = entry.source;
+          link.textContent = new URL(entry.source).hostname;
+          details.append(link);
+        }
+        const remove = document.createElement('button');
+        remove.className = 'secondary';
+        remove.type = 'button';
+        remove.textContent = 'Remove';
+        remove.setAttribute('aria-label', 'Remove claim ' + (index + 1));
+        remove.addEventListener('click', () => {
+          entries.splice(index, 1);
+          render();
+          (list.querySelectorAll('button')[index] ?? list.querySelector('button') ?? claim).focus();
+          status.textContent = 'Claim removed. ' + entries.length + ' claims in the log.';
+        });
+        row.append(details, remove);
+        list.append(row);
+      }
+    }
+
+    source.addEventListener('input', () => source.setCustomValidity(''));
+    claim.addEventListener('input', () => claim.setCustomValidity(''));
+
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      if (!claim.value.trim()) {
+        claim.setCustomValidity('Enter the specific claim you checked.');
+        claim.reportValidity();
+        return;
+      }
+      const url = source.value.trim();
+      if (url && !/^https?:\/\//i.test(url)) {
+        source.setCustomValidity('Use a link that starts with https:// or http://.');
+        source.reportValidity();
+        return;
+      }
+      entries.push({claim: claim.value.trim(), source: url, outcome: outcome.value, notes: notes.value.trim()});
+      render();
+      status.textContent = 'Claim added. ' + entries.length + ' claims in the log.';
+      form.reset();
+      claim.focus();
+    });
+
+    document.querySelector('#sample').addEventListener('click', () => {
+      claim.setCustomValidity('');
+      source.setCustomValidity('');
+      claim.value = 'Northstar Analytics offers a free plan and exports CSV reports.';
+      source.value = '';
+      outcome.value = 'Partly supported';
+      notes.value = 'Fictional example: the cited page lists CSV export but shows paid plans only.';
+      claim.focus();
+    });
+
+    exportButton.addEventListener('click', () => {
+      const rows = [['Claim', 'Source', 'Outcome', 'Evidence'], ...entries.map(entry =>
+        [entry.claim, entry.source, entry.outcome, entry.notes]
+      )];
+      const csv = rows.map(row => row.map(value => {
+        const clean = /^[\s]*[=+\-@]/.test(value) ? "'" + value : value;
+        return '"' + clean.replaceAll('"', '""') + '"';
+      }).join(',')).join('\r\n');
+      const url = URL.createObjectURL(new Blob([csv], {type: 'text/csv;charset=utf-8'}));
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'visibilityos-citation-audit.csv';
+      link.click();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    });
+  </script>
+</body>
+</html>
