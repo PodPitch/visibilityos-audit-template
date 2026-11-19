@@ -1,0 +1,21 @@
+README.md
+  s_ae0062e82a1582::t_3670c23c4902e3 9-10
+brand-match/public/index.html
+  s_ae0062e82a1582::t_ec83b9d102b1b1 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "611c0f130671d334184f0773151bf7c6ca5cbd53",
+  "prompts": {},
+  "sessions": {
+    "s_ae0062e82a1582": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a1f526-ced7-7172-9d12-9e737f344570",
+        "model": "gpt-6.2-sol"
+      },
+      "human_author": "nealshulman <neal@podpitch.com>"
+    }
+  }
+}
