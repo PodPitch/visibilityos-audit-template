@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Answer Audit by VisibilityOS</title>
+  <style>
+    :root { color-scheme: light; font: 16px/1.55 system-ui, sans-serif; background: #f4f6f1; color: #1c3128; }
+    * { box-sizing: border-box; }
+    main { max-width: 960px; margin: 0 auto; padding: 48px 20px; }
+    h1 { font-size: clamp(2.4rem, 7vw, 4.4rem); letter-spacing: -.07em; line-height: 1; margin: 12px 0; }
+    h2, p { margin: 0 0 12px; }
+    a { color: #075d39; }
+    .intro { max-width: 650px; }
+    .card { background: white; border: 1px solid #c9d8cc; border-radius: 14px; padding: 20px; margin: 20px 0; }
+    .toolbar, .totals { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; }
+    .toolbar { margin-bottom: 16px; }
+    button { font: inherit; font-weight: 650; background: #e1f1e4; color: #173626; border: 1px solid #a6c5ae; border-radius: 8px; padding: 8px 14px; cursor: pointer; }
+    button:hover { background: #cde9d4; }
+    button:focus-visible, textarea:focus-visible, select:focus-visible { outline: 3px solid #087048; outline-offset: 2px; }
+    .audit-row { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 14px; padding: 16px 0; border-top: 1px solid #e0e8e0; }
+    label { font-size: .9rem; font-weight: 650; }
+    textarea, select { display: block; width: 100%; margin-top: 4px; padding: 8px; border: 1px solid #a6b9a9; border-radius: 7px; background: white; color: inherit; font: inherit; }
+    textarea { resize: vertical; min-height: 62px; }
+    .totals { margin: 0; font-weight: 650; }
+    .muted { color: #445c4d; }
+    footer { font-size: .92rem; }
+    @media (max-width: 640px) {
+      main { padding-top: 26px; }
+      .audit-row { grid-template-columns: 1fr 1fr; }
+      .prompt { grid-column: 1 / -1; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <a href="https://visibilityos.co/">VisibilityOS by PodPitch</a>
+  <h1>AI answer audit</h1>
+  <p class="intro">Track whether two rounds of the same buyer questions mention or link to a brand. Use the same model, search setting, and location in both rounds. Entries stay in this tab.</p>
+
+  <section class="card" aria-labelledby="results-heading">
+    <h2 id="results-heading">Results</h2>
+    <p class="totals" id="totals" aria-live="polite"></p>
+    <p class="muted">Presence means a mention or a link. Only completed pairs count.</p>
+  </section>
+
+  <section class="card" aria-labelledby="rounds-heading">
+    <h2 id="rounds-heading">Compare two rounds</h2>
+    <div class="toolbar">
+      <button type="button" id="load">Load fictional example</button>
+      <button type="button" id="clear">Clear all rows</button>
+    </div>
+    <div id="rows"></div>
+  </section>
+
+  <footer>
+    <a href="https://github.com/PodPitch/visibilityos-audit-template">Download the audit template</a>
+    · <a href="https://visibilityos.co/research/ai-answer-visibility">See the research and method</a>
+  </footer>
+</main>
+<script type="module">
+  import { countChanges } from './results.mjs';
+
+  const examples = [
+    ['Which PR firms work with early-stage fintech companies?', 'absent', 'both'],
+    ['Who can help a fintech founder get industry press?', 'mention', 'both'],
+    ['Which B2B PR agencies serve Austin?', 'absent', 'absent'],
+    ['Which PR agencies are alternatives to hiring in-house?', 'mention', 'absent'],
+    ['What should I look for in a fintech PR agency?', 'absent', 'absent'],
+  ];
+  const options = [
+    ['', 'Choose result'], ['absent', 'Absent'], ['mention', 'Mention only'],
+    ['link', 'Link only'], ['both', 'Mention and link'],
+  ];
+  const rowContainer = document.querySelector('#rows');
+  const totals = document.querySelector('#totals');
+
+  const rows = examples.map((example, index) => {
+    const row = document.createElement('div');
+    row.className = 'audit-row';
+    const promptLabel = document.createElement('label');
+    promptLabel.className = 'prompt';
+    promptLabel.textContent = 'Buyer question ' + (index + 1);
+    const prompt = document.createElement('textarea');
+    prompt.placeholder = 'What would a buyer ask?';
+    promptLabel.append(prompt);
+    row.append(promptLabel);
+
+    const rounds = ['Round 1', 'Round 2'].map((name) => {
+      const label = document.createElement('label');
+      label.textContent = name;
+      const select = document.createElement('select');
+      select.setAttribute('aria-label', name + ' for question ' + (index + 1));
+      for (const [value, text] of options) select.add(new Option(text, value));
+      label.append(select);
+      row.append(label);
+      return select;
+    });
+    rowContainer.append(row);
+    return [prompt, ...rounds];
+  });
+
+  function refresh() {
+    const { comparisons, presenceChanges, linkChanges } =
+      countChanges(rows.map((row) => row.map((field) => field.value)));
+    totals.replaceChildren(...[
+      comparisons + ' matched pairs',
+      presenceChanges + ' presence changes',
+      linkChanges + ' link changes',
+    ].map((value) => Object.assign(document.createElement('span'), { textContent: value })));
+  }
+
+  function fill(samples) {
+    rows.forEach((row, index) => row.forEach((field, column) => {
+      field.value = samples[index]?.[column] ?? '';
+    }));
+    refresh();
+  }
+
+  rowContainer.addEventListener('input', refresh);
+  document.querySelector('#load').addEventListener('click', () => fill(examples));
+  document.querySelector('#clear').addEventListener('click', () => fill([]));
+  refresh();
+</script>
+</body>
+</html>
