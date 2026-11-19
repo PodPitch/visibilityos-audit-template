@@ -1,0 +1,23 @@
+space/README.md
+  s_ae0062e82a1582::t_0151a7fb810424 1-12
+space/index.html
+  s_ae0062e82a1582::t_767c2c224e8a55 1-126
+space/results.mjs
+  s_ae0062e82a1582::t_4e9443890ba0b9 1-13
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "4f581e1ad5b135b080096570a17c33ccef8d4359",
+  "prompts": {},
+  "sessions": {
+    "s_ae0062e82a1582": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a1f526-ced7-7172-9d12-9e737f344570",
+        "model": "gpt-6.2-sol"
+      },
+      "human_author": "nealshulman <neal@podpitch.com>"
+    }
+  }
+}
