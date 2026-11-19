@@ -1,0 +1,21 @@
+evidence/vercel.json
+  s_ae0062e82a1582::t_c9c5abfda26fcc 1-5
+evidence/index.html
+  s_ae0062e82a1582::t_c9c5abfda26fcc 1-230
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "71419b9c46aed19b96f927c0eac0a518d57a9a31",
+  "prompts": {},
+  "sessions": {
+    "s_ae0062e82a1582": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a1f526-ced7-7172-9d12-9e737f344570",
+        "model": "gpt-6.2-sol"
+      },
+      "human_author": "nealshulman <neal@podpitch.com>"
+    }
+  }
+}
