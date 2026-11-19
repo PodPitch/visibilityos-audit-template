@@ -1,0 +1,11 @@
+date,prompt,engine,model,mode,country,language,location,brand,mentioned,linked,answer_ref,source_urls
+2026-11-10,Which PR firms work with early-stage fintech companies?,Example engine,Example model,web,US,en,,Example PR,no,no,fictional round 1,
+2026-11-17,Which PR firms work with early-stage fintech companies?,Example engine,Example model,web,US,en,,Example PR,yes,yes,fictional round 2,https://example.com/
+2026-11-10,Who can help a fintech founder get industry press?,Example engine,Example model,web,US,en,,Example PR,yes,no,fictional round 1,
+2026-11-17,Who can help a fintech founder get industry press?,Example engine,Example model,web,US,en,,Example PR,yes,yes,fictional round 2,https://example.com/
+2026-11-10,Which B2B PR agencies serve Austin?,Example engine,Example model,web,US,en,Austin,Example PR,no,no,fictional round 1,
+2026-11-17,Which B2B PR agencies serve Austin?,Example engine,Example model,web,US,en,Austin,Example PR,no,no,fictional round 2,
+2026-11-10,Which PR agencies are alternatives to hiring in-house?,Example engine,Example model,web,US,en,,Example PR,yes,no,fictional round 1,
+2026-11-17,Which PR agencies are alternatives to hiring in-house?,Example engine,Example model,web,US,en,,Example PR,no,no,fictional round 2,
+2026-11-10,What should I look for in a fintech PR agency?,Example engine,Example model,web,US,en,,Example PR,no,no,fictional round 1,
+2026-11-17,What should I look for in a fintech PR agency?,Example engine,Example model,web,US,en,,Example PR,no,no,fictional round 2,
