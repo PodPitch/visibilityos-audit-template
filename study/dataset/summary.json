@@ -1,0 +1,60 @@
+{
+  "engine_views": [
+    {
+      "engine_view": "ChatGPT",
+      "comparisons": 107,
+      "presence_changes": 6,
+      "presence_change_rate": 0.056074766355140186
+    },
+    {
+      "engine_view": "ChatGPT web",
+      "comparisons": 107,
+      "presence_changes": 3,
+      "presence_change_rate": 0.028037383177570093
+    },
+    {
+      "engine_view": "Claude",
+      "comparisons": 107,
+      "presence_changes": 14,
+      "presence_change_rate": 0.1308411214953271
+    },
+    {
+      "engine_view": "Gemini",
+      "comparisons": 107,
+      "presence_changes": 9,
+      "presence_change_rate": 0.08411214953271028
+    },
+    {
+      "engine_view": "Gemini web",
+      "comparisons": 106,
+      "presence_changes": 15,
+      "presence_change_rate": 0.14150943396226415
+    },
+    {
+      "engine_view": "Google AI Mode",
+      "comparisons": 95,
+      "presence_changes": 7,
+      "presence_change_rate": 0.07368421052631578
+    },
+    {
+      "engine_view": "Grok",
+      "comparisons": 81,
+      "presence_changes": 21,
+      "presence_change_rate": 0.25925925925925924
+    },
+    {
+      "engine_view": "Perplexity",
+      "comparisons": 107,
+      "presence_changes": 7,
+      "presence_change_rate": 0.06542056074766354
+    }
+  ],
+  "comparisons": 817,
+  "presence_changes": 82,
+  "presence_change_rate": 0.1003671970624235,
+  "link_status_change_rate": 0.0966952264381885,
+  "presence_gained": 45,
+  "presence_lost": 37,
+  "presence_unchanged": 735,
+  "link_status_changed": 79
+}
