@@ -17,6 +17,9 @@ permissions:
 jobs:
   build-and-test:
     runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      packages: write
     if: github.ref == 'refs/heads/main' && github.repository == 'PodPitch/visibilityos-audit-template'
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
@@ -36,10 +39,21 @@ jobs:
           docker run --rm --network none --read-only visibilityos-study:test
           docker run --rm --network none --read-only visibilityos-study:test --json \
             | jq -e '.comparisons == 817 and .presence_changes == 82 and .link_status_changed == 79 and (.engine_views | length) == 8'
-      - name: Build the portable container archive
+      - name: Sign in to GitHub Container Registry
+        env:
+          GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: printf '%s' "$GHCR_TOKEN" | docker login ghcr.io --username "$GITHUB_ACTOR" --password-stdin
+      - name: Publish the study image and export its archive
         shell: bash
         run: |
+          test "$(git ls-remote origin refs/heads/main | cut -f1)" = "$GITHUB_SHA"
+          IMAGE=ghcr.io/podpitch/visibilityos-study-reproduction
           docker buildx build \
+            --tag "$IMAGE:latest" \
+            --tag "$IMAGE:sha-$GITHUB_SHA" \
+            --annotation "index:org.opencontainers.image.description=Reproduce the published VisibilityOS by PodPitch study from its aggregate data" \
+            --annotation "index:org.opencontainers.image.source=$GITHUB_SERVER_URL/$GITHUB_REPOSITORY" \
+            --output type=registry,oci-mediatypes=true \
             --platform linux/amd64,linux/arm64 \
             --provenance=false \
             --sbom=false \
