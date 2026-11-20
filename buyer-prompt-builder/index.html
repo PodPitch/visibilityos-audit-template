@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VisibilityOS Buyer Prompt Builder</title>
+  <meta name="description" content="Build a set of reusable buyer questions for a VisibilityOS audit. Compare open-ended discovery and named product checks separately.">
+  <link rel="canonical" href="https://visibilityos-buyer-prompts.onrender.com/">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="masthead">
+    <a href="https://visibilityos.co/">VisibilityOS by PodPitch</a>
+    <a href="https://visibilityos.co/research/ai-answer-visibility">Read the study</a>
+  </header>
+  <main>
+    <div class="intro">
+      <h1>Buyer Prompt Builder</h1>
+      <p>Turn a buying situation into five questions you can ask again under the same conditions. Keep open-ended discovery separate from questions that name your product.</p>
+    </div>
+    <div class="workspace">
+      <section class="inputs" aria-labelledby="inputs-title">
+        <h2 id="inputs-title">Describe the buyer</h2>
+        <p class="muted">The starting values use a fictional product. Leave your product name out of the first three fields.</p>
+        <noscript><p>Enable JavaScript to customize the prompts. The example set is still available.</p></noscript>
+        <form id="buyer-form" hidden>
+          <label for="category">Product category</label>
+          <input id="category" name="category" required maxlength="95" value="customer support software" autocomplete="off">
+          <label for="buyer">Buyer or team</label>
+          <input id="buyer" name="buyer" required maxlength="95" value="a 12-person support team" autocomplete="off">
+          <label for="task">Job the buyer needs to do</label>
+          <input id="task" name="task" required maxlength="125" value="route incoming requests to the right specialist" autocomplete="off">
+          <label for="brand">Product name</label>
+          <input id="brand" name="brand" required maxlength="95" value="Larkfield" autocomplete="off">
+          <button type="submit">Build prompts</button>
+        </form>
+      </section>
+      <section class="results" aria-labelledby="results-title">
+        <div class="results-head">
+          <h2 id="results-title">Your prompt set</h2>
+          <button type="button" id="copy-all" class="secondary" hidden>Copy all</button>
+        </div>
+        <div id="prompt-set" class="prompt-set">
+          <h3>Open-ended discovery</h3>
+          <ol>
+            <li><span>Shortlist</span><p>What customer support software should a 12-person support team shortlist?</p></li>
+            <li><span>Use case</span><p>Which customer support software would help a 12-person support team route incoming requests to the right specialist?</p></li>
+            <li><span>Buying criteria</span><p>How should a 12-person support team compare customer support software options when they need to route incoming requests to the right specialist?</p></li>
+          </ol>
+          <h3>Named product checks</h3>
+          <ol start="4">
+            <li><span>Product identity</span><p>What is Larkfield in the customer support software category? Cite the official product site if you can verify it.</p></li>
+            <li><span>Capability</span><p>Can Larkfield help a 12-person support team route incoming requests to the right specialist? Cite the exact source for your answer.</p></li>
+          </ol>
+        </div>
+        <p id="status" role="status" class="status"></p>
+      </section>
+    </div>
+    <section class="method" aria-labelledby="method-title">
+      <h2 id="method-title">Run a comparable second check</h2>
+      <ol>
+        <li>Save the exact questions before the first run. Ask each question in a fresh conversation.</li>
+        <li>Keep the wording, assistant, model, search setting, language, and region consistent when you repeat the set.</li>
+        <li>For discovery, count whether the assistant volunteered your product name. For named checks, score whether it described the correct product and linked to evidence.</li>
+      </ol>
+      <p>Use the <a href="https://visibilityos-audit-plan.pages.dev/">VisibilityOS Audit Plan Builder</a> to record matched runs. The <a href="https://visibilityos-brand-identity-audit.framer.website/">Brand Identity Audit</a> shows how to handle a same-name business.</p>
+      <p class="muted">The builder runs in your browser and does not send your inputs anywhere.</p>
+    </section>
+  </main>
+</body>
+</html>
