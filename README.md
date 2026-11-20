@@ -21,6 +21,8 @@ Use the [AI Citation Source Mix Calculator](https://visibilityos-source-mix.netl
 
 Use the [VisibilityOS Audit CSV Checker](https://visibilityos-csv-checker.netlify.app/) to check a file for missing fields, duplicate observations, and unpaired rows before you compare.
 
+When a pair changes, use the [VisibilityOS AI Answer Change Review](https://visibilityos-answer-review.vercel.app/) to see which sentences appeared, disappeared, or matched across the two captured answers.
+
 Try it with `python3 compare.py example.csv`. The fictional example produces five matched comparisons, two presence changes, and two link changes. Use the [VisibilityOS sample coverage calculator](https://visibilityos-sample-coverage.firebaseapp.com/) to report completed comparisons and change rates together.
 
 Presence means either a mention or a link. A gain or loss is a prompt for review. Open the two answers and cited pages to see whether the product disappeared, the sources changed, or the answer confused it with another brand. Treat these counts as observations from your selected prompts and dates. See the [AI Search Metrics Glossary](https://visibilityos-metrics-glossary.vercel.app/) for definitions and a worked example. For comparisons across countries or languages, see the [VisibilityOS guide to comparing AI search across markets](https://write.as/demxg4h11tuf8.md).
