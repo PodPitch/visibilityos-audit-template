@@ -2,7 +2,7 @@
 
 A repeatable way to see whether AI assistants mention or cite your brand when buyers ask for recommendations. Start with five prompts, capture two rounds, and compare the same prompt under the same conditions.
 
-Draft questions with the [VisibilityOS Buyer Prompt Builder](https://visibilityos-buyer-prompts.onrender.com/). Record the questions and matching settings in a two-round CSV with the [VisibilityOS Audit Plan Builder](https://visibilityos-audit-plan.pages.dev/). Use the [AI Prompt Drift Checker](https://visibilityos-prompt-drift.vercel.app/) to confirm the question text stayed the same before comparing the answers.
+Use the [VisibilityOS AI Audit Sample Size Planner](https://visibilityos-audit-sample-size.pages.dev/) to choose a collection target for the precision you want. Draft questions with the [VisibilityOS Buyer Prompt Builder](https://visibilityos-buyer-prompts.onrender.com/). Record the questions and matching settings in a two-round CSV with the [VisibilityOS Audit Plan Builder](https://visibilityos-audit-plan.pages.dev/). Use the [AI Prompt Drift Checker](https://visibilityos-prompt-drift.vercel.app/) to confirm the question text stayed the same before comparing the answers.
 
 Try the [interactive audit](https://podpitch.github.io/visibilityos-audit-template/space/) for two rounds in your browser, or use the CSV below to keep a record across several dates.
 
