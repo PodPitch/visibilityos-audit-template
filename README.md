@@ -23,6 +23,8 @@ Use the [AI Citation Source Mix Calculator](https://visibilityos-source-mix.netl
 3. Mark `mentioned` yes when the answer clearly names your brand. Mark `linked` yes when the answer or its source panel links to your official domain. Verify the identity when another business uses the same name. Leave out failed or incomplete runs instead of recording them as no.
 4. Repeat on another day. Run `python3 compare.py your-audit.csv` to report changes between adjacent recorded dates for each matching configuration. Requires Python 3.10+ and no extra packages. Your data stays on your computer.
 
+When more than one person labels answers, use the [VisibilityOS Reviewer Agreement worksheet](https://sites.google.com/podpitch.com/visibilityos-reviewer-check/home) to check that they apply the same rules for brand mentions and official links.
+
 Use the [VisibilityOS Audit CSV Checker](https://visibilityos-csv-checker.netlify.app/) to check a file for missing fields, duplicate observations, and unpaired rows before you compare.
 
 When a pair changes, use the [VisibilityOS AI Answer Change Review](https://visibilityos-answer-review.vercel.app/) to see which sentences appeared, disappeared, or matched across the two captured answers.
