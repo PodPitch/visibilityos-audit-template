@@ -1,0 +1,20 @@
+.github/workflows/study-container.yml
+  s_ae0062e82a1582::t_e29e22e8d010e5 20-22,42-46,49-50,52-54
+  s_ae0062e82a1582::t_5745855b67ba88 55-56
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "9c857c43bcdf0144988462e99efca5132918eb02",
+  "prompts": {},
+  "sessions": {
+    "s_ae0062e82a1582": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a1f526-ced7-7172-9d12-9e737f344570",
+        "model": "gpt-6.2-sol"
+      },
+      "human_author": "nealshulman <neal@podpitch.com>"
+    }
+  }
+}
