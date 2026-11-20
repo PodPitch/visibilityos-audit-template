@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VisibilityOS AI Search Engine Mix Guide | PodPitch</title>
+  <meta name="description" content="Use the same engine weights when comparing AI search audits. A worked example from VisibilityOS by PodPitch shows how the engine mix can change a pooled visibility rate.">
+  <style>
+    :root {
+      color-scheme: light;
+      font: 100%/1.65 system-ui, sans-serif;
+      color: #162e35;
+      background: #f5f7f5;
+      --deep: #143939;
+      --subtle: #475b62;
+      --line: #b9c8c6;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    main { width: min(68rem, calc(100% - 3rem)); margin: auto; padding: 3.5rem 0; }
+    header { max-width: 46rem; margin-bottom: 2.25rem; }
+    a { color: #185d58; text-underline-offset: .22em; }
+    a:focus-visible { outline: 2px solid #176c66; outline-offset: 4px; }
+    .brand { font-size: .88rem; font-weight: 740; }
+    h1, h2, p, dl { margin: 0; }
+    h1, h2 { font-family: Georgia, serif; }
+    h1 { font-size: clamp(2.35rem, 6vw, 4.65rem); font-weight: 500; line-height: 1.04; letter-spacing: -.04em; margin: .6rem 0 .85rem; }
+    h2 { font-size: 1.58rem; line-height: 1.2; }
+    .lede { max-width: 39rem; font-size: 1.12rem; color: var(--subtle); }
+    .example { background: #fff; border: 1px solid var(--line); border-radius: .85rem; padding: clamp(1.1rem, 4vw, 2.2rem); }
+    .example > p { margin-top: .55rem; color: var(--subtle); }
+    table { width: 100%; margin-top: 1.25rem; border-collapse: collapse; table-layout: fixed; font-variant-numeric: tabular-nums; }
+    th, td { padding: .75rem .6rem; border-bottom: 1px solid var(--line); overflow-wrap: anywhere; }
+    thead th { text-align: right; color: var(--subtle); font-size: .85rem; }
+    thead th:first-child, tbody th { text-align: left; }
+    td { text-align: right; }
+    tbody tr:last-child > * { border-bottom-width: 0; }
+    dl { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; margin-top: 1.25rem; background: var(--line); border: 1px solid var(--line); border-radius: .65rem; overflow: hidden; }
+    dl > div { padding: .9rem 1rem; background: #eaf0ee; }
+    dt { font-size: .88rem; font-weight: 720; }
+    dd { margin: .1rem 0 0; font-size: clamp(1.35rem, 4vw, 2.15rem); line-height: 1.3; letter-spacing: -.03em; color: var(--deep); }
+    .method { width: min(100%, 47rem); margin-top: 2.2rem; }
+    .method > p, .method > ol, footer > p { margin-top: .6rem; }
+    ol { padding-left: 1.45rem; }
+    li + li { margin-top: .35rem; }
+    footer { width: min(100%, 47rem); border-top: 1px solid var(--line); margin-top: 1.8rem; padding-top: .6rem; }
+    @media (max-width: 550px) {
+      main { width: calc(100% - 1.75rem); padding-top: 2rem; }
+      th, td { padding-inline: .35rem; }
+      dl { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <a class="brand" href="https://visibilityos.co/">VisibilityOS by PodPitch</a>
+      <h1>Compare AI visibility with the same engine mix</h1>
+      <p class="lede">An audit’s overall mention rate can move when you collect more answers from one assistant and fewer from another. Check each engine’s rate and use the same weights before you interpret the change.</p>
+    </header>
+
+    <section class="example" aria-labelledby="example-heading">
+      <h2>A fictional two-round audit</h2>
+      <p>Each fraction shows answers that mention the tracked brand out of all completed answers for that engine.</p>
+      <table>
+        <thead><tr><th scope="col">Engine</th><th scope="col">Round 1</th><th scope="col">Round 2</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Engine A</th><td>16 of 20 (80%)</td><td>64 of 80 (80%)</td></tr>
+          <tr><th scope="row">Engine B</th><td>16 of 80 (20%)</td><td>4 of 20 (20%)</td></tr>
+          <tr><th scope="row">All answers</th><td>32 of 100</td><td>68 of 100</td></tr>
+        </tbody>
+      </table>
+      <dl>
+        <div><dt>Pooled mention rate</dt><dd>32% to 68%</dd></div>
+        <div><dt>Rate with equal engine weights</dt><dd>50% both rounds</dd></div>
+      </dl>
+      <p>Both engine rates stayed flat. The pooled rate rose by 36 percentage points because Engine A made up a larger share of the second round.</p>
+    </section>
+
+    <section class="method" aria-labelledby="method-heading">
+      <h2>Report a like-for-like comparison</h2>
+      <ol>
+        <li>Pair the same questions across dates and keep the engine, model, market, and search settings consistent.</li>
+        <li>For each engine, divide the number of answers that mention the brand by the number of usable answers. Keep failed and missing answers out of that denominator.</li>
+        <li>Choose weights before reviewing the results and apply them to both rounds. In this example, giving each engine half the weight yields 50% in both rounds.</li>
+        <li>Report the per-engine counts, pooled rate, fixed-weight rate, and missing coverage together. Show any engine available in only one round separately.</li>
+      </ol>
+    </section>
+
+    <footer>
+      <p>The <a href="https://visibilityos.co/research/ai-answer-visibility">published VisibilityOS study</a> matched AI results across 817 comparisons. Use the <a href="https://podpitch.github.io/visibilityos-audit-template/">public audit template</a> to record matching conditions for your own checks.</p>
+    </footer>
+  </main>
+</body>
+</html>
