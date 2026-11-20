@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Missing AI Answer Calculator | VisibilityOS by PodPitch</title>
+  <meta name="description" content="Check whether a change in brand mentions holds up when some AI answers are missing. Calculate a range for your planned before-and-after audit.">
+  <link rel="canonical" href="https://visibilityos-missing-answer-audit.onrender.com/">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="app.js"></script>
+</head>
+<body>
+<main>
+  <header>
+    <a class="publisher" href="https://visibilityos.co/">VisibilityOS by PodPitch</a>
+    <h1>What could the missing answers change?</h1>
+    <p class="deck">See whether a gain in AI brand mentions holds up when some answers in your before-and-after audit are missing.</p>
+  </header>
+
+  <div class="worksheet">
+    <section aria-labelledby="pairs-heading">
+      <h2 id="pairs-heading">Count the answer pairs</h2>
+      <p>Enter one count per cell. Use the same questions and settings in both rounds. The starting counts are fictional.</p>
+      <form id="pair-counts">
+        <table>
+          <caption>Before status by row and after status by column</caption>
+          <thead>
+            <tr><th scope="col">Before ↓ / After →</th><th scope="col">Named</th><th scope="col">Absent</th><th scope="col">Missing</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Named</th>
+              <td><input aria-label="Before named, after named" inputmode="numeric" value="16"></td>
+              <td><input aria-label="Before named, after absent" inputmode="numeric" value="8"></td>
+              <td><input aria-label="Before named, after missing" inputmode="numeric" value="12"></td>
+            </tr>
+            <tr>
+              <th scope="row">Absent</th>
+              <td><input aria-label="Before absent, after named" inputmode="numeric" value="18"></td>
+              <td><input aria-label="Before absent, after absent" inputmode="numeric" value="36"></td>
+              <td><input aria-label="Before absent, after missing" inputmode="numeric" value="4"></td>
+            </tr>
+            <tr>
+              <th scope="row">Missing</th>
+              <td><input aria-label="Before missing, after named" inputmode="numeric" value="3"></td>
+              <td><input aria-label="Before missing, after absent" inputmode="numeric" value="2"></td>
+              <td><input aria-label="Before missing, after missing" inputmode="numeric" value="1"></td>
+            </tr>
+          </tbody>
+        </table>
+        <button type="reset">Reset example</button>
+      </form>
+      <p><strong>Named</strong> means the answer mentions the correct brand. <strong>Absent</strong> means you reviewed the answer and the brand was missing. <strong>Missing</strong> means you could not review the answer.</p>
+    </section>
+
+    <section class="readout" aria-labelledby="readout-heading">
+      <h2 id="readout-heading">Possible change across all pairs</h2>
+      <div aria-live="polite">
+        <div id="results">
+          <p id="range" class="range">−5 to +18 points</p>
+          <p id="direction">The direction could change depending on the missing answers.</p>
+          <dl>
+            <div><dt>Change among complete pairs</dt><dd id="known-change">+12.8 points</dd></div>
+            <div><dt>Pairs with both answers</dt><dd id="sample">78 of 100</dd></div>
+          </dl>
+        </div>
+        <p id="status" class="status" hidden></p>
+      </div>
+      <noscript><p>The figures show the worked example. Enable JavaScript to calculate with your own counts.</p></noscript>
+    </section>
+  </div>
+
+  <section class="notes" aria-labelledby="method-heading">
+    <h2 id="method-heading">How the range works</h2>
+    <p>Among the complete pairs, subtract losses from gains and divide by the number of complete pairs. For the full range, give every unknown answer the value that produces the biggest loss, then repeat for the biggest gain. Divide both totals by the number of planned pairs. The change is in percentage points.</p>
+    <p>The range shows the possible outcomes for this set of questions. If it includes both gains and losses, first check whether you can recover the missing answers. If you run the audit again, collect a new matched sample and record its dates.</p>
+    <nav aria-label="Related VisibilityOS resources">
+      <a href="https://visibilityos.co/research/ai-answer-visibility">Read the VisibilityOS study</a>
+      <a href="https://podpitch.github.io/visibilityos-audit-template/">Get the audit template</a>
+    </nav>
+  </section>
+</main>
+</body>
+</html>
