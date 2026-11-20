@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Visibility Reporting Claims | VisibilityOS by PodPitch</title>
+  <meta name="description" content="Compare three fictional reporting examples and see which AI visibility claims the measurements support.">
+  <link rel="canonical" href="https://visibilityos-reporting-claims.vercel.app/">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="claims.js"></script>
+</head>
+<body>
+<main>
+  <header>
+    <a class="publisher" href="https://visibilityos.co/">VisibilityOS by PodPitch</a>
+    <h1>Report what changed in AI answers</h1>
+    <p class="deck">The same two rates, 40% and 60%, support different claims depending on which questions you asked and what you compared them with. Use these fictional examples to choose wording for your report.</p>
+  </header>
+
+  <section class="example-picker" aria-labelledby="examples-heading">
+    <h2 id="examples-heading">Choose your comparison</h2>
+    <div class="choices" role="group" aria-label="Fictional reporting examples">
+      <button type="button" id="different-button" aria-controls="different" aria-pressed="true">Different questions</button>
+      <button type="button" id="matched-button" aria-controls="matched" aria-pressed="false">Matched questions</button>
+      <button type="button" id="comparison-button" aria-controls="comparison" aria-pressed="false">Comparison group</button>
+    </div>
+    <noscript><p>Enable JavaScript to switch examples.</p></noscript>
+
+    <div class="example" role="region" id="different" aria-labelledby="different-button">
+      <div class="numbers">
+        <h3>What you measured</h3>
+        <dl>
+          <div><dt>Original questions</dt><dd>8 of 20</dd></div>
+          <div><dt>Different questions</dt><dd>12 of 20</dd></div>
+        </dl>
+        <p>Each count is the number of answers that named the brand or linked to its official site.</p>
+      </div>
+      <div class="wording">
+        <h3>What you can report</h3>
+        <p class="claim">The brand appeared in 8 of 20 answers to the original questions and 12 of 20 answers to a different set of questions.</p>
+        <p>Rerun the original questions under the same conditions to measure change for that set.</p>
+      </div>
+    </div>
+
+    <div class="example" role="region" id="matched" aria-labelledby="matched-button" hidden>
+      <div class="numbers">
+        <h3>What you measured</h3>
+        <dl>
+          <div><dt>First round</dt><dd>8 of 20</dd></div>
+          <div><dt>Second round</dt><dd>12 of 20</dd></div>
+          <div><dt>Gains and losses</dt><dd>6 gains, 2 losses</dd></div>
+        </dl>
+        <p>Both rounds used the same questions and measurement settings.</p>
+      </div>
+      <div class="wording">
+        <h3>What you can report</h3>
+        <p class="claim">Across 20 matched questions, brand presence rose from 40% to 60%. Six answers gained presence and two lost it.</p>
+        <p>Say when you measured and which answers were matched. Check other explanations before crediting an update for the gain.</p>
+      </div>
+    </div>
+
+    <div class="example" role="region" id="comparison" aria-labelledby="comparison-button" hidden>
+      <div class="numbers">
+        <h3>What you measured</h3>
+        <dl>
+          <div><dt>Monitored set</dt><dd>8 of 20 to 12 of 20</dd></div>
+          <div><dt>Comparison set</dt><dd>7 of 20 to 9 of 20</dd></div>
+          <div><dt>Gap in changes</dt><dd>10 percentage points</dd></div>
+        </dl>
+        <p>Each set used the same questions before and after, with settings held steady.</p>
+      </div>
+      <div class="wording">
+        <h3>What you can report</h3>
+        <p class="claim">Presence rose 20 percentage points in the monitored set and 10 in the comparison set. The gap between those changes was 10 points.</p>
+        <p>Compare the groups’ prior trends and check for other differences before interpreting the gap as an effect.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="notes" aria-labelledby="source-heading">
+    <h2 id="source-heading">Keep the counts with the claim</h2>
+    <p>Save the question set, date range, engine settings, market, and exact rule for presence. The VisibilityOS study reported 82 presence changes across 817 matched comparisons and documented the matching rules alongside that result.</p>
+    <nav aria-label="VisibilityOS resources and methods">
+      <a href="https://visibilityos.co/research/ai-answer-visibility">Read the VisibilityOS study</a>
+      <a href="https://visibilityos-control-group.vercel.app/">Compare two changes</a>
+      <a href="https://visibilityos-missing-answer-audit.onrender.com/">Account for missing answers</a>
+      <a href="https://dimewiki.worldbank.org/Difference-in-Differences">Read about comparison groups</a>
+    </nav>
+  </section>
+</main>
+</body>
+</html>
