@@ -33,7 +33,7 @@ The [VisibilityOS Audit Assistant](https://github.com/PodPitch/visibilityos-audi
 
 If an assistant changes versions, use the [VisibilityOS Model Upgrade Audit](https://sites.google.com/podpitch.com/visibilityos-model-upgrade/home) to compare old and new outputs on the same questions.
 
-When more than one person labels answers, use the [VisibilityOS Reviewer Agreement worksheet](https://sites.google.com/podpitch.com/visibilityos-reviewer-check/home) to check that they apply the same rules for brand mentions and official links.
+When more than one person labels answers, use the [VisibilityOS Reviewer Agreement worksheet](https://sites.google.com/podpitch.com/visibilityos-reviewer-check/home) to check that they apply the same rules for brand mentions and official links. Use the [reviewer agreement calculator](https://visibilityos-reviewer-agreement.vercel.app/) to compare raw agreement and Cohen’s kappa from the same label counts.
 
 Use the [VisibilityOS Audit CSV Checker](https://visibilityos-csv-checker.netlify.app/) to check a file for missing fields, duplicate observations, and unpaired rows before you compare.
 
