@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Compare your AI mention rate with your share of tracked-brand mentions. Use this free VisibilityOS calculator with two matched samples.">
+  <link rel="canonical" href="https://visibilityos-mention-share.pages.dev/">
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./app.js"></script>
+  <title>AI Search Mention Share Calculator | VisibilityOS by PodPitch</title>
+</head>
+<body>
+  <main>
+    <a class="brand" href="https://visibilityos.co/">VisibilityOS <span>by PodPitch</span></a>
+    <header>
+      <h1>AI search mention<br class="wide-break"> share calculator</h1>
+      <p>Find out whether your brand appears in more AI answers and whether it earns a bigger share of the mentions.</p>
+    </header>
+    <div class="workspace">
+      <form aria-labelledby="counts-heading">
+        <h2 id="counts-heading">Answer counts</h2>
+        <p class="detail">Start with the fictional example or enter your own matched samples. Count each tracked brand at most once per answer.</p>
+        <div class="periods">
+          <fieldset>
+            <legend>Before</legend>
+            <label for="before-answers">Completed answers</label>
+            <input id="before-answers" type="number" inputmode="numeric" min="0" max="1000000" step="1" required value="100">
+            <label for="before-brand">Answers naming your brand</label>
+            <input id="before-brand" type="number" inputmode="numeric" min="0" max="1000000" step="1" required value="20">
+            <label for="before-competitors">Other tracked-brand mentions</label>
+            <input id="before-competitors" type="number" inputmode="numeric" min="0" max="1000000" step="1" required value="30">
+          </fieldset>
+          <fieldset>
+            <legend>After</legend>
+            <label for="after-answers">Completed answers</label>
+            <input id="after-answers" type="number" inputmode="numeric" min="0" max="1000000" step="1" required value="100">
+            <label for="after-brand">Answers naming your brand</label>
+            <input id="after-brand" type="number" inputmode="numeric" min="0" max="1000000" step="1" required value="30">
+            <label for="after-competitors">Other tracked-brand mentions</label>
+            <input id="after-competitors" type="number" inputmode="numeric" min="0" max="1000000" step="1" required value="70">
+          </fieldset>
+        </div>
+        <div class="form-footer">
+          <button type="reset">Restore example</button>
+          <p class="detail">Your entries stay in this tab.</p>
+        </div>
+        <p id="feedback" role="status" class="feedback" hidden></p>
+      </form>
+      <section class="results" aria-labelledby="results-heading">
+        <h2 id="results-heading">Results</h2>
+        <div class="result-grid" aria-live="polite" aria-atomic="true">
+          <div class="table-key" aria-hidden="true"><span>Before</span><span>After</span><span>Change</span></div>
+          <section class="metric">
+            <h3>Brand mention rate</h3>
+            <div class="metric-values">
+              <span class="metric-value"><span class="sr-only">Before </span><span id="before-rate">20%</span></span>
+              <span class="metric-value"><span class="sr-only">After </span><span id="after-rate">30%</span></span>
+              <span class="change up" id="rate-change">+10 pts</span>
+            </div>
+            <p class="detail">Answers naming your brand divided by all completed answers.</p>
+          </section>
+          <section class="metric">
+            <h3>Share of tracked-brand mentions</h3>
+            <div class="metric-values">
+              <span class="metric-value"><span class="sr-only">Before </span><span id="before-share">40%</span></span>
+              <span class="metric-value"><span class="sr-only">After </span><span id="after-share">30%</span></span>
+              <span class="change down" id="share-change">−10 pts</span>
+            </div>
+            <p class="detail">Your mentions divided by all mentions of tracked brands.</p>
+          </section>
+          <p id="reading">Your brand appears in more answers per 100, while its share of tracked-brand mentions fell.</p>
+        </div>
+      </section>
+    </div>
+    <section class="method" aria-labelledby="method-heading">
+      <h2 id="method-heading">Compare like for like</h2>
+      <p>Use the same questions, engines, markets, and tracked brands in both samples. One answer can mention multiple brands, so the other-brand count can exceed the number of answers. Share is unavailable when none of the tracked brands appear.</p>
+      <p><a href="https://visibilityos.co/research/ai-answer-visibility">Read the VisibilityOS study and matching method</a></p>
+    </section>
+  </main>
+</body>
+</html>
