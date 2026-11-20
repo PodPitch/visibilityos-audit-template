@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VisibilityOS AI Answer Change Review | Compare Two Answers</title>
+  <meta name="description" content="Compare two AI answers sentence by sentence. See new and missing wording, then decide which claims or citations to check. A free worksheet by VisibilityOS and PodPitch.">
+  <link rel="canonical" href="https://visibilityos-answer-review.vercel.app/">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="review.js"></script>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <a class="brand" href="https://visibilityos.co/">VisibilityOS by PodPitch</a>
+      <h1>AI Answer Change Review</h1>
+      <p class="intro">Paste two answers to the same question. See which sentences appeared, disappeared, or stayed the same.</p>
+    </header>
+
+    <form id="compare-form">
+      <div class="answer-grid">
+        <div class="answer">
+          <label for="earlier">Earlier answer</label>
+          <textarea id="earlier" rows="5" maxlength="30000" required></textarea>
+        </div>
+        <div class="answer answer-latest">
+          <label for="latest">Latest answer</label>
+          <textarea id="latest" rows="5" maxlength="30000" required></textarea>
+        </div>
+      </div>
+      <div class="controls">
+        <button class="primary" type="submit">Compare answers</button>
+        <button id="sample" type="button">Load example</button>
+        <button type="reset">Clear</button>
+      </div>
+      <p class="privacy">Your answers stay in this browser.</p>
+    </form>
+
+    <section id="results" aria-label="Comparison results" hidden>
+      <h2>Sentence changes</h2>
+      <p id="summary" role="status" aria-live="polite"></p>
+      <div class="result-grid">
+        <div class="result new"><h3>New wording</h3><ul id="new-sentences"></ul></div>
+        <div class="result missing"><h3>Missing wording</h3><ul id="missing-sentences"></ul></div>
+        <div class="result same"><h3>Matched wording</h3><ul id="matched-sentences"></ul></div>
+      </div>
+    </section>
+
+    <section class="method">
+      <h2>Review changes in context</h2>
+      <p>The tool compares exact sentences after normalizing spaces. A reworded sentence can appear in both lists even when its meaning stays the same. Open the cited sources before treating a wording change as a factual change.</p>
+      <p>For repeat measurements, use the same question, engine settings, and market on both dates. <a href="https://visibilityos.co/research/ai-answer-visibility">Read the VisibilityOS study</a> or <a href="https://visibilityos-citation-audit.vercel.app/">check whether a citation supports a claim</a>.</p>
+    </section>
+  </main>
+</body>
+</html>
