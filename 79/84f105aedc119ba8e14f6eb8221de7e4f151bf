@@ -1,0 +1,25 @@
+sample-coverage/app.js
+  s_ae0062e82a1582::t_93e0b103f0510e 1-48
+sample-coverage/index.html
+  s_ae0062e82a1582::t_56246a2f1fa758 1-77
+sample-coverage/robots.txt
+  s_ae0062e82a1582::t_fc0e74ef518549 1-3
+sample-coverage/sitemap.xml
+  s_ae0062e82a1582::t_35be5cb43123b9 1-4
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "7984f105aedc119ba8e14f6eb8221de7e4f151bf",
+  "prompts": {},
+  "sessions": {
+    "s_ae0062e82a1582": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a1f526-ced7-7172-9d12-9e737f344570",
+        "model": "gpt-6.2-sol"
+      },
+      "human_author": "nealshulman <neal@podpitch.com>"
+    }
+  }
+}
