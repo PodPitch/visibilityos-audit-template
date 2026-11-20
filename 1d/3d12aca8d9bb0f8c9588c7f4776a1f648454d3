@@ -1,0 +1,30 @@
+reporting-claims/index.html
+  s_ae0062e82a1582::t_2dee4c68d51811 17-62
+  s_ae0062e82a1582::t_ea4b4575999b6a 1-16,63-92
+reporting-claims/claims.js
+  s_ae0062e82a1582::t_b78c8e61ffc83d 1-13
+reporting-claims/googlee8e85af81a139c7f.html
+  s_ae0062e82a1582::t_d1b8f4d87fca7d 1
+reporting-claims/robots.txt
+  s_ae0062e82a1582::t_c1b9455526df47 1-3
+reporting-claims/sitemap.xml
+  s_ae0062e82a1582::t_ed06b4caf7a0aa 1-4
+reporting-claims/style.css
+  s_ae0062e82a1582::t_15e4d3854b1556 1-53
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "1d3d12aca8d9bb0f8c9588c7f4776a1f648454d3",
+  "prompts": {},
+  "sessions": {
+    "s_ae0062e82a1582": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a1f526-ced7-7172-9d12-9e737f344570",
+        "model": "gpt-6.2-sol"
+      },
+      "human_author": "nealshulman <neal@podpitch.com>"
+    }
+  }
+}
