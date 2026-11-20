@@ -1,0 +1,19 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.PodPitch/visibilityos-study-reader",
+  "title": "VisibilityOS Study Reader",
+  "description": "Read and compare the published AI answer study from VisibilityOS by PodPitch.",
+  "repository": {
+    "url": "https://github.com/PodPitch/visibilityos-audit-template",
+    "source": "github",
+    "subfolder": "study-reader"
+  },
+  "websiteUrl": "https://visibilityos-study-reader.vercel.app/",
+  "version": "1.0.0",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://visibilityos-study-reader.vercel.app/api/mcp"
+    }
+  ]
+}

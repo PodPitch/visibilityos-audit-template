@@ -1,0 +1,70 @@
+name: Publish Study Reader to MCP Registry
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - server.json
+      - .github/workflows/publish-study-reader.yml
+
+permissions:
+  contents: read
+
+concurrency:
+  group: visibilityos-study-reader-registry
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: github.ref == 'refs/heads/main' && github.repository == 'PodPitch/visibilityos-audit-template'
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Verify the exact main source and published endpoint
+        run: |
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          test "$(git ls-remote origin refs/heads/main | cut -f1)" = "$GITHUB_SHA"
+          endpoint="$(jq -er '.remotes[0].url' server.json)"
+          curl --fail --silent --show-error --max-time 20 \
+            -H 'Accept: application/json, text/event-stream' \
+            -H 'Content-Type: application/json' \
+            --data '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-11-25","capabilities":{},"clientInfo":{"name":"registry-publish-check","version":"1.0.0"}}}' \
+            "$endpoint" | jq -e '.result.serverInfo.name == "visibilityos-study-reader"'
+      - name: Validate and publish the registry record
+        run: |
+          archive="$RUNNER_TEMP/mcp-publisher_linux_amd64.tar.gz"
+          curl --fail --silent --show-error --location --max-time 60 \
+            https://github.com/modelcontextprotocol/registry/releases/download/v1.8.10/mcp-publisher_linux_amd64.tar.gz \
+            -o "$archive"
+          printf '%s  %s\n' 32d287ed6fb7dc04eddd2621097784c06a355b2348b35ccc630a1643aa75ff4a "$archive" \
+            | sha256sum --check
+          tar -xzf "$archive" -C "$RUNNER_TEMP" mcp-publisher
+          publisher="$RUNNER_TEMP/mcp-publisher"
+          "$publisher" validate
+          test "$(git ls-remote origin refs/heads/main | cut -f1)" = "$GITHUB_SHA"
+          name="$(jq -er '.name | @uri' server.json)"
+          version="$(jq -er '.version | @uri' server.json)"
+          existing="$RUNNER_TEMP/study-reader-registry.json"
+          status="$(curl --silent --show-error --max-time 20 --output "$existing" --write-out '%{http_code}' \
+            "https://registry.modelcontextprotocol.io/v0.1/servers/$name/versions/$version")"
+          case "$status" in
+            200)
+              jq -e --slurpfile expected server.json \
+                '.server as $server | $expected[0] | .name == $server.name and .version == $server.version and .remotes == $server.remotes' \
+                "$existing"
+              ;;
+            404)
+              "$publisher" login github-oidc
+              test "$(git ls-remote origin refs/heads/main | cut -f1)" = "$GITHUB_SHA"
+              "$publisher" publish
+              ;;
+            *)
+              echo "Registry version lookup returned HTTP $status" >&2
+              exit 1
+              ;;
+          esac
