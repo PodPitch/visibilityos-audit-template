@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://visibilityos-csv-checker.netlify.app/sitemap.xml

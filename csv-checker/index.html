@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VisibilityOS AI Search Audit CSV Checker | PodPitch</title>
+  <meta name="description" content="Check an AI search audit CSV for missing fields, duplicate observations, and prompts without a matching repeat. A free, local tool from VisibilityOS by PodPitch.">
+  <link rel="canonical" href="https://visibilityos-csv-checker.netlify.app/">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.mjs"></script>
+</head>
+<body>
+  <main>
+    <header>
+      <a class="brand" href="https://visibilityos.co/">VisibilityOS by PodPitch</a>
+      <h1>AI search audit CSV checker</h1>
+      <p>Find missing fields, duplicate checks, and questions without a matching repeat before you compare AI answers across dates.</p>
+    </header>
+    <div class="workspace">
+      <form aria-labelledby="load-heading">
+        <h2 id="load-heading">Check your CSV</h2>
+        <p>Your data stays in this browser.</p>
+        <label for="file">Choose a CSV file</label>
+        <input type="file" id="file" accept=".csv,text/csv">
+        <label for="csv">Or paste the CSV</label>
+        <textarea id="csv" rows="7" placeholder="Paste CSV with the header row" spellcheck="false"></textarea>
+        <div class="actions">
+          <button type="submit">Check CSV</button>
+          <button type="button" id="example">Load sample</button>
+        </div>
+      </form>
+      <section class="results" aria-labelledby="results-heading" aria-live="polite">
+        <h2 id="results-heading">Audit readiness</h2>
+        <p id="status">Load the fictional sample or check your own file.</p>
+        <dl id="counts" hidden>
+          <div><dt>Valid observations</dt><dd id="valid">0</dd></div>
+          <div><dt>Matched comparisons</dt><dd id="matched">0</dd></div>
+          <div><dt>Unpaired observations</dt><dd id="unpaired">0</dd></div>
+        </dl>
+        <ul id="issues" hidden></ul>
+      </section>
+    </div>
+    <section class="method" aria-labelledby="method-heading">
+      <h2 id="method-heading">What counts as a match?</h2>
+      <p>A repeat uses the same prompt, engine, model, mode, country, language, location, and brand on a different date. Three days under the same conditions give two comparisons between adjacent dates. A location can be blank. Record <code>mentioned</code> and <code>linked</code> as <code>yes</code> or <code>no</code>.</p>
+      <p>The checker validates the file and counts comparable observations. Review the saved answers and source pages to verify the results themselves.</p>
+      <ul>
+        <li><a href="https://github.com/PodPitch/visibilityos-audit-template">VisibilityOS audit template and comparison script</a></li>
+        <li><a href="https://visibilityos.co/research/ai-answer-visibility">VisibilityOS research on repeat AI answers</a></li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

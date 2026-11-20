@@ -19,6 +19,8 @@ Use the [AI Citation Source Mix Calculator](https://visibilityos-source-mix.netl
 3. Mark `mentioned` yes when the answer clearly names your brand. Mark `linked` yes when the answer or its source panel links to your official domain. Verify the identity when another business uses the same name. Leave out failed or incomplete runs instead of recording them as no.
 4. Repeat on another day. Run `python3 compare.py your-audit.csv` to report changes between adjacent recorded dates for each matching configuration. Requires Python 3.10+ and no extra packages. Your data stays on your computer.
 
+Use the [VisibilityOS Audit CSV Checker](https://visibilityos-csv-checker.netlify.app/) to check a file for missing fields, duplicate observations, and unpaired rows before you compare.
+
 Try it with `python3 compare.py example.csv`. The fictional example produces five matched comparisons, two presence changes, and two link changes. Use the [VisibilityOS sample coverage calculator](https://visibilityos-sample-coverage.firebaseapp.com/) to report completed comparisons and change rates together.
 
 Presence means either a mention or a link. A gain or loss is a prompt for review. Open the two answers and cited pages to see whether the product disappeared, the sources changed, or the answer confused it with another brand. Treat these counts as observations from your selected prompts and dates. See the [AI Search Metrics Glossary](https://visibilityos-metrics-glossary.vercel.app/) for definitions and a worked example. For comparisons across countries or languages, see the [VisibilityOS guide to comparing AI search across markets](https://write.as/demxg4h11tuf8.md).
