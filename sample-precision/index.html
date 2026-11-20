@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Answer Change Rates and Sample Size | VisibilityOS by PodPitch</title>
+  <meta name="description" content="Compare eight AI answer change rates from the VisibilityOS study, then see how 10, 100, or 1,000 comparisons change precision in a worked example.">
+  <link rel="canonical" href="https://visibilityos-sample-precision.pages.dev/">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <header>
+    <a class="publisher" href="https://visibilityos.co/">VisibilityOS by PodPitch</a>
+    <h1>Put the sample size next to the change rate</h1>
+    <p class="deck">VisibilityOS saw brand presence change in <strong>82 of 817 matched AI answer comparisons</strong>. The overall rate was 10.0%. Here’s how the counts and rates varied across the eight engine views.</p>
+  </header>
+
+  <div class="figures">
+    <section aria-labelledby="observed">
+      <h2 id="observed">What the study observed</h2>
+      <p>An answer counted as present if it named the brand or linked to its official site. A pair changed when that combined label flipped.</p>
+      <table>
+        <caption>Engine views ordered by observed change rate</caption>
+        <thead><tr><th scope="col">Engine view</th><th scope="col">Changed / matched</th><th scope="col">Rate</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Grok</th><td>21 / 81</td><td>25.9%</td></tr>
+          <tr><th scope="row">Gemini web</th><td>15 / 106</td><td>14.2%</td></tr>
+          <tr><th scope="row">Claude</th><td>14 / 107</td><td>13.1%</td></tr>
+          <tr><th scope="row">Gemini</th><td>9 / 107</td><td>8.4%</td></tr>
+          <tr><th scope="row">Google AI Mode</th><td>7 / 95</td><td>7.4%</td></tr>
+          <tr><th scope="row">Perplexity</th><td>7 / 107</td><td>6.5%</td></tr>
+          <tr><th scope="row">ChatGPT</th><td>6 / 107</td><td>5.6%</td></tr>
+          <tr><th scope="row">ChatGPT web</th><td>3 / 107</td><td>2.8%</td></tr>
+        </tbody>
+      </table>
+      <p class="fine">Rates describe the questions, settings, and dates in the study. The same questions were used more than once.</p>
+    </section>
+
+    <section class="precision" aria-labelledby="precision">
+      <h2 id="precision">Same 10% rate, different precision</h2>
+      <p>Three fictional samples show how much the range narrows when you collect more independent comparisons.</p>
+      <div class="chart-label">Illustrative 95% Wilson intervals</div>
+      <div class="interval-chart">
+        <div class="axis" aria-hidden="true"><span>0%</span><span>15%</span><span>30%</span><span>45%</span></div>
+        <div class="interval">
+          <div class="interval-caption"><strong>1 / 10</strong><span>1.8% to 40.4%</span></div>
+          <div class="track" aria-hidden="true" style="--low: 3.9725%; --high: 89.8111%"><span class="band"></span></div>
+        </div>
+        <div class="interval">
+          <div class="interval-caption"><strong>10 / 100</strong><span>5.5% to 17.4%</span></div>
+          <div class="track" aria-hidden="true" style="--low: 12.2731%; --high: 38.7479%"><span class="band"></span></div>
+        </div>
+        <div class="interval">
+          <div class="interval-caption"><strong>100 / 1,000</strong><span>8.3% to 12.0%</span></div>
+          <div class="track" aria-hidden="true" style="--low: 18.4243%; --high: 26.7004%"><span class="band"></span></div>
+        </div>
+      </div>
+      <p class="fine">Each marker is the observed 10% rate. The bars use an independent-comparisons model for the fictional examples. Repeated questions in the study can produce correlated results.</p>
+    </section>
+  </div>
+
+  <section class="notes" aria-labelledby="reporting">
+    <h2 id="reporting">What to report in your next audit</h2>
+    <p>Report both the count and the rate for each engine and setting. Keep question text, model, search settings, language, and market aligned between rounds. When the same questions repeat across days, keep the question IDs so you can account for repeated observations in later analysis.</p>
+    <nav aria-label="Sources and related tools">
+      <a href="https://visibilityos.co/research/ai-answer-visibility">Read the original VisibilityOS study</a>
+      <a href="https://podpitch.github.io/visibilityos-audit-template/study/dataset/">Download the study totals</a>
+      <a href="https://visibilityos-audit-sample-size.pages.dev/">Plan your comparison count</a>
+      <a href="https://www.itl.nist.gov/div898/handbook/prc/section2/prc241.htm">Read NIST’s Wilson interval method</a>
+    </nav>
+  </section>
+</main>
+</body>
+</html>
