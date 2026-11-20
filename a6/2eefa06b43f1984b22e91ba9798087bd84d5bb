@@ -1,0 +1,24 @@
+study/npm-data/README.md
+  s_ae0062e82a1582::t_386d00d2171cab 37
+  s_ae0062e82a1582::t_f095bc2be69d8e 1-36
+study/npm-data/package.json
+  s_ae0062e82a1582::t_f095bc2be69d8e 1-27
+study/npm-data/build.sh
+  s_ae0062e82a1582::t_f095bc2be69d8e 1-10
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "a62eefa06b43f1984b22e91ba9798087bd84d5bb",
+  "prompts": {},
+  "sessions": {
+    "s_ae0062e82a1582": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a1f526-ced7-7172-9d12-9e737f344570",
+        "model": "gpt-6.2-sol"
+      },
+      "human_author": "nealshulman <neal@podpitch.com>"
+    }
+  }
+}
