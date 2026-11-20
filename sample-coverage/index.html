@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VisibilityOS AI Search Sample Coverage Calculator</title>
+  <meta name="description" content="Check how much of an AI search audit was completed and calculate mention and citation change rates from matched comparisons with VisibilityOS.">
+  <link rel="canonical" href="https://visibilityos-sample-coverage.firebaseapp.com/">
+  <style>
+    :root { background: #f6f7f2; color: #1c2724; font: 16px/1.6 ui-sans-serif, system-ui, sans-serif; --green: #165d48; --line: #c9d1c8; }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    a { color: var(--green); text-underline-offset: .2em; }
+    :focus-visible { outline: 3px solid #2471e0; outline-offset: 3px; }
+    .wrap { width: min(62rem, calc(100% - 2rem)); margin-inline: auto; }
+    header, footer { border-block: 1px solid var(--line); padding-block: .8rem; }
+    header a { font-weight: 700; text-decoration: none; }
+    main { padding-block: 2.45rem; }
+    h1 { margin: 0; max-width: 18ch; font-size: clamp(2.35rem, 6vw, 4.3rem); line-height: 1.04; letter-spacing: -.055em; }
+    h2 { margin: 0; font-size: 1.28rem; }
+    .intro { max-width: 66ch; }
+    .calculator { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--line); margin-block: 1.45rem; }
+    form, .results { padding: clamp(.9rem, 3vw, 1.7rem); }
+    form { background: #fff; }
+    label { display: flex; align-items: center; justify-content: space-between; gap: .8rem; padding-block: .45rem; margin-top: .45rem; border-top: 1px solid var(--line); font-weight: 560; }
+    input, button { font: inherit; }
+    input { width: 6rem; min-height: 2.75rem; border: 1px solid #819184; border-radius: .35rem; padding: .2rem .45rem; }
+    .actions { display: flex; gap: .5rem; flex-wrap: wrap; margin-top: .85rem; }
+    button { background: #e8f1e9; color: #1e4739; border: 1px solid #7f9c8c; border-radius: .35rem; padding: .44rem .72rem; min-height: 2.75rem; cursor: pointer; }
+    button:hover { background: #dbeadc; }
+    .results { background: #173a33; color: #f7fcf9; }
+    .results p { min-height: 3em; margin: .55rem 0; color: #e0eee8; }
+    dl { margin: 0; }
+    dl div { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; padding-block: .48rem; border-top: 1px solid #526e64; }
+    dd { margin: 0; font-weight: 720; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .method { max-width: 75ch; }
+    @media(max-width: 660px) { main { padding-block: 1.6rem; } .calculator { grid-template-columns: 1fr; } }
+  </style>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header><div class="wrap"><a href="https://visibilityos.co/">VisibilityOS by PodPitch</a></div></header>
+  <main class="wrap">
+    <h1>AI Search Sample Coverage Calculator</h1>
+    <p class="intro">See how much of your planned AI search audit you completed. Then calculate how often brand presence and official links changed across the completed comparisons.</p>
+
+    <section class="calculator" aria-label="Sample coverage calculator">
+      <form id="sample">
+        <h2>Enter your counts</h2>
+        <label>Planned comparisons <input name="planned" type="number" required min="0" max="1000000" step="1" value="0"></label>
+        <label>Completed comparisons <input name="completed" type="number" required min="0" max="1000000" step="1" value="0"></label>
+        <label>Brand presence changes <input name="brand" type="number" required min="0" max="1000000" step="1" value="0"></label>
+        <label>Official link changes <input name="links" type="number" required min="0" max="1000000" step="1" value="0"></label>
+        <div class="actions"><button id="example" type="button">Load example</button><button type="reset">Clear</button></div>
+      </form>
+      <section class="results" aria-labelledby="results-title">
+        <h2 id="results-title">Audit results</h2>
+        <p id="message" aria-live="polite">Enter planned comparisons to begin.</p>
+        <dl aria-live="polite">
+          <div><dt>Sample coverage</dt><dd id="coverage">Unavailable</dd></div>
+          <div><dt>Incomplete comparisons</dt><dd id="missing">Unavailable</dd></div>
+          <div><dt>Brand presence change rate</dt><dd id="brand-rate">Unavailable</dd></div>
+          <div><dt>Official link change rate</dt><dd id="link-rate">Unavailable</dd></div>
+        </dl>
+      </section>
+    </section>
+
+    <section class="method">
+      <h2>Count like-for-like comparisons</h2>
+      <p>Use two completed checks with the same question and recorded settings. Count every planned pair in sample coverage. Use only completed pairs when calculating change rates. Keep a record of failures, timeouts, and mismatched settings.</p>
+      <p>In the fictional example, 40 of 48 comparisons were completed. Five of the 40 changed brand presence, and four changed whether the answer included an official link. A comparison can change both.</p>
+      <p>Read the <a href="https://visibilityos.co/research/ai-answer-visibility">VisibilityOS study and measurement method</a> for real research, or use the <a href="https://visibilityos-audit-plan.pages.dev/">audit plan builder</a> to plan matched checks.</p>
+    </section>
+  </main>
+  <footer><div class="wrap"><a href="https://visibilityos.co/">Learn about VisibilityOS</a></div></footer>
+</body>
+</html>
