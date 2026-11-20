@@ -6,7 +6,8 @@ if [[ "${RENDER_GIT_BRANCH:-}" != main ]]; then
   exit 1
 fi
 
-remote_main=$(git ls-remote --exit-code origin refs/heads/main | cut -f1)
+source_url=https://github.com/PodPitch/visibilityos-audit-template.git
+remote_main=$(git ls-remote --exit-code "$source_url" refs/heads/main | cut -f1)
 if [[ "${RENDER_GIT_COMMIT:-}" != "$remote_main" || "$(git rev-parse HEAD)" != "$remote_main" ]]; then
   printf 'The deployment commit does not match current origin/main.\n' >&2
   exit 1
