@@ -1,0 +1,53 @@
+name: Verify study container
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/study-container.yml
+      - study/.dockerignore
+      - study/Dockerfile
+      - study/reproduce.py
+      - study/dataset/engine-views.csv
+      - study/dataset/outcomes.csv
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-24.04
+    if: github.ref == 'refs/heads/main' && github.repository == 'PodPitch/visibilityos-audit-template'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Verify source and select a builder
+        shell: bash
+        run: |
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          MAIN_SHA="$(git ls-remote origin refs/heads/main | cut -f1)"
+          test "$MAIN_SHA" = "$GITHUB_SHA"
+          docker buildx create --use
+      - name: Test the packaged calculation
+        shell: bash
+        run: |
+          docker buildx build --load --tag visibilityos-study:test study
+          docker run --rm --network none --read-only visibilityos-study:test
+          docker run --rm --network none --read-only visibilityos-study:test --json \
+            | jq -e '.comparisons == 817 and .presence_changes == 82 and .link_status_changed == 79 and (.engine_views | length) == 8'
+      - name: Build the portable container archive
+        shell: bash
+        run: |
+          docker buildx build \
+            --platform linux/amd64,linux/arm64 \
+            --provenance=false \
+            --sbom=false \
+            --label "org.opencontainers.image.revision=$GITHUB_SHA" \
+            --output type=oci,dest=visibilityos-study.tar study
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: visibilityos-study-container
+          path: visibilityos-study.tar
+          if-no-files-found: error
+          retention-days: 3
