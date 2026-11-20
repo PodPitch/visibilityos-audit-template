@@ -14,4 +14,4 @@ if [[ "${RENDER_GIT_COMMIT:-}" != "$remote_main" || "$(git rev-parse HEAD)" != "
 fi
 
 mkdir -p render-public
-cp missing-answer-audit/{index.html,style.css,app.js,robots.txt,sitemap.xml,googlee8e85af81a139c7f.html} render-public/
+cp missing-answer-audit/{index.html,style.css,missing-answer.js,robots.txt,sitemap.xml,googlee8e85af81a139c7f.html} render-public/
