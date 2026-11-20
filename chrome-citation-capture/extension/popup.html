@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VisibilityOS Citation Capture</title>
+  <link rel="stylesheet" href="popup.css">
+  <script defer src="popup.js"></script>
+</head>
+<body>
+  <main>
+    <header>
+      <img src="icons/icon-32.png" alt="" width="32" height="32">
+      <p>VisibilityOS by PodPitch</p>
+    </header>
+    <h1>Citation Capture</h1>
+    <p class="intro">Select text on a source page, then capture the passage and URL for your audit.</p>
+    <button type="button" id="capture">Capture from this tab</button>
+    <form id="evidence-form">
+      <label for="source">Source URL</label>
+      <input id="source" type="url" inputmode="url" spellcheck="false" required>
+      <label for="passage">Source passage</label>
+      <textarea id="passage" rows="4" maxlength="16000" required></textarea>
+      <label for="claim">AI claim <span>Optional</span></label>
+      <input id="claim" maxlength="2000">
+      <button class="export" type="submit">Save evidence record</button>
+    </form>
+    <p id="status" role="status"></p>
+    <footer><a href="https://podpitch.github.io/visibilityos-audit-template/chrome-citation-capture/privacy/" target="_blank" rel="noopener noreferrer">Privacy</a></footer>
+  </main>
+</body>
+</html>
