@@ -34,6 +34,12 @@ h2 { font-size: 1.2rem; line-height: 1.25; letter-spacing: -.025em; }
 .resources a { display: inline-block; margin: .6rem 1rem 0 0; font-weight: 680; }
 footer { border-top: 1px solid var(--rule); padding-block: 1rem 2rem; color: var(--muted); font-size: .85rem; display: flex; gap: 1rem; flex-wrap: wrap; }
 
+.watch h1 { max-width: 17ch; }
+.watch video { display: block; width: 100%; height: auto; border-radius: .45rem; background: #183e32; }
+.watch .resources { margin-top: 1.5rem; }
+.watch ul { padding-left: 1.25rem; margin-block: .65rem; color: var(--muted); }
+.watch li + li { margin-top: .4rem; }
+
 @media (max-width: 43rem) {
   .wrap { width: calc(100% - 2rem); }
   .examples { grid-template-columns: 1fr; }

@@ -1,0 +1,46 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.017
+This is the VisibilityOS Study Reader by PodPitch.
+
+00:00:03.017 --> 00:00:10.409
+A standard MCP client connects to the live endpoint and lists three read-only tools. The following results came from that endpoint.
+
+00:00:10.709 --> 00:00:14.100
+The summary returned eight hundred seventeen matched comparisons.
+
+00:00:14.100 --> 00:00:19.747
+Brand presence changed in eighty-two pairs. Forty-five gained presence, and thirty-seven lost it.
+
+00:00:19.747 --> 00:00:23.029
+Official links appeared or disappeared in seventy-nine pairs.
+
+00:00:23.334 --> 00:00:27.956
+For Gemini web, brand presence changed in fifteen of one hundred six pairs.
+
+00:00:27.956 --> 00:00:32.161
+For ChatGPT web, it changed in three of one hundred seven pairs.
+
+00:00:32.161 --> 00:00:34.667
+These describe the sampled questions and dates.
+
+00:00:34.967 --> 00:00:38.972
+Comparing Grok with Claude returned a twelve-point-eight percentage-point gap.
+
+00:00:38.972 --> 00:00:42.873
+The tool returned both denominators, eighty-one and one hundred seven.
+
+00:00:42.873 --> 00:00:45.138
+The same-view comparison returned zero.
+
+00:00:45.438 --> 00:00:49.525
+The server rejected an unlisted model and a comparison without a second view.
+
+00:00:49.525 --> 00:00:52.122
+It also rejected a request for raw answers.
+
+00:00:52.122 --> 00:00:56.426
+A brand counts as present if an answer names it or links to its official website.
+
+00:00:56.729 --> 00:01:02.655
+Open the original VisibilityOS study for the sampling method and the public dataset for all eight model views.
