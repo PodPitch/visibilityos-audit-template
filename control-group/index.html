@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VisibilityOS AI Search Control Group Calculator | PodPitch</title>
+  <meta name="description" content="Compare before-and-after AI brand mention rates against an unchanged set of prompts. A free audit calculator by VisibilityOS and PodPitch.">
+  <link rel="canonical" href="https://visibilityos-control-group.vercel.app/">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.mjs"></script>
+</head>
+<body>
+  <header class="wrap masthead">
+    <a class="brand" href="https://visibilityos.co/">VisibilityOS <span>by PodPitch</span></a>
+    <a class="research" href="https://visibilityos.co/research/ai-answer-visibility">AI answer research <span aria-hidden="true">↗</span></a>
+  </header>
+  <main class="wrap">
+    <div class="intro">
+      <h1>AI search control group calculator</h1>
+      <p>Compare how often AI answers mentioned your brand before and after a change. Use an unchanged set of prompts to check whether mention rates also shifted elsewhere.</p>
+    </div>
+    <form id="audit" aria-describedby="instructions">
+      <p id="instructions">Enter the number of answers that mentioned your brand and the total number of completed answers. The starting counts are fictional.</p>
+      <div class="groups">
+        <section aria-labelledby="test-title">
+          <h2 id="test-title">Test prompts</h2>
+          <p>Questions your change was meant to affect.</p>
+          <div class="counts-grid">
+            <div aria-hidden="true"></div><span class="column-title">Mentions</span><span class="column-title">Answers</span>
+            <span class="period">Before</span>
+            <label class="sr-only" for="test-before-mentions">Test prompts before mentions</label>
+            <input id="test-before-mentions" type="number" inputmode="numeric" min="0" max="1000000" step="1" value="15" required>
+            <label class="sr-only" for="test-before-answers">Test prompts before answers</label>
+            <input id="test-before-answers" type="number" inputmode="numeric" min="1" max="1000000" step="1" value="40" required>
+            <span class="period">After</span>
+            <label class="sr-only" for="test-after-mentions">Test prompts after mentions</label>
+            <input id="test-after-mentions" type="number" inputmode="numeric" min="0" max="1000000" step="1" value="25" required>
+            <label class="sr-only" for="test-after-answers">Test prompts after answers</label>
+            <input id="test-after-answers" type="number" inputmode="numeric" min="1" max="1000000" step="1" value="40" required>
+          </div>
+        </section>
+        <section aria-labelledby="comparison-title">
+          <h2 id="comparison-title">Comparison prompts</h2>
+          <p>Similar questions outside the scope of your change.</p>
+          <div class="counts-grid">
+            <div aria-hidden="true"></div><span class="column-title">Mentions</span><span class="column-title">Answers</span>
+            <span class="period">Before</span>
+            <label class="sr-only" for="control-before-mentions">Comparison prompts before mentions</label>
+            <input id="control-before-mentions" type="number" inputmode="numeric" min="0" max="1000000" step="1" value="10" required>
+            <label class="sr-only" for="control-before-answers">Comparison prompts before answers</label>
+            <input id="control-before-answers" type="number" inputmode="numeric" min="1" max="1000000" step="1" value="40" required>
+            <span class="period">After</span>
+            <label class="sr-only" for="control-after-mentions">Comparison prompts after mentions</label>
+            <input id="control-after-mentions" type="number" inputmode="numeric" min="0" max="1000000" step="1" value="15" required>
+            <label class="sr-only" for="control-after-answers">Comparison prompts after answers</label>
+            <input id="control-after-answers" type="number" inputmode="numeric" min="1" max="1000000" step="1" value="40" required>
+          </div>
+        </section>
+      </div>
+      <button type="reset">Reset example</button>
+      <p class="error" id="count-error" role="status" hidden></p>
+    </form>
+    <section class="result" id="result" aria-labelledby="result-title">
+      <div class="net" aria-live="polite" aria-atomic="true">
+        <h2 id="result-title">Gap between the changes</h2>
+        <p class="gap" id="gap">+12.5</p>
+        <p>percentage points</p>
+      </div>
+      <dl class="breakdown">
+        <div><dt>Test prompts</dt><dd id="test-summary">37.5% to 62.5% <strong>+25.0 points</strong></dd></div>
+        <div><dt>Comparison prompts</dt><dd id="control-summary">25.0% to 37.5% <strong>+12.5 points</strong></dd></div>
+      </dl>
+      <p class="coverage" id="coverage" hidden>Answer counts changed between rounds. Check which prompts are missing before interpreting the gap.</p>
+    </section>
+    <noscript><p>This is a worked example. Enable JavaScript to enter your own counts.</p></noscript>
+    <section class="method" aria-labelledby="method-title">
+      <div>
+        <h2 id="method-title">Build a fair comparison</h2>
+        <p>Choose both sets before the change. Keep the exact wording, model, search mode and market fixed across rounds. Run the two sets on the same dates. Look at several earlier rounds to check whether their rates usually move together.</p>
+      </div>
+      <div>
+        <h2>Read the gap</h2>
+        <p>Subtract the comparison group’s change from the test group’s change. The result is descriptive. If the sets already had different trends or the change affected both, the gap can mix those effects. <a href="https://dimewiki.worldbank.org/Difference-in-Differences">World Bank explanation of the method</a>.</p>
+      </div>
+    </section>
+  </main>
+  <footer class="wrap">
+    <p>Published by <a href="https://visibilityos.co/">VisibilityOS by PodPitch</a>. Your counts stay in this browser.</p>
+    <p><a href="https://visibilityos-audit-plan.pages.dev/">Plan matched rounds</a> · <a href="https://visibilityos.co/research/ai-answer-visibility">Read the study</a></p>
+  </footer>
+</body>
+</html>
