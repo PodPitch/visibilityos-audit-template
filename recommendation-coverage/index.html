@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A VisibilityOS guide to measuring AI recommendation coverage, top-three visibility, and average position across matched answers.">
+  <link rel="canonical" href="https://visibilityos-recommendation-coverage.vercel.app/">
+  <title>AI Recommendation Coverage and Rank | VisibilityOS by PodPitch</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --c-bg: #f6f5ef;
+      --c-surface: #efefe6;
+      --c-ink: #173139;
+      --c-muted: #4a6060;
+      --c-key: #19515a;
+      --c-line: #bfcac2;
+      font: 1rem/1.55 system-ui, sans-serif;
+      color: var(--c-ink);
+      background: var(--c-bg);
+    }
+    * { box-sizing: border-box; }
+    main { max-width: 74rem; margin: auto; padding: 2.25rem clamp(1rem, 5vw, 4.5rem) 3rem; }
+    a { color: var(--c-key); text-underline-offset: .18em; }
+    a:focus-visible { outline: 3px solid #9a562a; outline-offset: 3px; }
+    .brand { font-weight: 800; }
+    .brand span { font-weight: 550; }
+    header { border-bottom: 1px solid var(--c-line); padding: 1.5rem 0 1.35rem; margin-bottom: 1.35rem; }
+    h1 { font: 500 clamp(2.4rem, 6.1vw, 5.6rem)/.95 Georgia, serif; letter-spacing: -.06em; margin: 0; max-width: 17ch; text-wrap: balance; }
+    header p { max-width: 63ch; margin: .9rem 0 0; font-size: clamp(1rem, 1.9vw, 1.18rem); }
+    .example { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 1rem; align-items: start; }
+    h2 { font: 500 clamp(1.55rem, 3vw, 2.05rem)/1.15 Georgia, serif; letter-spacing: -.03em; margin: 0 0 .5rem; }
+    table { border-collapse: collapse; text-align: left; width: 100%; table-layout: fixed; font-variant-numeric: tabular-nums; }
+    th, td { border-bottom: 1px solid var(--c-line); padding: .6rem .35rem; overflow-wrap: anywhere; }
+    th:first-child { width: 60%; }
+    th { font-weight: 700; }
+    th:not(:first-child), td { text-align: right; }
+    td { font-size: 1.04rem; }
+    .reading { background: var(--c-surface); padding: 1rem; border: 1px solid var(--c-line); border-radius: 9px; }
+    p { margin: .6rem 0 0; }
+    .reading p, .method ol { color: var(--c-muted); }
+    .method { max-width: 68ch; margin-top: 1.65rem; }
+    .method ol { margin: .5rem 0; padding-left: 1.3rem; }
+    .method li { padding: .21rem 0; }
+    .resources { display: flex; gap: .35rem 1rem; flex-wrap: wrap; margin-top: 1rem; font-weight: 650; }
+    .resources a { display: inline-flex; align-items: center; min-height: 44px; }
+    @media (max-width: 46rem) {
+      main { padding-top: 1.1rem; }
+      .example { grid-template-columns: 1fr; }
+      th, td { font-size: .9rem; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="brand" href="https://visibilityos.co/">VisibilityOS <span>by PodPitch</span></a>
+    <header>
+      <h1>When AI rank improves and coverage falls</h1>
+      <p>A brand can move up the list in the answers that name it while disappearing from more answers overall. Track recommendation position and coverage together.</p>
+    </header>
+    <div class="example">
+      <section aria-labelledby="example-title">
+        <h2 id="example-title">Fictional example</h2>
+        <p>Run the same eight questions in each round.</p>
+        <table aria-labelledby="example-title">
+          <thead><tr><th scope="col">Measure</th><th scope="col">Before</th><th scope="col">After</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Answers naming the brand</th><td>4 of 8</td><td>1 of 8</td></tr>
+            <tr><th scope="row">Brand mention rate</th><td>50%</td><td>12.5%</td></tr>
+            <tr><th scope="row">Top-three coverage across all answers</th><td>25%</td><td>12.5%</td></tr>
+            <tr><th scope="row">Average position when named</th><td>3.25</td><td>1.00</td></tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="reading" aria-labelledby="reading-title">
+        <h2 id="reading-title">Read both results</h2>
+        <p>Before, the brand appeared in positions 1, 3, 4 and 5. After, it appeared once, in first place. Average position moved from 3.25 to 1.00, while three fewer answers named the brand.</p>
+        <p>The first-place result is worth inspecting. So are the three answers that dropped the brand.</p>
+      </section>
+    </div>
+    <section class="method" aria-labelledby="method-title">
+      <h2 id="method-title">Measure the same questions twice</h2>
+      <ol>
+        <li>Ask for numbered recommendations. Keep the question, engine, search settings and market consistent.</li>
+        <li>Record the brand’s first position when it appears. Count brand appearances and top-three appearances against all completed eligible answers in the matched sample.</li>
+        <li>Report average position among appearances alongside both coverage measures. Track missing and failed answers separately.</li>
+      </ol>
+      <nav class="resources" aria-label="Audit resources">
+        <a href="https://pz.run/0rX695pY14dRB">Run the example in Programiz</a>
+        <a href="https://visibilityos.co/research/ai-answer-visibility">Read the VisibilityOS matching method</a>
+      </nav>
+    </section>
+  </main>
+</body>
+</html>
