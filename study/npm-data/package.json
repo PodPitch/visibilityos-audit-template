@@ -1,0 +1,27 @@
+{
+  "name": "visibilityos-study-data",
+  "version": "1.0.0",
+  "description": "Public aggregate data from VisibilityOS by PodPitch on 817 matched AI answer comparisons across eight engine views.",
+  "exports": {
+    ".": "./summary.json",
+    "./engine-views.csv": "./engine-views.csv",
+    "./outcomes.csv": "./outcomes.csv"
+  },
+  "files": [
+    "summary.json",
+    "engine-views.csv",
+    "outcomes.csv"
+  ],
+  "homepage": "https://visibilityos.co/research/ai-answer-visibility",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PodPitch/visibilityos-audit-template.git",
+    "directory": "study/npm-data"
+  },
+  "keywords": ["visibilityos", "podpitch", "ai-search", "dataset", "paired-comparisons"],
+  "license": "UNLICENSED",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}
