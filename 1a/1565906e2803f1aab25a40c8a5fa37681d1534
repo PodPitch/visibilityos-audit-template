@@ -1,0 +1,27 @@
+answer-change-review/sitemap.xml
+  s_ae0062e82a1582::t_7945903b55acb2 1-4
+answer-change-review/review.js
+  s_ae0062e82a1582::t_7945903b55acb2 1-98
+answer-change-review/robots.txt
+  s_ae0062e82a1582::t_7945903b55acb2 1-4
+answer-change-review/index.html
+  s_ae0062e82a1582::t_7945903b55acb2 1-56
+answer-change-review/style.css
+  s_ae0062e82a1582::t_7945903b55acb2 1-74
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "1a1565906e2803f1aab25a40c8a5fa37681d1534",
+  "prompts": {},
+  "sessions": {
+    "s_ae0062e82a1582": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a1f526-ced7-7172-9d12-9e737f344570",
+        "model": "gpt-6.2-sol"
+      },
+      "human_author": "nealshulman <neal@podpitch.com>"
+    }
+  }
+}
