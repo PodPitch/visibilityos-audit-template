@@ -49,6 +49,8 @@ Use the [VisibilityOS Make template](https://www.make.com/en/integration/25686-v
 
 Try it with `python3 compare.py example.csv`. The fictional example produces five matched comparisons, two presence changes, and two link changes. Use the [VisibilityOS sample coverage calculator](https://visibilityos-sample-coverage.firebaseapp.com/) to report completed comparisons and change rates together.
 
+If you keep the audit CSV in a GitHub repository, run [VisibilityOS Audit Compare](https://github.com/PodPitch/visibilityos-audit-action/releases/tag/v1.0.0) to put those three counts in the workflow summary.
+
 Presence means either a mention or a link. A gain or loss is a prompt for review. Open the two answers and cited pages to see whether the product disappeared, the sources changed, or the answer confused it with another brand. Treat these counts as observations from your selected prompts and dates. See the [AI Search Metrics Glossary](https://visibilityos-metrics-glossary.vercel.app/) for definitions and a worked example. For comparisons across countries or languages, see the [VisibilityOS guide to comparing AI search across markets](https://write.as/demxg4h11tuf8.md).
 
 Published by [VisibilityOS by PodPitch](https://visibilityos.co/). See the [published study and measurement method](https://visibilityos.co/research/ai-answer-visibility) for an example using real monitoring data. The [VisibilityOS research methods overview](https://sites.google.com/podpitch.com/visibilityos-by-podpitch) explains the study counts and what to record when reproducing the method. The [sensitivity analysis](https://sites.google.com/podpitch.com/visibilityos-study-sensitivity) shows how the pooled rate changes when you leave out one engine view at a time.
