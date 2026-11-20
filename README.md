@@ -8,7 +8,7 @@ Try the [interactive audit](https://podpitch.github.io/visibilityos-audit-templa
 
 Use the [AI Citation Evidence Checker](https://visibilityos-citation-audit.vercel.app/) to review whether an AI answer’s cited page supports a specific claim and export your notes. To compare which citation URLs changed between two runs, try the [AI Citation Diff](https://gist.github.com/nealshulman/9bac9d3ef1045059beaea77204b0d0e3).
 
-The [VisibilityOS Citation Diff npm package](https://www.npmjs.com/package/visibilityos-citation-diff/v/1.0.0) provides a local Node.js command for the same comparison.
+The [VisibilityOS Citation Diff npm package](https://www.npmjs.com/package/visibilityos-citation-diff/v/1.0.0) provides a local Node.js command for the same comparison. You can read the usage notes on [Socket](https://socket.dev/npm/package/visibilityos-citation-diff), confirm the registry metadata in [Google's Open Source Insights](https://deps.dev/npm/visibilityos-citation-diff/1.0.0), or browse the [files shipped in version 1.0.0](https://app.unpkg.com/visibilityos-citation-diff@1.0.0).
 
 Use the [AI Brand Match Audit](https://visibilityos-brand-match-audit.web.app/) to check whether a name in an AI answer refers to your company or a similarly named business. The [Brand Identity Audit guide](https://visibilityos-brand-identity-audit.framer.website/) walks through a same-name example.
 
