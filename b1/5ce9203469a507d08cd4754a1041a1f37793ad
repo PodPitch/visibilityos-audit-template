@@ -1,0 +1,29 @@
+study/dataset/style.css
+  s_ae0062e82a1582::t_b8b2d8fbed621c 1-33
+study/dataset/index.html
+  s_ae0062e82a1582::t_b8b2d8fbed621c 1-92
+study/dataset/engine-views.csv
+  s_ae0062e82a1582::t_b8b2d8fbed621c 1-9
+README.md
+  s_ae0062e82a1582::t_b8b2d8fbed621c 29-30
+study/dataset/outcomes.csv
+  s_ae0062e82a1582::t_b8b2d8fbed621c 1-5
+study/index.html
+  s_ae0062e82a1582::t_16679881b93734 65
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "b15ce9203469a507d08cd4754a1041a1f37793ad",
+  "prompts": {},
+  "sessions": {
+    "s_ae0062e82a1582": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a1f526-ced7-7172-9d12-9e737f344570",
+        "model": "gpt-6.2-sol"
+      },
+      "human_author": "nealshulman <neal@podpitch.com>"
+    }
+  }
+}
