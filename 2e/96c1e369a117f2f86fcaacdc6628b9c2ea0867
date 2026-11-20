@@ -1,0 +1,26 @@
+.github/workflows/study-container.yml
+  s_ae0062e82a1582::t_050b3b3f1a3bb6 1-7,9-53
+  s_ae0062e82a1582::t_79ff26260e79ca 8
+study/.dockerignore
+  s_ae0062e82a1582::t_79ff26260e79ca 1-6
+study/reproduce.py
+  s_ae0062e82a1582::t_050b3b3f1a3bb6 1-93
+study/Dockerfile
+  s_ae0062e82a1582::t_050b3b3f1a3bb6 1-12
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "2e96c1e369a117f2f86fcaacdc6628b9c2ea0867",
+  "prompts": {},
+  "sessions": {
+    "s_ae0062e82a1582": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a1f526-ced7-7172-9d12-9e737f344570",
+        "model": "gpt-6.2-sol"
+      },
+      "human_author": "nealshulman <neal@podpitch.com>"
+    }
+  }
+}
