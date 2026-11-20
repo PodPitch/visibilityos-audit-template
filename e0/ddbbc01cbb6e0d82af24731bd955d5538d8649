@@ -1,0 +1,27 @@
+study/dataset/index.html
+  s_ae0062e82a1582::t_ee36686dcbf7bb 68
+sitemap.xml
+  s_ae0062e82a1582::t_ee36686dcbf7bb 7
+baseline-calculator/index.html
+  s_ae0062e82a1582::t_46d290b49507ba 1-6,8-68,70-90,95-99,103-132,135-136,138-149
+  s_ae0062e82a1582::t_ee36686dcbf7bb 7
+  s_ae0062e82a1582::t_21f7cecac2bd29 69,100-102
+  s_ae0062e82a1582::t_55a1249fa8e5b4 133-134
+  s_ae0062e82a1582::t_094bea7050b6f1 91-94,137
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "e0ddbbc01cbb6e0d82af24731bd955d5538d8649",
+  "prompts": {},
+  "sessions": {
+    "s_ae0062e82a1582": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a1f526-ced7-7172-9d12-9e737f344570",
+        "model": "gpt-6.2-sol"
+      },
+      "human_author": "nealshulman <neal@podpitch.com>"
+    }
+  }
+}
