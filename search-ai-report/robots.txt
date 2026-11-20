@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://visibilityos-search-ai-report.netlify.app/sitemap.xml

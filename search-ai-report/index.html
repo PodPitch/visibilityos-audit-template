@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Google and AI Visibility Report | VisibilityOS by PodPitch</title>
+  <meta name="description" content="Compare Google Search exposure and sampled AI answers across two periods with the free VisibilityOS reporting worksheet.">
+  <link rel="canonical" href="https://visibilityos-search-ai-report.netlify.app/">
+  <link rel="stylesheet" href="style.css">
+  <script src="report.js" defer></script>
+</head>
+<body>
+  <header><a class="brand" href="https://visibilityos.co/">VisibilityOS <span>by PodPitch</span></a><a href="https://info.podpitch.com/en/article/how-to-read-visibilityos-alongside-google-search-console-johfik/">Reporting guide</a></header>
+  <main>
+    <section class="intro" aria-labelledby="title">
+      <h1 id="title">Google and AI visibility report</h1>
+      <p>Enter two periods to compare what Google showed with what your AI answer audit found.</p>
+    </section>
+    <form id="report-form" aria-label="Compare two reporting periods">
+      <div class="panels">
+        <fieldset class="google" id="google-fields"><legend>Google Search Console</legend><p>Use the same property, search type and filters in both periods.</p></fieldset>
+        <fieldset class="audit" id="audit-fields"><legend>AI answer audit</legend><p>Use the same prompts and settings. Count only completed checks.</p></fieldset>
+      </div>
+      <div class="actions"><button type="submit">Compare periods</button><button id="sample" class="secondary" type="button">Load example</button><button class="quiet" type="reset">Clear</button></div>
+    </form>
+    <noscript><p>Enable JavaScript to calculate results locally in this tab.</p></noscript>
+    <section id="report" aria-labelledby="result-title" hidden>
+      <h2 id="result-title">Comparison</h2>
+      <p id="example-note" hidden>Fictional example for a software company.</p>
+      <div id="result-tables" class="panels"></div>
+    </section>
+    <p id="announcement" class="screen-reader" role="status"></p>
+    <section class="notes" aria-labelledby="notes-title">
+      <h2 id="notes-title">How to read the comparison</h2>
+      <ul>
+        <li>Google’s Web total already includes supported generative AI features. Report the dedicated AI impressions on their own row.</li>
+        <li>AI answer rates use completed checks as the denominator. A single answer can count as both a mention and an official link.</li>
+        <li>A relative change from a zero baseline is undefined. The report shows the absolute change instead.</li>
+      </ul>
+      <p>Your inputs stay in this tab. See the <a href="https://support.google.com/webmasters/answer/16984139">Google reporting definitions</a> and <a href="https://visibilityos.co/research/ai-answer-visibility">VisibilityOS study method</a>.</p>
+    </section>
+  </main>
+</body>
+</html>
