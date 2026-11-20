@@ -14,4 +14,4 @@ if [[ "${RENDER_GIT_COMMIT:-}" != "$remote_main" || "$(git rev-parse HEAD)" != "
 fi
 
 mkdir -p render-public
-cp buyer-prompt-builder/{index.html,style.css,app.js,robots.txt,sitemap.xml} render-public/
+cp buyer-prompt-builder/{index.html,style.css,app.js,robots.txt,sitemap.xml,googlee8e85af81a139c7f.html} render-public/
