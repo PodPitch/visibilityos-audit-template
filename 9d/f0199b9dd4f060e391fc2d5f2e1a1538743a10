@@ -1,0 +1,36 @@
+missing-answer-audit/style.css
+  s_ae0062e82a1582::t_b51aedcea218b8 18
+  s_ae0062e82a1582::t_cb83ba455a1654 1-17,19-48
+missing-answer-audit/index.html
+  s_ae0062e82a1582::t_b51aedcea218b8 76
+  s_ae0062e82a1582::t_cb83ba455a1654 1-59,61-74,77-84
+  s_ae0062e82a1582::t_082c5bffb9fb26 60,75
+missing-answer-audit/render-build.sh
+  s_ae0062e82a1582::t_cb83ba455a1654 1-17
+missing-answer-audit/robots.txt
+  s_ae0062e82a1582::t_cb83ba455a1654 1-3
+missing-answer-audit/app.js
+  s_ae0062e82a1582::t_e8fb9b91a7b205 20,25-26,38,42,52
+  s_ae0062e82a1582::t_cb83ba455a1654 1-12,15-19,21-24,27-37,39-41,43-51,53-76
+  s_ae0062e82a1582::t_390473fa4bd60b 13-14
+missing-answer-audit/sitemap.xml
+  s_ae0062e82a1582::t_cb83ba455a1654 1-4
+missing-answer-audit/googlee8e85af81a139c7f.html
+  s_ae0062e82a1582::t_cb83ba455a1654 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "9df0199b9dd4f060e391fc2d5f2e1a1538743a10",
+  "prompts": {},
+  "sessions": {
+    "s_ae0062e82a1582": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a1f526-ced7-7172-9d12-9e737f344570",
+        "model": "gpt-6.2-sol"
+      },
+      "human_author": "nealshulman <neal@podpitch.com>"
+    }
+  }
+}
