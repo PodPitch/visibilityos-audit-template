@@ -1,0 +1,21 @@
+study/dataset/visibilityos_study_check.sql
+  s_ae0062e82a1582::t_504b4c31558e96 1-73
+study/dataset/index.html
+  s_ae0062e82a1582::t_ae82be5668ebf6 80,82
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "66ecff212508ecd865ac7b163c4277b9aeecaed3",
+  "prompts": {},
+  "sessions": {
+    "s_ae0062e82a1582": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a1f526-ced7-7172-9d12-9e737f344570",
+        "model": "gpt-6.2-sol"
+      },
+      "human_author": "nealshulman <neal@podpitch.com>"
+    }
+  }
+}
