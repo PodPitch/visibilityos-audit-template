@@ -24,6 +24,8 @@ Use the [AI Citation Source Mix Calculator](https://visibilityos-source-mix.netl
 
 Use the [VisibilityOS AI Search Control Group Calculator](https://visibilityos-control-group.vercel.app/) to compare a before-and-after change in brand mentions against a separate set of prompts.
 
+The [reporting claims guide](https://visibilityos-reporting-claims.vercel.app/) gives sample wording for three audit designs. The [prior trends check](https://sites.google.com/podpitch.com/visibilityos-prior-trends/home) shows how the groups were moving before an update.
+
 The [VisibilityOS Audit Assistant](https://github.com/PodPitch/visibilityos-audit-template/releases/tag/visibilityos-audit-assistant-v1.0.0) packages the audit steps for compatible assistants and includes a fictional answer review.
 
 ## Run your audit
