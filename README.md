@@ -25,6 +25,8 @@ Use the [VisibilityOS Audit CSV Checker](https://visibilityos-csv-checker.netlif
 
 When a pair changes, use the [VisibilityOS AI Answer Change Review](https://visibilityos-answer-review.vercel.app/) to see which sentences appeared, disappeared, or matched across the two captured answers.
 
+Use the [VisibilityOS AI Shortlist Comparison](https://visibilityos-shortlist.vercel.app/) to see which brands appear in both sets of recommendations and whether a specific brand appeared in either answer.
+
 Use the [VisibilityOS Make template](https://www.make.com/en/integration/25686-visibilityos-ai-answer-change-triage?templatePublicId=25686) to compare brand mentions and official links separately and flag losses for review.
 
 Try it with `python3 compare.py example.csv`. The fictional example produces five matched comparisons, two presence changes, and two link changes. Use the [VisibilityOS sample coverage calculator](https://visibilityos-sample-coverage.firebaseapp.com/) to report completed comparisons and change rates together.

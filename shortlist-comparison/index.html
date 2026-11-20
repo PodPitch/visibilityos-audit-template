@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Shortlist Comparison | VisibilityOS by PodPitch</title>
+  <meta name="description" content="Compare which brands two AI answers recommend. See the shared names, unique names, and whether your brand made either shortlist.">
+  <link rel="canonical" href="https://visibilityos-shortlist.vercel.app/">
+  <link rel="stylesheet" href="style.css">
+  <script src="shortlist.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-content">
+      <a class="brand" href="https://visibilityos.co/">VisibilityOS <span>by PodPitch</span></a>
+      <a class="study-link" href="https://visibilityos.co/research/ai-answer-visibility">Read the study <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="intro" aria-labelledby="page-title">
+      <div>
+        <h1 id="page-title">AI Shortlist Comparison</h1>
+        <p>Ask the same buying question twice. Compare the recommended brands and see where the two answers agree.</p>
+      </div>
+      <div class="shortlist-mark" aria-hidden="true"><span></span><span></span></div>
+    </section>
+
+    <form id="comparison">
+      <div class="inputs">
+        <div class="input-group">
+          <label for="answer-a"><span class="answer-mark a">A</span> First answer</label>
+          <textarea id="answer-a" maxlength="12000" rows="4" placeholder="Paste one brand per line"></textarea>
+        </div>
+        <div class="input-group">
+          <label for="answer-b"><span class="answer-mark b">B</span> Second answer</label>
+          <textarea id="answer-b" maxlength="12000" rows="4" placeholder="Paste one brand per line"></textarea>
+        </div>
+      </div>
+      <div class="form-actions">
+        <div class="brand-field">
+          <label for="tracked">Brand to check <span>optional</span></label>
+          <input id="tracked" type="text" maxlength="160" placeholder="Enter a brand name">
+        </div>
+        <div class="buttons">
+          <button class="sample" type="button" id="sample">Load fictional example</button>
+          <button class="primary" type="submit">Compare shortlists</button>
+        </div>
+      </div>
+      <p class="note">Your lists stay in this browser. A blank list counts as zero brands.</p>
+      <p class="error" id="error" role="alert" hidden></p>
+    </form>
+
+    <section class="results" id="results" aria-labelledby="result-title" hidden>
+      <div class="result-summary">
+        <div>
+          <h2 id="result-title">Shortlist overlap</h2>
+          <p id="result-count" aria-live="polite"></p>
+        </div>
+        <strong id="overlap"></strong>
+      </div>
+      <div class="overlap-bar" aria-hidden="true"><span id="bar-a"></span><span id="bar-shared"></span><span id="bar-b"></span></div>
+      <p class="tracked-result" id="tracked-result" hidden></p>
+      <div class="result-columns">
+        <div class="result-group first"><h3>First answer only <span id="count-a"></span></h3><ul id="only-a"></ul></div>
+        <div class="result-group shared"><h3>Both answers <span id="count-shared"></span></h3><ul id="shared"></ul></div>
+        <div class="result-group second"><h3>Second answer only <span id="count-b"></span></h3><ul id="only-b"></ul></div>
+      </div>
+    </section>
+
+    <section class="method" aria-labelledby="method-title">
+      <h2 id="method-title">Read the comparison</h2>
+      <div class="method-grid">
+        <div>
+          <h3>Record the names</h3>
+          <p>Use the same question, language, and market for each answer. Record the brands actually recommended. Skip incomplete or failed answers.</p>
+        </div>
+        <div>
+          <h3>Count shared brands once</h3>
+          <p>Overlap is the number of shared brands divided by the number of distinct brands across both lists. If two brands appear in both answers out of four distinct brands, overlap is 50%.</p>
+        </div>
+        <div>
+          <h3>Check names that could collide</h3>
+          <p>The tool ignores capitalization and extra spaces. Use one spelling for known aliases and confirm the company’s identity when two businesses have the same name.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap site-footer">
+    <a href="https://visibilityos.co/">VisibilityOS by PodPitch</a>
+    <a href="https://visibilityos-buyer-prompts.onrender.com/">Build buyer questions</a>
+    <a href="https://visibilityos-brand-match-audit.web.app/">Check a brand match</a>
+    <a href="https://visibilityos.co/research/ai-answer-visibility">Study and measurement method</a>
+  </footer>
+</body>
+</html>
