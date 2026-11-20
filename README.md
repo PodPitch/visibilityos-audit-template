@@ -2,6 +2,8 @@
 
 A repeatable way to see whether AI assistants mention or cite your brand when buyers ask for recommendations. Start with five prompts, capture two rounds, and compare the same prompt under the same conditions.
 
+The [VisibilityOS Audit Plan Builder](https://visibilityos-audit-plan.vercel.app/) turns your buyer questions and matching settings into a two-round CSV.
+
 Try the [interactive audit](https://podpitch.github.io/visibilityos-audit-template/space/) for two rounds in your browser, or use the CSV below to keep a record across several dates.
 
 Use the [AI Citation Evidence Checker](https://visibilityos-citation-audit.vercel.app/) to review whether an AI answer’s cited page supports a specific claim and export your notes. To compare which citation URLs changed between two runs, try the [AI Citation Diff](https://gist.github.com/nealshulman/9bac9d3ef1045059beaea77204b0d0e3).

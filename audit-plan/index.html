@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Search Audit Plan Builder | VisibilityOS by PodPitch</title>
+  <meta name="description" content="Build a two-round AI search audit. Enter buyer questions, hold the test setup fixed, and download a CSV to track mentions and citations.">
+  <meta name="theme-color" content="#103e39">
+  <meta name="google-site-verification" content="4qW2GbE-TZXVBlhY_L0hQE_oiOhjkhbVbP3cl8PofHk">
+  <link rel="icon" href="/favicon.png" type="image/png" sizes="64x64">
+  <link rel="canonical" href="https://visibilityos-audit-plan.vercel.app/">
+  <link rel="stylesheet" href="/style.css">
+  <script type="module" src="/app.mjs"></script>
+</head>
+<body>
+  <header class="masthead">
+    <div class="wrap masthead-content">
+      <a href="https://visibilityos.co/" class="wordmark">VisibilityOS <span>by PodPitch</span></a>
+      <a href="https://visibilityos.co/research/ai-answer-visibility">Research method</a>
+    </div>
+  </header>
+  <main class="wrap">
+    <section class="intro">
+      <h1>Plan two rounds of an AI search audit</h1>
+      <p>Turn buyer questions into a matched set of checks. Keep the setup fixed so you can compare what the AI answer says on two dates.</p>
+    </section>
+    <form id="audit-form">
+      <section class="panel questions">
+        <div class="panel-head">
+          <h2>Buyer questions</h2>
+          <button id="example" type="button" class="text-button">Load an example</button>
+        </div>
+        <label for="prompts">One question per line</label>
+        <textarea id="prompts" name="prompts" rows="8" maxlength="20000" required spellcheck="true" placeholder="Which accounting tools work well for small retailers?" aria-describedby="prompt-help"></textarea>
+        <p id="prompt-help" class="helper">Use up to 50 distinct questions. Leave your brand out of open-ended recommendations.</p>
+        <p class="count" id="count" aria-live="polite">0 questions · 0 rows</p>
+      </section>
+      <section class="panel setup">
+        <h2>Matching setup</h2>
+        <div class="fields">
+          <label>First date<input name="firstDate" type="date" required></label>
+          <label>Repeat date<input name="repeatDate" type="date" required></label>
+          <label class="wide">Brand to check<input name="brand" maxlength="100" required placeholder="Juniper Desk"></label>
+          <label>AI engine<input name="engine" maxlength="100" required placeholder="ChatGPT"></label>
+          <label>Model<input name="model" maxlength="100" required placeholder="Model name as shown"></label>
+          <label>Search setting<select name="mode"><option value="web">Web search on</option><option value="off">Web search off</option></select></label>
+          <label>Country<input name="country" maxlength="100" required placeholder="US"></label>
+          <label>Language<input name="language" maxlength="100" required placeholder="en"></label>
+          <label>Location <small>(optional)</small><input name="location" maxlength="100" placeholder="Austin"></label>
+        </div>
+        <button class="download" type="submit" disabled>Download the audit CSV</button>
+        <p class="helper">Your entries stay in your browser.</p>
+        <noscript><p class="helper">Enable JavaScript to build and download the CSV.</p></noscript>
+        <p id="feedback" class="feedback" role="status"></p>
+      </section>
+    </form>
+    <section class="instructions">
+      <h2>After you download</h2>
+      <ol>
+        <li>Run each question in a fresh conversation on both dates. Record the actual model and settings shown.</li>
+        <li>Save each answer and its sources. Fill the two blank result fields with <code>yes</code> or <code>no</code> for the brand mention and official link. Leave failed runs out of completed comparisons.</li>
+        <li>Use the <a href="https://github.com/PodPitch/visibilityos-audit-template">VisibilityOS comparison template</a> to tally changes after both rounds are complete.</li>
+      </ol>
+    </section>
+  </main>
+  <footer class="wrap">Published by <a href="https://visibilityos.co/">VisibilityOS by PodPitch</a>.</footer>
+</body>
+</html>
