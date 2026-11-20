@@ -10,6 +10,8 @@ Use the [AI Citation Evidence Checker](https://visibilityos-citation-audit.verce
 
 Use the [AI Brand Match Audit](https://visibilityos-brand-match-audit.web.app/) to check whether a name in an AI answer refers to your company or a similarly named business.
 
+Use the [AI Citation Source Mix Calculator](https://visibilityos-source-mix.netlify.app/) to see how citations split by source type. If a mention or link disappears, follow the [AI Search Drop Checklist](https://visibilityos-drop-checklist.prhero-neal.workers.dev/) to work out what changed.
+
 ## Run your audit
 
 1. Copy `example.csv` and replace the fictional examples with questions your sales team hears. Include a shortlist question, a use-case question, a geographic question if location matters, a comparison question, and a buying-criteria question. Leave your company name out of open-ended recommendation prompts.
