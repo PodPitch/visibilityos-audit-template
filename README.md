@@ -16,6 +16,8 @@ Use the [AI Brand Match Audit](https://visibilityos-brand-match-audit.web.app/) 
 
 Use the [AI Citation Source Mix Calculator](https://visibilityos-source-mix.netlify.app/) to see how citations split by source type. If a mention or link disappears, follow the [AI Search Drop Checklist](https://visibilityos-drop-checklist.prhero-neal.workers.dev/) to work out what changed.
 
+Use the [VisibilityOS AI Search Control Group Calculator](https://visibilityos-control-group.vercel.app/) to compare a before-and-after change in brand mentions against a separate set of prompts.
+
 ## Run your audit
 
 1. Copy `example.csv` and replace the fictional examples with questions your sales team hears. Include a shortlist question, a use-case question, a geographic question if location matters, a comparison question, and a buying-criteria question. Leave your company name out of open-ended recommendation prompts.
