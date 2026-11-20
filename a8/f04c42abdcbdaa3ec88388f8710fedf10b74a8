@@ -1,0 +1,23 @@
+audit-assistant/skills/visibilityos-audit/references/example.md
+  s_ae0062e82a1582::t_ef7e8263dd05bf 1-18
+audit-assistant/skills/visibilityos-audit/SKILL.md
+  s_ae0062e82a1582::t_ef7e8263dd05bf 1-29
+audit-assistant/plugin.json
+  s_ae0062e82a1582::t_ef7e8263dd05bf 1-33
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "a8f04c42abdcbdaa3ec88388f8710fedf10b74a8",
+  "prompts": {},
+  "sessions": {
+    "s_ae0062e82a1582": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a1f526-ced7-7172-9d12-9e737f344570",
+        "model": "gpt-6.2-sol"
+      },
+      "human_author": "nealshulman <neal@podpitch.com>"
+    }
+  }
+}
