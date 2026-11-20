@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Prompt Drift Checker | VisibilityOS by PodPitch</title>
+<meta name="description" content="Check whether a buyer question changed between two AI search audits. See the first changed span before comparing brand mentions or citations.">
+<link rel="canonical" href="https://visibilityos-prompt-drift.tiiny.site/">
+<style>
+:root { color-scheme: light; --paper: #f6f4ee; --ink: #192b2d; --muted: #4e605e; --line: #c5d0ca; --mint: #def3e4; --dark: #214f39; }
+* { box-sizing: border-box; }
+body { margin: 0; font: 1rem/1.55 system-ui, sans-serif; background: var(--paper); color: var(--ink); }
+.wrap { width: min(100% - 2.2rem, 63rem); margin-inline: auto; }
+h1, h2, p { margin: 0; }
+a { color: #23543c; text-underline-offset: 0.2em; }
+a:hover { text-decoration-thickness: 2px; }
+header { border-bottom: 1px solid var(--line); background: #fffefa; }
+.nav { min-height: 3.4rem; display: flex; align-items: center; justify-content: space-between; gap: 0.65rem 1rem; padding-block: 0.6rem; }
+.brand { text-decoration: none; font-weight: 800; }
+.brand span { color: var(--muted); font-size: 0.85rem; font-weight: 560; margin-left: 0.25rem; }
+.nav a:last-child { font-size: 0.86rem; }
+.intro { padding-block: clamp(1.7rem, 5vw, 3.6rem) 1.4rem; }
+h1 { font-size: clamp(2rem, 5.4vw, 4.3rem); line-height: 1.03; letter-spacing: -0.063em; }
+.intro p { color: var(--muted); max-width: 42rem; margin-top: 0.85rem; }
+form, .result { border: 1px solid var(--line); border-radius: 0.85rem; background: #fffefa; padding: clamp(1rem, 3vw, 1.65rem); }
+.input-grid, .diff-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+label, .span-label { display: block; font-weight: 760; margin-bottom: 0.38rem; }
+textarea { width: 100%; display: block; min-height: 7.4rem; resize: vertical; padding: 0.68rem 0.72rem; border: 1px solid #869c91; border-radius: 0.55rem; font: inherit; color: inherit; background: #fbfcf9; }
+textarea::placeholder { color: #62706b; }
+:focus-visible { outline: 3px solid #2b7752; outline-offset: 3px; }
+.actions { display: flex; align-items: center; flex-wrap: wrap; gap: 0.65rem; margin-top: 0.95rem; }
+button { min-height: 2.75rem; padding: 0.53rem 0.85rem; border: 1px solid #7e9a8a; border-radius: 0.48rem; font: inherit; font-weight: 730; cursor: pointer; color: var(--dark); background: #fffefa; }
+button:hover { background: var(--mint); }
+.primary { color: white; background: var(--dark); border-color: var(--dark); }
+.primary:hover { background: #143d2a; }
+.note { margin-top: 0.6rem; color: var(--muted); font-size: 0.88rem; }
+.error { margin-top: 0.6rem; color: #8c2440; font-weight: 690; }
+.result { margin-top: 0.85rem; background: #f1f8ef; }
+.result h2 { font-size: clamp(1.35rem, 3vw, 1.8rem); letter-spacing: -0.025em; }
+.result p { color: var(--muted); }
+.diff-grid { margin-top: 0.9rem; }
+.diff-grid > div { padding: 0.65rem 0.8rem; border-left: 4px solid #b46050; background: #f9eee9; border-radius: 0.26rem; }
+.diff-grid > div:last-child { border-color: #4d865c; background: #e2f2e4; }
+.diff-grid p { white-space: pre-wrap; overflow-wrap: anywhere; color: var(--ink); }
+.method { padding-block: 1.7rem; }
+.method h2 { margin-bottom: 0.45rem; font-size: 1.33rem; }
+.method p { color: var(--muted); max-width: 49rem; }
+.method p + p { margin-top: 0.6rem; }
+footer { border-top: 1px solid var(--line); padding-block: 0.95rem 2.4rem; display: flex; flex-wrap: wrap; gap: 0.5rem 1.3rem; font-size: 0.88rem; }
+[hidden] { display: none !important; }
+@media (max-width: 650px) {
+  .wrap { width: calc(100% - 1.5rem); }
+  .input-grid, .diff-grid { grid-template-columns: minmax(0, 1fr); gap: 0.75rem; }
+  textarea { min-height: 5.25rem; height: 5.25rem; }
+}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <a class="brand" href="https://visibilityos.co/">VisibilityOS <span>by PodPitch</span></a>
+  <a href="https://visibilityos.co/research/ai-answer-visibility">Read the study</a>
+</div></header>
+<main class="wrap">
+  <section class="intro" aria-labelledby="title">
+    <h1 id="title">AI Prompt Drift Checker</h1>
+    <p>Check that two AI search audits asked the same buying question before comparing which brands or sources appeared.</p>
+  </section>
+  <form id="prompt-form">
+    <div class="input-grid">
+      <div><label for="first">First prompt</label><textarea id="first" maxlength="8000" rows="4" placeholder="Paste the question from your first run"></textarea></div>
+      <div><label for="second">Second prompt</label><textarea id="second" maxlength="8000" rows="4" placeholder="Paste the question from your second run"></textarea></div>
+    </div>
+    <div class="actions">
+      <button class="primary" type="submit">Compare prompts</button>
+      <button id="example" type="button">Load fictional example</button>
+    </div>
+    <p class="note">Your prompts stay in this browser.</p>
+    <p class="error" id="error" role="alert" hidden>Add a prompt in both boxes.</p>
+  </form>
+  <section class="result" id="result" aria-labelledby="result-title" hidden>
+    <h2 id="result-title"></h2>
+    <p id="result-detail"></p>
+    <div class="diff-grid" id="difference" hidden>
+      <div><span class="span-label">First prompt’s changed span</span><p id="first-span"></p></div>
+      <div><span class="span-label">Second prompt’s changed span</span><p id="second-span"></p></div>
+    </div>
+  </section>
+  <section class="method" aria-labelledby="method-title">
+    <h2 id="method-title">What to do with the result</h2>
+    <p>Use the saved original question when you want to measure changes in answers over time. Even a small edit, like changing “for US nonprofits” to “for nonprofits,” can change which brands fit.</p>
+    <p>This check separates exact matches, spacing changes, and other edits. Keep the AI assistant, model, search settings, language, and location consistent as well.</p>
+  </section>
+</main>
+<footer class="wrap">
+  <a href="https://visibilityos.co/">VisibilityOS by PodPitch</a>
+  <a href="https://visibilityos.co/research/ai-answer-visibility">Study and measurement method</a>
+  <a href="https://podpitch.github.io/visibilityos-audit-template/">AI answer audit template</a>
+</footer>
+<script>
+const form = document.querySelector('#prompt-form');
+const first = document.querySelector('#first');
+const second = document.querySelector('#second');
+const result = document.querySelector('#result');
+const error = document.querySelector('#error');
+const difference = document.querySelector('#difference');
+const title = document.querySelector('#result-title');
+const detail = document.querySelector('#result-detail');
+
+function comparePrompts(left, right) {
+  const normalizedLeft = left.trim().replace(/\s+/gu, ' ');
+  const normalizedRight = right.trim().replace(/\s+/gu, ' ');
+
+  if (!normalizedLeft || !normalizedRight) return { kind: 'empty' };
+  if (left === right) return { kind: 'exact' };
+  if (normalizedLeft === normalizedRight) return { kind: 'spacing' };
+
+  const before = normalizedLeft.split(' ');
+  const after = normalizedRight.split(' ');
+  const shorterLength = Math.min(before.length, after.length);
+  let prefix = 0;
+  let suffix = 0;
+
+  while (prefix < shorterLength && before[prefix] === after[prefix]) prefix++;
+  while (suffix < shorterLength - prefix && before.at(-1 - suffix) === after.at(-1 - suffix)) suffix++;
+
+  return {
+    kind: 'changed',
+    before: before.slice(prefix, before.length - suffix).join(' '),
+    after: after.slice(prefix, after.length - suffix).join(' '),
+  };
+}
+
+function showComparison() {
+  const report = comparePrompts(first.value, second.value);
+  if (report.kind === 'empty') {
+    result.hidden = true;
+    error.hidden = false;
+    (first.value.trim() ? second : first).focus();
+    return;
+  }
+
+  error.hidden = true;
+  const messages = {
+    exact: ['Exact match', 'These two saved prompts use identical text. Check the other audit settings before comparing answers.'],
+    spacing: ['Spacing changed', 'The words, case, and punctuation match after removing extra spaces and line breaks. Reuse the original saved prompt for a strict repeat.'],
+    changed: ['Prompt changed', 'The spans below show the text between the matching start and end. Reuse the original prompt for a matched comparison.'],
+  };
+  [title.textContent, detail.textContent] = messages[report.kind];
+  difference.hidden = report.kind !== 'changed';
+  if (report.kind === 'changed') {
+    document.querySelector('#first-span').textContent = report.before || 'No text in this span';
+    document.querySelector('#second-span').textContent = report.after || 'No text in this span';
+  }
+  result.hidden = false;
+  title.setAttribute('tabindex', '-1');
+  title.focus();
+}
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  showComparison();
+});
+form.addEventListener('input', () => {
+  error.hidden = true;
+  result.hidden = true;
+});
+document.querySelector('#example').addEventListener('click', () => {
+  first.value = 'Which project management tools are best for US nonprofits?';
+  second.value = 'Which project management tools are best for nonprofits?';
+  showComparison();
+});
+</script>
+</body>
+</html>

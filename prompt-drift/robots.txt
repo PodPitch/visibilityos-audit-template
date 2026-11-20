@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://visibilityos-prompt-drift.tiiny.site/sitemap.xml
