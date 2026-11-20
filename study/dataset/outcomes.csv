@@ -1,0 +1,5 @@
+measure,count,comparisons
+presence_gained,45,817
+presence_lost,37,817
+presence_unchanged,735,817
+link_status_changed,79,817

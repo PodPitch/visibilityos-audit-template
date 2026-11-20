@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VisibilityOS Dataset | Matched AI Answer Comparisons</title>
+  <meta name="description" content="Download the public aggregate data for 817 matched AI answer comparisons across eight engine views, with counts and definitions from the VisibilityOS study.">
+  <link rel="canonical" href="https://podpitch.github.io/visibilityos-audit-template/study/dataset/">
+  <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "@id": "https://podpitch.github.io/visibilityos-audit-template/study/dataset/#dataset",
+    "name": "VisibilityOS Matched AI Answer Comparisons",
+    "description": "Public aggregate dataset for 817 matched AI answer comparisons from eight engine views. Includes per-view comparison counts and brand-presence changes, plus pooled counts for presence gains, losses and link-status changes.",
+    "url": "https://podpitch.github.io/visibilityos-audit-template/study/dataset/",
+    "creator": {
+      "@type": "Organization",
+      "name": "PodPitch, Inc.",
+      "url": "https://podpitch.com/"
+    },
+    "citation": {
+      "@type": "CreativeWork",
+      "name": "How often does AI visibility change for the same question?",
+      "url": "https://visibilityos.co/research/ai-answer-visibility"
+    },
+    "temporalCoverage": "2026-10-19/2026-11-17",
+    "datePublished": "2026-11-19",
+    "version": "1.0",
+    "isAccessibleForFree": true,
+    "keywords": ["VisibilityOS", "AI search", "brand mentions", "matched comparisons", "brand presence"],
+    "distribution": [
+      {
+        "@type": "DataDownload",
+        "name": "Counts by engine view",
+        "encodingFormat": "text/csv",
+        "contentUrl": "https://podpitch.github.io/visibilityos-audit-template/study/dataset/engine-views.csv"
+      },
+      {
+        "@type": "DataDownload",
+        "name": "Pooled comparison outcomes",
+        "encodingFormat": "text/csv",
+        "contentUrl": "https://podpitch.github.io/visibilityos-audit-template/study/dataset/outcomes.csv"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <main>
+    <header>
+      <a class="brand" href="https://visibilityos.co/">VisibilityOS by PodPitch</a>
+      <h1>Matched AI answer comparisons</h1>
+      <p>The public aggregate data from the VisibilityOS study covers 817 matched comparisons, 36 questions, and eight engine views from October 19 to November 17, 2026 in UTC.</p>
+    </header>
+
+    <section aria-labelledby="downloads">
+      <h2 id="downloads">Download the counts</h2>
+      <div class="downloads">
+        <article>
+          <h3>Counts by engine view</h3>
+          <p>Eight rows with the number of comparisons and brand-presence changes in each engine view.</p>
+          <a href="engine-views.csv" download>Download engine-view CSV</a>
+        </article>
+        <article>
+          <h3>Pooled comparison outcomes</h3>
+          <p>Counts for gaining, losing, or keeping the same presence status, and a separate count for link changes.</p>
+          <a href="outcomes.csv" download>Download outcome CSV</a>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="definitions">
+      <h2 id="definitions">Field definitions</h2>
+      <dl>
+        <div><dt><code>engine_view</code></dt><dd>The engine and mode in the published comparison table.</dd></div>
+        <div><dt><code>comparisons</code></dt><dd>The number of matched pairs for the engine view or pooled measure.</dd></div>
+        <div><dt><code>presence_changes</code></dt><dd>Pairs where the tracked brand was present on one date and absent on the other. A mention or link counts as presence.</dd></div>
+        <div><dt><code>measure</code> and <code>count</code></dt><dd>The pooled outcome and its count. The gains, losses, and unchanged counts add to 817. The link-status measure can overlap any of those outcomes.</dd></div>
+      </dl>
+    </section>
+
+    <section aria-labelledby="provenance">
+      <h2 id="provenance">How the data was collected</h2>
+      <p>VisibilityOS matched observations with the same question, brand configuration, engine view, recorded model, measurement mode, country, language, and location. It kept the last eligible observation for each UTC date and paired consecutive eligible dates.</p>
+      <p>The files contain study totals only. The sample uses monitored questions about PodPitch-owned websites. Questions and observations can contribute to more than one pair, and coverage varies by engine view.</p>
+      <p><a href="https://visibilityos.co/research/ai-answer-visibility">Read the source study and methodology</a> · <a href="../">Open the study explorer</a></p>
+    </section>
+  </main>
+</body>
+</html>
