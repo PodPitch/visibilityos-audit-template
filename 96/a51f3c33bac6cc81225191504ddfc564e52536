@@ -1,0 +1,23 @@
+recommendation-coverage/index.html
+  s_ae0062e82a1582::t_8688a2e40f3dde 7
+recommendation-coverage/robots.txt
+  s_ae0062e82a1582::t_2dfd1afd131cd2 3
+recommendation-coverage/sitemap.xml
+  s_ae0062e82a1582::t_d0ebb35e679691 3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "96a51f3c33bac6cc81225191504ddfc564e52536",
+  "prompts": {},
+  "sessions": {
+    "s_ae0062e82a1582": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a1f526-ced7-7172-9d12-9e737f344570",
+        "model": "gpt-6.2-sol"
+      },
+      "human_author": "nealshulman <neal@podpitch.com>"
+    }
+  }
+}
