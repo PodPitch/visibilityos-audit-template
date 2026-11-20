@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore how 82 brand-presence changes and 79 link-status changes could overlap across the same 817 VisibilityOS study comparisons.">
+  <link rel="canonical" href="https://visibilityos-study-overlap.netlify.app/">
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./app.js"></script>
+  <title>AI Answer Change Overlap Explorer | VisibilityOS by PodPitch</title>
+</head>
+<body>
+  <main>
+    <a class="brand" href="https://visibilityos.co/">VisibilityOS <span>by PodPitch</span></a>
+    <header>
+      <h1>How much could<br class="wide-break"> AI answer changes overlap?</h1>
+      <p>Across 817 matched comparisons, brand presence changed 82 times and official-link status changed 79 times. How many comparisons could have changed on both measures?</p>
+    </header>
+    <div class="workspace">
+      <section class="scenario" aria-labelledby="scenario-title">
+        <h2 id="scenario-title">Explore a possible overlap</h2>
+        <p>The published totals allow anywhere from <strong>0 to 79</strong> comparisons that changed on both measures. Use the slider to see what each overlap would mean.</p>
+        <div class="range-readout">
+          <label for="overlap">Both measures changed</label>
+          <output id="overlap-value" for="overlap">0</output>
+        </div>
+        <input id="overlap" type="range" min="0" max="79" value="0" step="1">
+        <div class="range-scale" aria-hidden="true"><span>0</span><span>79</span></div>
+        <div class="actions">
+          <button type="button" id="min-overlap">Smallest overlap</button>
+          <button type="button" id="max-overlap">Largest overlap</button>
+        </div>
+      </section>
+      <section class="results" aria-labelledby="results-title">
+        <h2 id="results-title">Out of 817 comparisons</h2>
+        <div class="strip" aria-hidden="true">
+          <i data-count="brandOnly" class="brand-only" style="--count:82"></i>
+          <i data-count="both" class="both" style="--count:0"></i>
+          <i data-count="linkOnly" class="link-only" style="--count:79"></i>
+          <i data-count="neither" class="neither" style="--count:656"></i>
+        </div>
+        <dl id="outcomes" aria-live="polite">
+          <div><dt><b class="brand-only"></b> Brand presence only</dt><dd id="brandOnly">82</dd></div>
+          <div><dt><b class="both"></b> Both measures</dt><dd id="both">0</dd></div>
+          <div><dt><b class="link-only"></b> Link status only</dt><dd id="linkOnly">79</dd></div>
+          <div><dt><b class="neither"></b> Neither measure</dt><dd id="neither">656</dd></div>
+        </dl>
+        <p class="total">Changed on at least one measure <strong id="either" aria-live="polite">161</strong></p>
+      </section>
+    </div>
+    <section class="method" aria-labelledby="method-title">
+      <h2 id="method-title">Reading the range</h2>
+      <p>When the same comparison changes on both measures, it counts once in the combined total. Subtract the overlap from 82 + 79. That puts the combined total between 82 and 161 comparisons.</p>
+      <p>The files report the totals for each measure. Finding the actual overlap would require both labels for each matched comparison.</p>
+      <p><a href="https://visibilityos.co/research/ai-answer-visibility">Read the VisibilityOS study</a> <span aria-hidden="true">·</span> <a href="https://podpitch.github.io/visibilityos-audit-template/study/dataset/">Download the aggregate data</a></p>
+    </section>
+  </main>
+</body>
+</html>

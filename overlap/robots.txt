@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://visibilityos-study-overlap.netlify.app/sitemap.xml
