@@ -21,6 +21,6 @@ Use the [AI Citation Source Mix Calculator](https://visibilityos-source-mix.netl
 
 Try it with `python3 compare.py example.csv`. The fictional example produces five matched comparisons, two presence changes, and two link changes.
 
-Presence means either a mention or a link. A gain or loss is a prompt for review. Open the two answers and cited pages to see whether the product disappeared, the sources changed, or the answer confused it with another brand. Treat these counts as observations from your selected prompts and dates.
+Presence means either a mention or a link. A gain or loss is a prompt for review. Open the two answers and cited pages to see whether the product disappeared, the sources changed, or the answer confused it with another brand. Treat these counts as observations from your selected prompts and dates. See the [AI Search Metrics Glossary](https://visibilityos-metrics-glossary.vercel.app/) for definitions and a worked example.
 
 Published by [VisibilityOS by PodPitch](https://visibilityos.co/). See the [published study and measurement method](https://visibilityos.co/research/ai-answer-visibility) for an example using real monitoring data.
