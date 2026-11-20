@@ -18,6 +18,8 @@ Use the [AI Citation Source Mix Calculator](https://visibilityos-source-mix.netl
 
 Use the [VisibilityOS AI Search Control Group Calculator](https://visibilityos-control-group.vercel.app/) to compare a before-and-after change in brand mentions against a separate set of prompts.
 
+The [VisibilityOS Audit Assistant](https://github.com/PodPitch/visibilityos-audit-template/releases/tag/visibilityos-audit-assistant-v1.0.0) packages the audit steps for compatible assistants and includes a fictional answer review.
+
 ## Run your audit
 
 1. Copy `example.csv` and replace the fictional examples with questions your sales team hears. Include a shortlist question, a use-case question, a geographic question if location matters, a comparison question, and a buying-criteria question. Leave your company name out of open-ended recommendation prompts.
