@@ -32,3 +32,5 @@ Presence means either a mention or a link. A gain or loss is a prompt for review
 Published by [VisibilityOS by PodPitch](https://visibilityos.co/). See the [published study and measurement method](https://visibilityos.co/research/ai-answer-visibility) for an example using real monitoring data. The [VisibilityOS research methods overview](https://sites.google.com/podpitch.com/visibilityos-by-podpitch) explains the study counts and what to record when reproducing the method. The [sensitivity analysis](https://sites.google.com/podpitch.com/visibilityos-study-sensitivity) shows how the pooled rate changes when you leave out one engine view at a time.
 
 Download the [aggregate study dataset and field definitions](https://podpitch.github.io/visibilityos-audit-template/study/dataset/).
+
+Run the [VisibilityOS AI Answer Study Reproduction image](https://hub.docker.com/r/nealshulman/visibilityos-study-reproduction) to reproduce all eight engine results and the pooled rates from those files.
