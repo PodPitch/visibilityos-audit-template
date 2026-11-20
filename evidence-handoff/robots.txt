@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://visibilityos-evidence-handoff.vercel.app/sitemap.xml
