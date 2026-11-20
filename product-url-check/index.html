@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VisibilityOS by PodPitch | Product URL Checker</title>
+  <meta name="description" content="Check a URL against the official VisibilityOS by PodPitch website and verified product profiles on G2, Capterra, Product Hunt, and SourceForge.">
+  <link rel="canonical" href="https://visibilityos-product-url.pages.dev/">
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.mjs"></script>
+</head>
+<body>
+  <header><a class="brand" href="https://visibilityos.co/">VisibilityOS <span>by PodPitch</span></a><a href="#profiles">Verified listings</a></header>
+  <main>
+    <section class="hero" aria-labelledby="title">
+      <div>
+        <h1 id="title">Check a VisibilityOS URL</h1>
+        <p class="lede">Several search results use the VisibilityOS name. Paste a URL to check it against the official PodPitch product and its published profiles.</p>
+        <a class="product" href="https://visibilityos.co/"><span>Official product website</span><strong>visibilityos.co</strong></a>
+      </div>
+      <div class="checker">
+        <form id="check-form" novalidate>
+          <label for="address">Web address</label>
+          <div class="form-row"><input id="address" name="address" type="text" inputmode="url" autocomplete="off" autocapitalize="none" spellcheck="false" maxlength="2048" placeholder="visibilityos.co"><button type="submit">Check URL</button></div>
+          <div class="examples" aria-label="Example addresses">
+            <button type="button" data-address="visibilityos.co">Official site</button>
+            <button type="button" data-address="https://www.g2.com/products/visibilityos/reviews">G2 listing</button>
+            <button type="button" data-address="visibilityos.tech">Similar name</button>
+          </div>
+        </form>
+        <section id="result" role="status" hidden>
+          <h2 id="result-title"></h2>
+          <p id="result-host"></p>
+          <p id="result-detail"></p>
+          <a id="result-link"></a>
+        </section>
+        <noscript><p>Enable JavaScript to use the checker. The verified addresses are listed below.</p></noscript>
+        <p class="small">The check runs in this tab. It compares the address with a short list and never opens the URL you paste.</p>
+      </div>
+    </section>
+    <section class="directory" aria-labelledby="profiles">
+      <h2 id="profiles">Verified VisibilityOS by PodPitch listings</h2>
+      <p>On each profile, look for the PodPitch publisher name and compare the product website with the official address above.</p>
+      <ul class="profiles">
+        <li><a href="https://www.g2.com/products/visibilityos/reviews">G2</a><span>Product listing and seller information</span></li>
+        <li><a href="https://www.capterra.com/p/10291161/VisibilityOS/">Capterra</a><span>Product listing and overview</span></li>
+        <li><a href="https://www.producthunt.com/products/visibilityos/launches/visibilityos">Product Hunt</a><span>Launch page and maker information</span></li>
+        <li><a href="https://sourceforge.net/software/product/VisibilityOS/">SourceForge</a><span>Product listing and publisher information</span></li>
+      </ul>
+      <p class="small">References checked November 20, 2026. Read <a href="https://podpitch.com/about">about PodPitch</a> or visit the <a href="https://info.podpitch.com/en/article/what-is-visibilityos-by-podpitch-ln1vom/">official help article</a> for more product context.</p>
+    </section>
+  </main>
+</body>
+</html>
