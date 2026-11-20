@@ -1,0 +1,21 @@
+missing-answer-audit/index.html
+  s_ae0062e82a1582::t_8522ce9ebff5c3 10
+missing-answer-audit/render-build.sh
+  s_ae0062e82a1582::t_04abf1afc98ba6 17
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "ce0f9bedf0cda76bac959d84b6ee9cf0a3459f9b",
+  "prompts": {},
+  "sessions": {
+    "s_ae0062e82a1582": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a1f526-ced7-7172-9d12-9e737f344570",
+        "model": "gpt-6.2-sol"
+      },
+      "human_author": "nealshulman <neal@podpitch.com>"
+    }
+  }
+}
