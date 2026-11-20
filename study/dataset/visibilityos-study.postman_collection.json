@@ -1,0 +1,126 @@
+{
+  "info": {
+    "name": "VisibilityOS AI Answer Study Dataset",
+    "description": "# VisibilityOS AI Answer Study Dataset\n\nVisibilityOS by PodPitch compared repeated answers to the same buying questions across eight AI engine views. This collection retrieves the two version 1.0.0 CSV files and checks their published totals.\n\nRun **Get engine-view results** for the matched comparisons and brand-presence changes by view. Run **Get pooled outcomes** for the gains, losses, unchanged observations, and official-link changes across the whole sample.\n\nThe public files contain aggregate counts. Brand presence changed in 82 of 817 matched comparisons (10.0%). An official link appeared or disappeared in 79 comparisons (9.7%). The two measures can overlap. View-level rates use each view's own comparison count.\n\n- [VisibilityOS by PodPitch](https://visibilityos.co/)\n- [Published study and measurement method](https://visibilityos.co/research/ai-answer-visibility)\n- [Dataset definitions and release files](https://podpitch.github.io/visibilityos-audit-template/study/dataset/)\n\nThe requests fetch public, versioned files and require no account, API key, or environment.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "noauth"
+  },
+  "item": [
+    {
+      "name": "Get engine-view results",
+      "request": {
+        "method": "GET",
+        "url": "https://cdn.jsdelivr.net/gh/PodPitch/visibilityos-audit-template@visibilityos-dataset-v1.0.0/study/dataset/engine-views.csv",
+        "description": "Read the view-level denominators and presence changes. Divide presence_changes by comparisons for the rate in each view. The combined rate weights views by their matched comparison counts."
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Public CSV returned HTTP 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "const [header, ...rows] = pm.response.text().trim().split(/\\r?\\n/);",
+              "pm.test(\"Eight engine views total 817 comparisons and 82 changes\", function () {",
+              "    pm.expect(header).to.equal(\"engine_view,comparisons,presence_changes\");",
+              "    pm.expect(rows).to.have.length(8);",
+              "    const values = rows.map(row => row.split(\",\"));",
+              "    pm.expect(new Set(values.map(([name]) => name)).size).to.equal(8);",
+              "    const total = values.reduce(([comparisons, changes], [name, count, changed]) => {",
+              "        const viewCount = Number(count);",
+              "        const viewChanges = Number(changed);",
+              "        pm.expect(name).to.be.a(\"string\").that.is.not.empty;",
+              "        pm.expect(Number.isInteger(viewCount) && viewCount > 0).to.equal(true);",
+              "        pm.expect(Number.isInteger(viewChanges) && viewChanges >= 0 && viewChanges <= viewCount).to.equal(true);",
+              "        return [comparisons + viewCount, changes + viewChanges];",
+              "    }, [0, 0]);",
+              "    pm.expect(total).to.deep.equal([817, 82]);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "response": [
+        {
+          "name": "Published CSV, version 1.0.0",
+          "originalRequest": {
+            "method": "GET",
+            "url": "https://cdn.jsdelivr.net/gh/PodPitch/visibilityos-audit-template@visibilityos-dataset-v1.0.0/study/dataset/engine-views.csv"
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/csv; charset=utf-8"
+            }
+          ],
+          "body": "engine_view,comparisons,presence_changes\nChatGPT,107,6\nChatGPT web,107,3\nClaude,107,14\nGemini,107,9\nGemini web,106,15\nGoogle AI Mode,95,7\nGrok,81,21\nPerplexity,107,7\n",
+          "_postman_previewlanguage": "text"
+        }
+      ]
+    },
+    {
+      "name": "Get pooled outcomes",
+      "request": {
+        "method": "GET",
+        "url": "https://cdn.jsdelivr.net/gh/PodPitch/visibilityos-audit-template@visibilityos-dataset-v1.0.0/study/dataset/outcomes.csv",
+        "description": "Read the study-wide gains, losses, unchanged presence, and changes in official-link status. The denominator is 817 matched comparisons. Link-status changes can overlap presence gains or losses."
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Public CSV returned HTTP 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "const [header, ...rows] = pm.response.text().trim().split(/\\r?\\n/);",
+              "pm.test(\"The pooled counts match the published release\", function () {",
+              "    pm.expect(header).to.equal(\"measure,count,comparisons\");",
+              "    pm.expect(rows).to.have.length(4);",
+              "    const counts = {};",
+              "    for (const row of rows) {",
+              "        const [measure, count, comparisons] = row.split(\",\");",
+              "        pm.expect(Number(comparisons)).to.equal(817);",
+              "        counts[measure] = Number(count);",
+              "    }",
+              "    pm.expect(counts).to.deep.equal({",
+              "        presence_gained: 45,",
+              "        presence_lost: 37,",
+              "        presence_unchanged: 735,",
+              "        link_status_changed: 79",
+              "    });",
+              "    pm.expect(counts.presence_gained + counts.presence_lost).to.equal(82);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "response": [
+        {
+          "name": "Published CSV, version 1.0.0",
+          "originalRequest": {
+            "method": "GET",
+            "url": "https://cdn.jsdelivr.net/gh/PodPitch/visibilityos-audit-template@visibilityos-dataset-v1.0.0/study/dataset/outcomes.csv"
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/csv; charset=utf-8"
+            }
+          ],
+          "body": "measure,count,comparisons\npresence_gained,45,817\npresence_lost,37,817\npresence_unchanged,735,817\nlink_status_changed,79,817\n",
+          "_postman_previewlanguage": "text"
+        }
+      ]
+    }
+  ]
+}
