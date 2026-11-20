@@ -42,7 +42,8 @@ nav a { display: flex; align-items: center; width: fit-content; min-height: 44px
 .log { border-top: 1px solid var(--line); padding-block-start: 24px; }
 .log-header { display: flex; align-items: center; flex-wrap: wrap; justify-content: space-between; gap: 10px; }
 ol { padding: 0; margin: 14px 0 0; list-style: none; }
-li { display: grid; grid-template-columns: minmax(0, 1fr) max-content; align-items: start; gap: 8px 14px; padding: 12px 0; border-top: 1px solid var(--line); }
+li { display: grid; gap: 9px; padding: 12px 0; border-top: 1px solid var(--line); }
+li button { justify-self: start; }
 li p { margin-block: 5px 0; overflow-wrap: anywhere; }
 li h3 { overflow-wrap: anywhere; }
 @media (max-width: 780px) {
@@ -51,6 +52,4 @@ li h3 { overflow-wrap: anywhere; }
 }
 @media (max-width: 370px) {
   .field-grid { grid-template-columns: 1fr; }
-  li { grid-template-columns: 1fr; }
-  li button { justify-self: start; }
 }
