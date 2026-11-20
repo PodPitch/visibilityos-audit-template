@@ -1,0 +1,19 @@
+README.md
+  s_ae0062e82a1582::t_6af12b0439af7d 28-29
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "099e38cdec5e051ad7d3ed895278ad5bd54dc22d",
+  "prompts": {},
+  "sessions": {
+    "s_ae0062e82a1582": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a1f526-ced7-7172-9d12-9e737f344570",
+        "model": "gpt-6.2-sol"
+      },
+      "human_author": "nealshulman <neal@podpitch.com>"
+    }
+  }
+}
