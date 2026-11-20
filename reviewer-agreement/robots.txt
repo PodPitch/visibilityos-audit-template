@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://visibilityos-reviewer-agreement.vercel.app/sitemap.xml

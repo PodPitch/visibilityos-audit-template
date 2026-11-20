@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Reviewer Agreement Calculator | VisibilityOS by PodPitch</title>
+  <meta name="description" content="Compare two reviewers’ AI brand-mention labels. See raw agreement, expected agreement based on label frequency, and Cohen’s kappa.">
+  <link rel="canonical" href="https://visibilityos-reviewer-agreement.vercel.app/">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="agreement.js"></script>
+</head>
+<body>
+<main>
+  <header>
+    <a class="publisher" href="https://visibilityos.co/">VisibilityOS by PodPitch</a>
+    <h1>AI reviewer agreement calculator</h1>
+    <p class="deck">Two teams can both agree 75% of the time and still have very different patterns of agreement. Count how each reviewer labeled the same answers to see the difference.</p>
+  </header>
+
+  <div class="worksheet">
+    <section aria-labelledby="count-heading">
+      <h2 id="count-heading">Enter jointly reviewed answers</h2>
+      <p>Use answers both reviewers could read. A named brand must be the company you are checking.</p>
+      <form id="review-counts">
+        <table>
+          <caption>Reviewer A by row and reviewer B by column</caption>
+          <thead><tr><th scope="col">A ↓ / B →</th><th scope="col">Named</th><th scope="col">Absent</th></tr></thead>
+          <tbody>
+            <tr>
+              <th scope="row">Named</th>
+              <td><input aria-label="A named, B named" value="4" inputmode="numeric"></td>
+              <td><input aria-label="A named, B absent" value="1" inputmode="numeric"></td>
+            </tr>
+            <tr>
+              <th scope="row">Absent</th>
+              <td><input aria-label="A absent, B named" value="2" inputmode="numeric"></td>
+              <td><input aria-label="A absent, B absent" value="5" inputmode="numeric"></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="examples">
+          <button type="button" data-counts="4,1,2,5">Load mixed labels</button>
+          <button type="button" data-counts="0,1,2,9">Load rare mentions</button>
+        </div>
+      </form>
+      <p class="fine">Both examples are fictional. Your counts stay in this browser tab.</p>
+    </section>
+
+    <section class="readout" aria-labelledby="result-heading">
+      <h2 id="result-heading">How often the reviewers agreed</h2>
+      <div aria-live="polite">
+        <div id="results">
+          <p id="observed" class="featured">75%</p>
+          <p class="descriptor">Raw agreement across <span id="total">12</span> answers</p>
+          <dl>
+            <div><dt>Expected agreement from label rates</dt><dd id="expected">50%</dd></div>
+            <div><dt>Cohen’s kappa</dt><dd id="kappa">+0.500</dd></div>
+          </dl>
+          <p id="result-note" class="fine">Kappa compares the raw agreement with the agreement expected from how often each reviewer uses each label.</p>
+        </div>
+        <p id="status" class="status" hidden></p>
+      </div>
+      <noscript><p>Enable JavaScript to calculate with your own counts.</p></noscript>
+    </section>
+  </div>
+
+  <section class="notes" aria-labelledby="meaning-heading">
+    <h2 id="meaning-heading">Why the same 75% can tell two stories</h2>
+    <p>Both 12-answer examples have nine agreements. In the mixed-label example, the reviewers agree five times on absence and four times on a mention. Expected agreement is 50% and kappa is +0.500. In the rare-mentions example, all nine agreements are absences. Given each reviewer’s label frequency, expected agreement is 77.8% and kappa is −0.125.</p>
+    <p>Report the four counts alongside both measures so readers can see what the reviewers agreed on. Read the disputed answers and check the brand definition before using the labels to judge visibility.</p>
+    <nav aria-label="Related resources">
+      <a href="https://www.jdoodle.com/ia/fexd-ebug-v5d2">Run the Python example</a>
+      <a href="https://sites.google.com/podpitch.com/visibilityos-reviewer-check/home">Open the review worksheet</a>
+      <a href="https://visibilityos.co/research/ai-answer-visibility">Read the VisibilityOS study</a>
+      <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.cohen_kappa_score.html">See the kappa formula</a>
+    </nav>
+  </section>
+</main>
+</body>
+</html>
