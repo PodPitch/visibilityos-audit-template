@@ -1,3 +1,4 @@
+const extensionApi = globalThis.browser ?? globalThis.chrome;
 const captureButton = document.querySelector("#capture");
 const form = document.querySelector("#evidence-form");
 const source = document.querySelector("#source");
@@ -15,8 +16,8 @@ function readSelectedEvidence() {
 captureButton.addEventListener("click", async () => {
   captureButton.disabled = true;
   try {
-    const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-    const [{ result }] = await chrome.scripting.executeScript({
+    const [tab] = await extensionApi.tabs.query({ active: true, currentWindow: true });
+    const [{ result }] = await extensionApi.scripting.executeScript({
       target: { tabId: tab?.id },
       func: readSelectedEvidence,
     });
@@ -82,7 +83,9 @@ form.addEventListener("submit", (event) => {
   const download = document.createElement("a");
   download.href = url;
   download.download = "visibilityos-citation-capture.txt";
+  document.body.append(download);
   download.click();
+  download.remove();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
   status.textContent = "Download started.";
 });
