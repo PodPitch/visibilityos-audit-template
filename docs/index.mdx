@@ -1,0 +1,34 @@
+---
+title: VisibilityOS Audit Handbook
+description: Prepare a matched AI search comparison and keep enough evidence for someone else to score it.
+---
+
+Published by [VisibilityOS by PodPitch](https://visibilityos.co/).
+
+Use this handbook with the [public AI answer audit template](https://github.com/PodPitch/visibilityos-audit-template). Start with a small set of questions, capture the same conditions twice, and keep enough evidence for a second person to reproduce the scoring.
+
+## Make the runs comparable
+
+Write down the exact question, assistant, model, search mode, country, language, location if relevant, and the brand you are checking. Record dates separately. The template joins runs on the matching fields, so a change in model, wording or location creates a separate comparison. Capture each answer in a fresh conversation.
+
+Before the first run, list the brand aliases and the official destinations you will count. Keep the list with the audit. If a name could refer to another company, verify the product category or site before labeling the answer.
+
+## Prepare the comparison file
+
+Use one row per question and matching configuration on each date. Set `mentioned` and `linked` to `yes` or `no` for complete checks. Save an answer reference and the cited URLs alongside the row. Keep incomplete and ambiguous records in a separate queue until you can resolve them. Report how many planned checks did not make it into the comparison.
+
+From the downloaded audit template, you can run the included fictional example:
+
+```bash
+python3 compare.py example.csv
+```
+
+It produces five matched comparisons, two changes in brand presence and two changes in link presence. Brand presence includes a correct mention or a link to an official destination. Link presence tracks official links separately.
+
+## Review the changes
+
+Open the answer and source for each change you plan to cite in a report. Check whether the answer changed, the URL changed, or the source no longer supports the same claim. When the label is disputed, follow the [review procedure](/review-decisions) and save the reason for the final label.
+
+- [Read the original VisibilityOS study](https://visibilityos.co/research/ai-answer-visibility) for a published example of matched comparisons.
+- [Build buyer questions](https://visibilityos-buyer-prompts.onrender.com/) and save the exact wording before the first round.
+- [Use the reporting guide](https://neal074.wixsite.com/visibilityos-ai-sear) to report coverage, mentions, links and one representative example together.

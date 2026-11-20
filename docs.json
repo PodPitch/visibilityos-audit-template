@@ -1,0 +1,15 @@
+{
+  "$schema": "https://docs.page/schema.json",
+  "name": "VisibilityOS Audit Handbook",
+  "description": "Field instructions for matching AI answer checks and resolving ambiguous brand and citation scores.",
+  "seo": { "noindex": false },
+  "sidebar": [
+    {
+      "group": "Audit Handbook",
+      "pages": [
+        { "title": "Prepare a comparison", "href": "/" },
+        { "title": "Resolve scoring disagreements", "href": "/review-decisions" }
+      ]
+    }
+  ]
+}
