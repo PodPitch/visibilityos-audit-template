@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Branded Search Results Log | VisibilityOS by PodPitch</title>
+  <meta name="description" content="Log the exact branded Google search, homepage position, and confirmed results. Compare checks over time and download a local CSV.">
+  <link rel="canonical" href="https://visibilityos-branded-results-log.netlify.app/">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="results-log.js"></script>
+</head>
+<body>
+<main>
+  <header>
+    <a class="publisher" href="https://visibilityos.co/">VisibilityOS by PodPitch</a>
+    <h1>Branded search results log</h1>
+    <p class="deck">Record what Google showed when someone searched for your product. Track the homepage’s position and the number of results that lead to the right brand.</p>
+  </header>
+
+  <div class="worksheet">
+    <section aria-labelledby="check-heading">
+      <h2 id="check-heading">Record a search</h2>
+      <form id="results-form">
+        <div class="field-grid">
+          <label>Query you entered<input name="enteredQuery" required maxlength="120"></label>
+          <label>Query Google showed <span class="optional">If different</span><input name="displayedQuery" maxlength="120"></label>
+          <label>Check date<input type="date" name="date" required></label>
+          <label>Local check time <span class="optional">Optional</span><input type="time" name="time"></label>
+          <label>Search location<input name="market" required maxlength="100" placeholder="City or country"></label>
+          <label>Device<select name="device"><option>Desktop</option><option>Mobile</option><option>Tablet</option></select></label>
+          <label class="wide">Official homepage<input name="homepage" type="url" required maxlength="250" placeholder="https://your-product.example/"></label>
+          <label>Homepage position on page one <span class="optional">Blank if absent</span><input name="position" type="number" min="1" max="100" step="1" inputmode="numeric"></label>
+          <label>Confirmed results on page one<input name="confirmed" type="number" min="0" max="100" step="1" required inputmode="numeric"></label>
+          <label class="wide">Notes <span class="optional">Optional</span><textarea name="notes" rows="2" maxlength="500" placeholder="Spelling correction, language, or how you verified an unclear result"></textarea></label>
+        </div>
+        <div class="actions">
+          <button type="submit" class="primary">Add to log</button>
+          <button type="button" id="example">Load a fictional example</button>
+        </div>
+        <p id="feedback" role="status"></p>
+      </form>
+    </section>
+
+    <aside aria-labelledby="count-heading">
+      <h2 id="count-heading">What to count</h2>
+      <p>Use the regular unpaid results on page one. Count a group of links under one result once.</p>
+      <p>Confirm the company and destination for each result. Count the official homepage and other results about the same product. Leave same-name businesses out.</p>
+      <p>Log changes in spelling, location, or device. Compare the same search conditions from one check to the next.</p>
+      <p>Your entries stay in this tab. Download the CSV before closing it.</p>
+      <nav aria-label="Related VisibilityOS resources">
+        <a href="https://sites.google.com/podpitch.com/visibilityos-branded-search/home">Read the branded search audit guide</a>
+        <a href="https://visibilityos.co/research/ai-answer-visibility">Read the VisibilityOS research method</a>
+      </nav>
+    </aside>
+  </div>
+
+  <section class="log" aria-labelledby="log-heading">
+    <div class="log-header">
+      <h2 id="log-heading" tabindex="-1">Recorded searches</h2>
+      <button type="button" id="download" disabled>Download CSV</button>
+    </div>
+    <p id="entry-count">Add a search to start your log.</p>
+    <ol id="entries"></ol>
+    <noscript><p>Enable JavaScript to keep a log and download the CSV.</p></noscript>
+  </section>
+</main>
+</body>
+</html>

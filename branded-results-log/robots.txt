@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://visibilityos-branded-results-log.netlify.app/sitemap.xml
