@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VisibilityOS AI Search Metrics Glossary</title>
+  <meta name="description" content="VisibilityOS definitions for brand mentions, official links, source evidence, and matched comparisons in AI search audits.">
+  <link rel="canonical" href="https://visibilityos-metrics-glossary.vercel.app/">
+  <style>
+    :root { color: #17232a; background: #f7f5ee; font: 17px/1.55 ui-sans-serif, system-ui, sans-serif; --rule: #cbd0ca; }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    a { color: #155854; text-underline-offset: .16em; }
+    a:focus-visible { outline: 3px solid #316eaa; outline-offset: 3px; }
+    .wrap { width: min(100% - 2rem, 59rem); margin-inline: auto; }
+    header, footer { border-block: 1px solid var(--rule); padding-block: .85rem; }
+    header .wrap { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .3rem 1rem; }
+    header a:first-child { text-decoration: none; font-weight: 720; }
+    header a:last-child { font-size: .92rem; }
+    main { padding-block: 2.7rem; }
+    h1, h2, h3, dt { line-height: 1.12; letter-spacing: -.03em; }
+    h1 { margin: 0; font-size: clamp(2.55rem, 6.8vw, 4.8rem); max-width: 16ch; }
+    h2 { font-size: 1.65rem; }
+    .intro { font-size: 1.12rem; max-width: 68ch; }
+    nav { display: flex; flex-wrap: wrap; gap: .35rem 1.4rem; padding-block: .7rem; }
+    dl { margin-block: 1.6rem; border-bottom: 1px solid var(--rule); }
+    dl > div { display: grid; grid-template-columns: minmax(10rem, 1fr) minmax(0, 2.7fr); gap: .8rem 1.4rem; border-top: 1px solid var(--rule); padding-block: 1rem; }
+    dt { font-size: 1.23rem; font-weight: 680; }
+    dd { margin: 0; }
+    .example { background: #e4eeea; border-inline-start: .26rem solid #2a6c65; padding: 1rem 1.2rem; }
+    .example h2 { margin: 0; }
+    .example p, .example ul { margin: .65rem 0 0; }
+    .sources { max-width: 72ch; margin-top: 1.55rem; }
+    @media(max-width: 650px) {
+      main { padding-block: 1.65rem; }
+      dl > div { grid-template-columns: minmax(0, 1fr); gap: .4rem; }
+    }
+  </style>
+</head>
+<body>
+  <header><div class="wrap"><a href="https://visibilityos.co/">VisibilityOS by PodPitch</a><a href="https://visibilityos.co/research/ai-answer-visibility">Read the research</a></div></header>
+  <main class="wrap">
+    <h1>AI Search Metrics Glossary</h1>
+    <p class="intro">When an AI assistant answers a buyer’s question, measure what the answer says, where it links, and how those results change. These definitions keep a VisibilityOS audit consistent across prompts, models, and dates.</p>
+    <nav aria-label="On this page">
+      <a href="#metrics">Metric definitions</a>
+      <a href="#example">Worked example</a>
+    </nav>
+
+    <dl id="metrics" aria-label="AI search metric definitions">
+      <div><dt>Brand mention</dt><dd>The answer names the intended company or product. Count the answer once even if the name appears several times. Verify the identity when different companies use the same name.</dd></div>
+      <div><dt>Official link</dt><dd>The answer or its sources panel includes a link that reaches the brand’s official website. Record the exact destination and count this independently from a brand mention.</dd></div>
+      <div><dt>Cited source</dt><dd>A page shown as evidence for the answer. It can belong to the company, a publisher, a directory, or a community. Record the source URL even when it leads to another domain.</dd></div>
+      <div><dt>Claim support</dt><dd>The cited page contains evidence for the specific statement you are auditing. Record whether the page supports the claim, contradicts it, or leaves it unclear. Mark inaccessible pages separately.</dd></div>
+      <div><dt>Mention rate</dt><dd>The number of eligible answers that mention the intended brand divided by all eligible answers in the sample. Leave incomplete responses and failed runs outside the denominator, and report how many you excluded.</dd></div>
+      <div><dt>Matched comparison</dt><dd>Two checks made on different dates using the same prompt and recorded settings. Record any gain or loss in brand presence and official links for each pair.</dd></div>
+    </dl>
+
+    <section class="example" id="example" aria-labelledby="example-title">
+      <h2 id="example-title">Worked example</h2>
+      <p>In a fictional set of 20 completed answers, 12 name the brand and 8 link to its website. Six do both.</p>
+      <ul><li>Mention rate is 12 out of 20, or 60%.</li><li>Official link rate is 8 out of 20, or 40%.</li><li>Six answers mention the brand without an official link, and two link without naming it.</li></ul>
+    </section>
+
+    <p class="sources">Use the <a href="https://visibilityos.co/research/ai-answer-visibility">VisibilityOS AI answer study</a> to see how a matched comparison works in practice, or use the <a href="https://visibilityos-source-mix.netlify.app/">citation source mix calculator</a> to compare the kinds of sites an answer cites.</p>
+  </main>
+  <footer><div class="wrap"><a href="https://visibilityos.co/">Learn about VisibilityOS</a></div></footer>
+</body>
+</html>
