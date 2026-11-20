@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Calculate the starting rate, ending rate, and change in brand presence from four matched AI answer counts. A free VisibilityOS by PodPitch worksheet.">
+  <link rel="canonical" href="https://podpitch.github.io/visibilityos-audit-template/baseline-calculator/">
+  <title>VisibilityOS AI Answer Baseline Calculator</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #112b2a;
+      --muted: #425957;
+      --accent: #07644f;
+      --paper: #f5f3eb;
+      --white: #fffefa;
+      --line: #afbfba;
+      --soft: #e6efe8;
+      font-family: "Avenir Next", Avenir, system-ui, sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    main { width: min(100% - 32px, 1080px); margin: 0 auto; padding: clamp(28px, 6vw, 72px) 0 32px; }
+    h1, h2, p, dl { margin: 0; }
+    h1 { margin: 12px 0; max-width: 16ch; font: 600 clamp(2.35rem, 6vw, 4.4rem)/.99 Georgia, serif; letter-spacing: -.035em; }
+    h2, legend { font-weight: 750; font-size: 1.125rem; }
+    p { line-height: 1.52; }
+    .brand { font-size: .92rem; font-weight: 750; }
+    a { color: var(--accent); text-underline-offset: .19em; }
+    .intro { max-width: 61ch; color: var(--muted); }
+    .worksheet { display: grid; grid-template-columns: 1fr 1.08fr; gap: 20px; margin-top: 24px; }
+    fieldset, .results { min-width: 0; border: 1px solid var(--line); border-radius: 14px; padding: clamp(16px, 3vw, 25px); }
+    fieldset { margin: 0; background: var(--white); }
+    legend { padding: 0 8px; margin-left: -8px; }
+    .presets, .counts, .figures { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    .presets { margin-bottom: 16px; }
+    button, input { font: inherit; }
+    button {
+      min-height: 44px; padding: 7px 8px; border: 1px solid var(--accent); border-radius: 7px;
+      color: var(--accent); background: var(--soft); font-weight: 700; cursor: pointer; font-size: .88rem;
+    }
+    button:hover { background: #d6e7dc; }
+    label { display: grid; gap: 5px; font-weight: 700; font-size: .88rem; }
+    input {
+      width: 100%; min-height: 46px; border: 1px solid #809791; border-radius: 7px;
+      background: var(--white); color: var(--ink); padding: 7px 10px; font-variant-numeric: tabular-nums;
+    }
+    :focus-visible { outline: 3px solid #075947; outline-offset: 3px; }
+    [aria-invalid="true"] { border-color: #913c26; }
+    .note { margin-top: 12px; font-size: .83rem; color: var(--muted); }
+    .results { align-self: stretch; background: var(--soft); }
+    .figures { margin-top: 14px; gap: 14px 10px; }
+    .figures div { border-top: 1px solid #a3b9ae; padding-top: 8px; }
+    dt { font-size: .86rem; color: var(--muted); }
+    dd { margin: 3px 0 0; }
+    dd output { display: block; color: var(--ink); font-weight: 750; font-size: clamp(1.25rem, 2.6vw, 2.1rem); line-height: 1.1; font-variant-numeric: tabular-nums; }
+    #result-note { margin-top: 14px; font-size: .9rem; color: var(--ink); }
+    footer { margin-top: 24px; border-top: 1px solid var(--line); padding-top: 12px; font-size: .9rem; }
+    @media (max-width: 720px) {
+      .worksheet { grid-template-columns: 1fr; gap: 14px; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <a class="brand" href="https://visibilityos.co/" target="_blank" rel="noopener">VisibilityOS by PodPitch</a>
+    <h1>AI answer baseline calculator</h1>
+    <p class="intro">Enter four counts from the same matched comparisons. See how often the brand appeared in the first and second checks, and how many pairs switched.</p>
+  </header>
+  <div class="worksheet">
+    <fieldset>
+      <legend>Matched pair outcomes</legend>
+      <div class="presets">
+        <button type="button" data-present="150">Fictional split A</button>
+        <button type="button" data-present="400">Fictional split B</button>
+      </div>
+      <div class="counts">
+        <label>Present both times <input id="both" type="number" min="0" max="1000000000" step="1" inputmode="numeric" value="150"></label>
+        <label>Absent both times <input id="neither" type="number" min="0" max="1000000000" step="1" inputmode="numeric" value="585"></label>
+        <label>Gained presence <input id="gained" type="number" min="0" max="1000000000" step="1" inputmode="numeric" value="45"></label>
+        <label>Lost presence <input id="lost" type="number" min="0" max="1000000000" step="1" inputmode="numeric" value="37"></label>
+      </div>
+      <p class="note">The presets use the study’s real gains and losses with fictional splits of the 735 unchanged pairs. Manual inputs stay in this browser.</p>
+    </fieldset>
+    <section class="results" aria-labelledby="results-heading">
+      <h2 id="results-heading">Brand presence</h2>
+      <dl class="figures">
+        <div><dt>Starting rate</dt><dd><output id="before" aria-live="off">22.89%</output></dd></div>
+        <div><dt>Ending rate</dt><dd><output id="after" aria-live="off">23.87%</output></dd></div>
+        <div><dt>Pairs that changed</dt><dd><output id="changed" aria-live="off">10.04%</output></dd></div>
+        <div><dt>Net change</dt><dd><output id="net" aria-live="off">+0.98 pp</output></dd></div>
+      </dl>
+      <p id="result-note" role="status">82 of 817 pairs switched. A net gain of 8 means 8 more presences in the later checks. Rates are rounded.</p>
+    </section>
+  </div>
+  <footer>
+    <a href="https://sites.google.com/podpitch.com/visibilityos-audit-baseline/home" target="_blank" rel="noopener">How to read the baseline</a>
+    · <a href="https://visibilityos.co/research/ai-answer-visibility" target="_blank" rel="noopener">Study methods</a>
+    · <a href="https://podpitch.github.io/visibilityos-audit-template/study/dataset/" target="_blank" rel="noopener">Public outcome data</a>
+  </footer>
+</main>
+<script>
+  const inputs = ['both', 'neither', 'gained', 'lost'].map(id => document.getElementById(id));
+  const outputs = ['before', 'after', 'changed', 'net'].map(id => document.getElementById(id));
+  const note = document.getElementById('result-note');
+  const integerFormat = new Intl.NumberFormat('en-US');
+
+  function reportCounts(both, neither, gained, lost) {
+    const total = both + neither + gained + lost;
+    const switched = gained + lost;
+    const difference = gained - lost;
+    const percent = count => (100 * count / total).toFixed(2);
+    return { total, switched, difference, rates: [both + lost, both + gained, switched, difference].map(percent) };
+  }
+
+  function render() {
+    const isValid = inputs.map(input => {
+      const valid = input.value.trim() !== '' && input.validity.valid;
+      input.setAttribute('aria-invalid', String(!valid));
+      return valid;
+    }).every(Boolean);
+    if (!isValid || inputs.every(input => input.valueAsNumber === 0)) {
+      outputs.forEach(output => { output.value = '—'; });
+      note.textContent = isValid
+        ? 'Enter at least one matched pair to calculate rates.'
+        : 'Use whole numbers from 0 to 1,000,000,000 in all four fields.';
+      return;
+    }
+    const { total, switched, difference, rates } = reportCounts(...inputs.map(input => input.valueAsNumber));
+    const delta = Number(rates[3]) === 0 ? '0.00' : (difference > 0 ? '+' : '') + rates[3];
+    const values = rates.slice(0, 3).map(rate => rate + '%').concat(delta + ' pp');
+    outputs.forEach((output, index) => { output.value = values[index]; });
+    note.textContent = integerFormat.format(switched) + ' of ' + integerFormat.format(total) +
+      ' pairs switched. Net change was ' + delta + ' percentage points. Rates are rounded.';
+  }
+
+  inputs.forEach(input => input.addEventListener('input', render));
+  document.querySelectorAll('[data-present]').forEach(button => button.addEventListener('click', () => {
+    const present = Number(button.dataset.present);
+    const counts = [present, 735 - present, 45, 37];
+    inputs.forEach((input, index) => { input.value = counts[index]; });
+    render();
+  }));
+</script>
+</body>
+</html>
