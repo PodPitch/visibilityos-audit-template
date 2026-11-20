@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>VisibilityOS AI Citation Evidence Record | PodPitch</title>
-  <meta name="description" content="Record an AI answer’s claim, its cited evidence, and your review decision. Download a plain-text record for an AI search audit from VisibilityOS by PodPitch.">
+  <meta name="description" content="Record an AI answer’s claim, its cited evidence, the review decision, and the next check. Download a plain-text record from VisibilityOS by PodPitch.">
   <link rel="canonical" href="https://visibilityos-evidence-handoff.vercel.app/">
   <link rel="stylesheet" href="style.css">
   <script defer src="worksheet.js"></script>
@@ -14,7 +14,7 @@
     <header>
       <a class="brand" href="https://visibilityos.co/">VisibilityOS by PodPitch</a>
       <h1>AI Citation Evidence Record</h1>
-      <p class="lede">Save the wording of an AI claim, the passage you found in its source, and what that passage supports. Use one record per claim.</p>
+      <p class="lede">Save the wording of an AI claim, the passage you found in its source, and what still needs checking. Use one record per claim.</p>
     </header>
 
     <div class="desk">
@@ -48,6 +48,10 @@
             <option>Source unavailable</option>
           </select>
         </div>
+        <div class="field">
+          <label for="next-check">Next check <span>Optional</span></label>
+          <input id="next-check" maxlength="600" placeholder="What evidence would resolve this?">
+        </div>
         <div class="controls">
           <button class="primary" type="submit">Generate record</button>
           <button id="example" type="button">Use fictional example</button>
@@ -58,7 +62,6 @@
 
       <section class="record" aria-labelledby="record-title">
         <div class="record-top">
-          <span>Audit worksheet</span>
           <h2 id="record-title">Evidence record</h2>
         </div>
         <p id="empty">Generate a record to preview and download it here.</p>

@@ -4,6 +4,7 @@ const claim = document.querySelector("#claim");
 const source = document.querySelector("#source");
 const excerpt = document.querySelector("#excerpt");
 const verdict = document.querySelector("#verdict");
+const nextCheck = document.querySelector("#next-check");
 const empty = document.querySelector("#empty");
 const output = document.querySelector("#output");
 const actions = document.querySelector("#export-actions");
@@ -50,6 +51,7 @@ form.addEventListener("submit", (event) => {
     ["Cited source URL", sourceUrl],
     ["Evidence from the source", excerpt.value.trim()],
     ["Review decision", verdict.value],
+    ["Next check", nextCheck.value.trim()],
   ];
   const sections = fields.map(([label, value]) => `${label}\n${value || "Not recorded"}`);
   output.textContent = ["AI Citation Evidence Record", ...sections].join("\n\n");
@@ -67,6 +69,7 @@ document.querySelector("#example").addEventListener("click", () => {
   source.value = "https://northlinebooks.example/help/exports";
   excerpt.value = "CSV export is included on paid subscriptions.";
   verdict.value = "Does not support the claim";
+  nextCheck.value = "Check the free-plan feature list for a direct statement about CSV export.";
 });
 
 document.querySelector("#copy").addEventListener("click", async () => {

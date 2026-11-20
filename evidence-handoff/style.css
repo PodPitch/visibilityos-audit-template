@@ -42,7 +42,6 @@ button.primary:hover { background: var(--deep); }
 .privacy { margin-top: .75rem; }
 .record { min-height: 14rem; background: #edf1e8; }
 .record-top { padding-bottom: 1rem; margin-bottom: 1rem; border-bottom: 1px solid #adbfaf; }
-.record-top span { display: block; color: var(--quiet); font-size: .8rem; font-weight: 690; margin-bottom: .3rem; }
 #empty, #status { color: var(--quiet); }
 #status:not(:empty) { margin-top: .68rem; }
 pre { margin: 0; max-height: 37rem; overflow: auto; white-space: pre-wrap; overflow-wrap: anywhere; font: .87rem/1.65 ui-monospace, monospace; }

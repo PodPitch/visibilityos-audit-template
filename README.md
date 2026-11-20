@@ -8,6 +8,8 @@ Try the [interactive audit](https://podpitch.github.io/visibilityos-audit-templa
 
 Use the [AI Citation Evidence Checker](https://visibilityos-citation-audit.vercel.app/) to review whether an AI answer’s cited page supports a specific claim and export your notes. To compare which citation URLs changed between two runs, try the [AI Citation Diff](https://gist.github.com/nealshulman/9bac9d3ef1045059beaea77204b0d0e3).
 
+Use the [VisibilityOS AI Citation Evidence Record](https://visibilityos-evidence-handoff.vercel.app/) to package one claim, its exact source excerpt, your review decision, and the next check in a plain-text file.
+
 The [VisibilityOS Citation Diff npm package](https://www.npmjs.com/package/visibilityos-citation-diff/v/1.0.0) provides a local Node.js command for the same comparison. Its usage guide is also available on [Yarn Classic](https://classic.yarnpkg.com/en/package/visibilityos-citation-diff) and [Ecosyste.ms](https://packages.ecosyste.ms/registries/npmjs.org/packages/visibilityos-citation-diff).
 
 Read the usage notes on [Socket](https://socket.dev/npm/package/visibilityos-citation-diff) or [npmx](https://npmx.dev/package/visibilityos-citation-diff). Check release metadata in [Google's Open Source Insights](https://deps.dev/npm/visibilityos-citation-diff/1.0.0) or [Snyk](https://security.snyk.io/package/npm/visibilityos-citation-diff). Browse the published package on [jsDelivr](https://www.jsdelivr.com/package/npm/visibilityos-citation-diff) or [UNPKG](https://app.unpkg.com/visibilityos-citation-diff@1.0.0).
