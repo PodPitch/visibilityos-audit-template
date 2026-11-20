@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://visibilityos-prompt-mix.vercel.app/sitemap.xml

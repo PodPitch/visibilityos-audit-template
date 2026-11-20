@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VisibilityOS AI Search Prompt Mix Calculator</title>
+  <meta name="description" content="Compare AI search brand mention rates across discovery and named-product questions using the same weights in both rounds.">
+  <link rel="canonical" href="https://visibilityos-prompt-mix.vercel.app/">
+  <script src="app.js" defer></script>
+  <style>
+    :root { color: #172b28; background: #f5f3ed; font-family: system-ui, sans-serif; --muted: #4c615d; --green: #135c50; --border: #cdd8d2; }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    a { color: var(--green); text-underline-offset: 3px; }
+    header, main { margin: auto; width: min(1020px, calc(100% - 40px)); }
+    header { min-height: 64px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px 20px; padding: 12px 0; }
+    header a:first-child { font-weight: 750; }
+    h1 { font: 500 clamp(2.6rem, 6vw, 5rem)/.98 Georgia, serif; letter-spacing: -.052em; margin: clamp(40px, 7vw, 84px) 0 18px; max-width: 17ch; }
+    h2 { font-size: 1.35rem; margin: 28px 0 12px; }
+    .intro { color: var(--muted); max-width: 63ch; font-size: 1.08rem; line-height: 1.6; margin-bottom: 30px; }
+    .rounds { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    fieldset { padding: 15px 18px 18px; min-inline-size: 0; border: 1px solid var(--border); border-radius: 12px; background: #fafbf7; }
+    legend { font-weight: 800; padding: 0 7px; }
+    fieldset h3 { font-size: .95rem; margin: 12px 0 9px; }
+    .counts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    label { display: grid; gap: 5px; color: var(--muted); font-size: .84rem; font-weight: 650; }
+    input, button { font: inherit; font-variant-numeric: tabular-nums; }
+    input { width: 100%; min-height: 44px; padding: 8px 10px; background: #fff; color: #152825; border: 1px solid #a0b3ac; border-radius: 6px; }
+    button { min-height: 44px; padding: 8px 12px; cursor: pointer; border: 1px solid var(--green); border-radius: 6px; background: var(--green); color: #fff; font-weight: 720; }
+    button[type=reset] { background: transparent; color: var(--green); }
+    :focus-visible { outline: 3px solid #a65218; outline-offset: 3px; }
+    [hidden] { display: none !important; }
+    .actions { margin: 16px 0; display: flex; flex-wrap: wrap; gap: 8px; }
+    .results { background: #e7eee7; padding: 4px clamp(15px, 3vw, 30px) 18px; border: 1px solid var(--border); border-radius: 12px; }
+    table { width: 100%; border-collapse: collapse; text-align: left; font-variant-numeric: tabular-nums; }
+    caption { text-align: left; color: var(--muted); line-height: 1.55; padding-bottom: 10px; }
+    td, th { padding: 9px 3px; border-bottom: 1px solid #b9cac0; }
+    tbody th { padding-right: 12px; }
+    .status { font-weight: 650; color: var(--green); margin-bottom: 0; }
+    .note { max-width: 69ch; line-height: 1.62; margin: 30px 0 56px; }
+    @media (max-width: 690px) { .rounds { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header><a href="https://visibilityos.co/">VisibilityOS by PodPitch</a><a href="https://visibilityos.co/research/ai-answer-visibility">Original study</a></header>
+  <main>
+    <h1>AI Search Prompt Mix Calculator</h1>
+    <p class="intro">An overall brand mention rate can rise just because you asked more questions that name the brand. Compare the two groups separately, then give them equal weight in both rounds to see how the mix affected the result.</p>
+    <form id="mix-form" hidden>
+      <div class="rounds">
+        <fieldset><legend>Round 1</legend>
+          <h3>Open-ended discovery</h3>
+          <div class="counts"><label for="r1-discovery-mentions">Brand mentions<input id="r1-discovery-mentions" type="number" value="20" min="0" max="100000" step="1" required></label><label for="r1-discovery-total">Completed answers<input id="r1-discovery-total" type="number" value="80" min="1" max="100000" step="1" required></label></div>
+          <h3>Named product</h3>
+          <div class="counts"><label for="r1-named-mentions">Brand mentions<input id="r1-named-mentions" type="number" value="16" min="0" max="100000" step="1" required></label><label for="r1-named-total">Completed answers<input id="r1-named-total" type="number" value="20" min="1" max="100000" step="1" required></label></div>
+        </fieldset>
+        <fieldset><legend>Round 2</legend>
+          <h3>Open-ended discovery</h3>
+          <div class="counts"><label for="r2-discovery-mentions">Brand mentions<input id="r2-discovery-mentions" type="number" value="5" min="0" max="100000" step="1" required></label><label for="r2-discovery-total">Completed answers<input id="r2-discovery-total" type="number" value="20" min="1" max="100000" step="1" required></label></div>
+          <h3>Named product</h3>
+          <div class="counts"><label for="r2-named-mentions">Brand mentions<input id="r2-named-mentions" type="number" value="64" min="0" max="100000" step="1" required></label><label for="r2-named-total">Completed answers<input id="r2-named-total" type="number" value="80" min="1" max="100000" step="1" required></label></div>
+        </fieldset>
+      </div>
+      <div class="actions"><button type="submit">Compare rates</button><button type="reset">Reset example</button></div>
+    </form>
+    <section class="results" aria-labelledby="results-title">
+      <h2 id="results-title">How the rates compare</h2>
+      <table>
+        <caption>The starting values are fictional. Each percentage counts answers that correctly mention the brand.</caption>
+        <thead><tr><th scope="col">Measure</th><th scope="col">Round 1</th><th scope="col">Round 2</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Discovery</th><td id="r1-discovery">25%</td><td id="r2-discovery">25%</td></tr>
+          <tr><th scope="row">Named product</th><td id="r1-named">80%</td><td id="r2-named">80%</td></tr>
+          <tr><th scope="row">Overall</th><td id="r1-overall">36%</td><td id="r2-overall">69%</td></tr>
+          <tr><th scope="row">Equal 50/50 mix</th><td id="r1-equal">52.5%</td><td id="r2-equal">52.5%</td></tr>
+        </tbody>
+      </table>
+      <p id="result-status" class="status" role="status">The overall rate rose by 33 points. With equal weights, it stayed the same.</p>
+    </section>
+    <section class="note" aria-labelledby="method-title">
+      <h2 id="method-title">When to compare rates</h2>
+      <p>Open-ended questions ask for recommendations. Named-product questions put your brand in the wording. The equal mix averages the two rates. For a fair comparison over time, reuse matched questions and settings and report incomplete runs separately.</p>
+      <p><a href="https://visibilityos-buyer-prompts.onrender.com/">Build a repeatable set of buyer questions</a> · <a href="https://docs.page/PodPitch/visibilityos-audit-template">Read the audit handbook</a></p>
+    </section>
+  </main>
+</body>
+</html>
