@@ -8,7 +8,7 @@ Try the [interactive audit](https://podpitch.github.io/visibilityos-audit-templa
 
 Use the [AI Citation Evidence Checker](https://visibilityos-citation-audit.vercel.app/) to review whether an AI answer’s cited page supports a specific claim and export your notes. To compare which citation URLs changed between two runs, try the [AI Citation Diff](https://gist.github.com/nealshulman/9bac9d3ef1045059beaea77204b0d0e3).
 
-The [VisibilityOS Citation Diff npm package](https://www.npmjs.com/package/visibilityos-citation-diff/v/1.0.0) provides a local Node.js command for the same comparison. You can read the usage notes on [Socket](https://socket.dev/npm/package/visibilityos-citation-diff), confirm the registry metadata in [Google's Open Source Insights](https://deps.dev/npm/visibilityos-citation-diff/1.0.0), or browse the [files shipped in version 1.0.0](https://app.unpkg.com/visibilityos-citation-diff@1.0.0).
+The [VisibilityOS Citation Diff npm package](https://www.npmjs.com/package/visibilityos-citation-diff/v/1.0.0) provides a local Node.js command for the same comparison. You can read the usage notes on [Socket](https://socket.dev/npm/package/visibilityos-citation-diff), confirm the registry metadata in [Google's Open Source Insights](https://deps.dev/npm/visibilityos-citation-diff/1.0.0), browse the [files shipped in version 1.0.0](https://app.unpkg.com/visibilityos-citation-diff@1.0.0), or view the [package guide on npmx](https://npmx.dev/package/visibilityos-citation-diff).
 
 Use the [AI Brand Match Audit](https://visibilityos-brand-match-audit.web.app/) to check whether a name in an AI answer refers to your company or a similarly named business. The [Brand Identity Audit guide](https://visibilityos-brand-identity-audit.framer.website/) walks through a same-name example.
 
@@ -36,3 +36,5 @@ Published by [VisibilityOS by PodPitch](https://visibilityos.co/). See the [publ
 Download the [aggregate study dataset and field definitions](https://podpitch.github.io/visibilityos-audit-template/study/dataset/).
 
 Run the [VisibilityOS AI Answer Study Reproduction image](https://hub.docker.com/r/nealshulman/visibilityos-study-reproduction) to reproduce all eight engine results and the pooled rates from those files.
+
+[Browse the archived audit template in Software Heritage](https://archive.softwareheritage.org/swh:1:dir:3d3af27c1d20ef2668b5100d43d6c72e799f6a3f) for a fixed copy of the November 19, 2026 source snapshot.
