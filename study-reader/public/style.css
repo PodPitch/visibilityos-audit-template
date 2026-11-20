@@ -1,0 +1,43 @@
+:root {
+  color-scheme: light;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  color: #182e2b;
+  background: #f5f4ec;
+  line-height: 1.55;
+  --muted: #425a55;
+  --rule: #c8d1c6;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+body, h1, h2, p, ul, dl, dd { margin: 0; }
+a { color: #235946; text-underline-offset: .25em; }
+a:focus-visible { outline: 3px solid #235946; outline-offset: 4px; }
+.wrap { width: min(64rem, calc(100% - 3rem)); margin-inline: auto; }
+.masthead { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: 1.1rem; border-bottom: 1px solid var(--rule); font-size: .9rem; }
+.brand { font-size: 1.14rem; font-weight: 800; text-decoration: none; letter-spacing: -.04em; }
+.brand span { font-size: .82rem; font-weight: 600; letter-spacing: 0; }
+main { padding-top: clamp(2.6rem, 6vw, 5rem); }
+h1 { font-size: clamp(2.85rem, 7vw, 6.1rem); max-width: 14ch; line-height: .98; letter-spacing: -.075em; text-wrap: balance; }
+.intro { margin-block: 1rem 2rem; max-width: 39rem; font-size: clamp(1rem, 2vw, 1.18rem); color: var(--muted); }
+.facts { background: #173e32; color: #eef7ec; border-radius: .5rem; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-block: 1rem 2rem; padding: 1.1rem; }
+.facts > div { padding: .6rem 1rem; }
+.facts > div + div { border-left: 1px solid #608575; }
+.facts dt { font-size: .86rem; font-weight: 600; }
+.facts dd { color: #ddf097; font-weight: 780; font-size: clamp(2.3rem, 6vw, 4.1rem); letter-spacing: -.055em; line-height: 1.18; }
+.examples { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem 1.8rem; margin-block: 2rem 1.8rem; }
+h2 { font-size: 1.2rem; line-height: 1.25; letter-spacing: -.025em; }
+.examples p, .examples ul, .resources p { margin-top: .55rem; color: var(--muted); }
+.examples ul { padding-left: 1.2rem; }
+.examples li + li { margin-top: .35rem; }
+.endpoint { border: 1px solid var(--rule); background: #fffefa; border-radius: .3rem; padding: .6rem; overflow-wrap: anywhere; font-size: .86rem; }
+.resources { border-top: 1px solid var(--rule); padding-block: 1.35rem 1.65rem; max-width: 43rem; }
+.resources a { display: inline-block; margin: .6rem 1rem 0 0; font-weight: 680; }
+footer { border-top: 1px solid var(--rule); padding-block: 1rem 2rem; color: var(--muted); font-size: .85rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+
+@media (max-width: 43rem) {
+  .wrap { width: calc(100% - 2rem); }
+  .examples { grid-template-columns: 1fr; }
+  .facts { padding: .65rem .3rem; }
+  .facts > div { padding: .35rem .5rem; }
+  .facts dt { font-size: .73rem; }
+}

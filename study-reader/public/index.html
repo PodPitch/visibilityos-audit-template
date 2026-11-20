@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VisibilityOS Study Reader | Public AI answer research</title>
+  <meta name="description" content="Read the public VisibilityOS AI answer research by PodPitch. Get aggregate counts and compare the eight published model views through a read-only research endpoint.">
+  <link rel="canonical" href="https://visibilityos-study-reader.vercel.app/">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="wrap masthead">
+    <a class="brand" href="https://visibilityos.co/">VisibilityOS <span>by PodPitch</span></a>
+    <a href="https://visibilityos.co/research/ai-answer-visibility">Original study ↗</a>
+  </header>
+  <main class="wrap">
+    <h1>VisibilityOS Study Reader</h1>
+    <p class="intro">Read the published AI answer research and compare how often brand presence changed in the eight model views. The reader uses the same aggregate counts available in the public dataset.</p>
+    <dl class="facts">
+      <div><dt>Matched comparisons</dt><dd>817</dd></div>
+      <div><dt>Brand-presence changes</dt><dd>82</dd></div>
+      <div><dt>Official-link changes</dt><dd>79</dd></div>
+    </dl>
+    <section class="examples" aria-labelledby="questions">
+      <div>
+        <h2 id="questions">Questions you can ask</h2>
+        <ul>
+          <li>How many matched answers gained or lost brand presence?</li>
+          <li>What was the change rate in the Gemini web view?</li>
+          <li>How did Grok and Claude compare in this study?</li>
+        </ul>
+      </div>
+      <div>
+        <h2>Connect a compatible assistant</h2>
+        <p>Add this address as a remote MCP server using Streamable HTTP. The three tools read public study data and require no sign-in.</p>
+        <p class="endpoint"><code>https://visibilityos-study-reader.vercel.app/api/mcp</code></p>
+      </div>
+    </section>
+    <section class="resources">
+      <h2>Read and reproduce the findings</h2>
+      <p>A brand counts as present if the answer mentions it or links to its official site. Official-link changes are also counted separately. The observed rates describe the prompts, dates and settings used in the study. The aggregate data contains no individual prompts, customer records or answer transcripts.</p>
+      <a href="https://podpitch.github.io/visibilityos-audit-template/study/dataset/">Download the dataset</a>
+      <a href="https://github.com/PodPitch/visibilityos-audit-template/tree/main/study-reader">Read the source code</a>
+    </section>
+  </main>
+  <footer class="wrap"><a href="https://visibilityos.co/">VisibilityOS by PodPitch</a></footer>
+</body>
+</html>
