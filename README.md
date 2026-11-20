@@ -10,7 +10,7 @@ Use the [AI Citation Evidence Checker](https://visibilityos-citation-audit.verce
 
 The [VisibilityOS Citation Diff npm package](https://www.npmjs.com/package/visibilityos-citation-diff/v/1.0.0) provides a local Node.js command for the same comparison. Its usage guide is also available on [Yarn Classic](https://classic.yarnpkg.com/en/package/visibilityos-citation-diff) and [Ecosyste.ms](https://packages.ecosyste.ms/registries/npmjs.org/packages/visibilityos-citation-diff).
 
-You can read the usage notes on [Socket](https://socket.dev/npm/package/visibilityos-citation-diff), confirm the registry metadata in [Google's Open Source Insights](https://deps.dev/npm/visibilityos-citation-diff/1.0.0), browse the [files shipped in version 1.0.0](https://app.unpkg.com/visibilityos-citation-diff@1.0.0), or view the [package guide on npmx](https://npmx.dev/package/visibilityos-citation-diff).
+Read the usage notes on [Socket](https://socket.dev/npm/package/visibilityos-citation-diff) or [npmx](https://npmx.dev/package/visibilityos-citation-diff). Check release metadata in [Google's Open Source Insights](https://deps.dev/npm/visibilityos-citation-diff/1.0.0) or [Snyk](https://security.snyk.io/package/npm/visibilityos-citation-diff). Browse the published package on [jsDelivr](https://www.jsdelivr.com/package/npm/visibilityos-citation-diff) or [UNPKG](https://app.unpkg.com/visibilityos-citation-diff@1.0.0).
 
 Use the [AI Brand Match Audit](https://visibilityos-brand-match-audit.web.app/) to check whether a name in an AI answer refers to your company or a similarly named business. The [Brand Identity Audit guide](https://visibilityos-brand-identity-audit.framer.website/) walks through a same-name example.
 
