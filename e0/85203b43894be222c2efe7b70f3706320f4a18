@@ -1,0 +1,33 @@
+sitemap.xml
+  s_ae0062e82a1582::t_d8de01a431ccdb 7-8
+chrome-citation-capture/extension/popup.js
+  s_ae0062e82a1582::t_d8de01a431ccdb 1-88
+chrome-citation-capture/extension/manifest.json
+  s_ae0062e82a1582::t_c742a5562df4f4 1-25
+chrome-citation-capture/extension/popup.css
+  s_ae0062e82a1582::t_a99ea75e3de6d2 1-29
+chrome-citation-capture/extension/popup.html
+  s_ae0062e82a1582::t_60e52dc3bfb89f 1-32
+chrome-citation-capture/index.html
+  s_ae0062e82a1582::t_e7c86110284ed9 1-27
+chrome-citation-capture/privacy/index.html
+  s_ae0062e82a1582::t_07a05ae5ce6f30 1-24
+chrome-citation-capture/style.css
+  s_ae0062e82a1582::t_16a0db1a0ec57f 1-8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "e085203b43894be222c2efe7b70f3706320f4a18",
+  "prompts": {},
+  "sessions": {
+    "s_ae0062e82a1582": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a1f526-ced7-7172-9d12-9e737f344570",
+        "model": "gpt-6.2-sol"
+      },
+      "human_author": "nealshulman <neal@podpitch.com>"
+    }
+  }
+}
