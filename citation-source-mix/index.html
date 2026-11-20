@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VisibilityOS AI Citation Source Mix Calculator</title>
+  <meta name="description" content="Measure how much of an AI answer’s citation list comes from company sites, publishers, directories, and communities. A free worksheet by VisibilityOS.">
+  <link rel="canonical" href="https://visibilityos-source-mix.netlify.app/">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="masthead">
+    <div class="wrap masthead-inner">
+      <a href="https://visibilityos.co/" class="brand">VisibilityOS<span> by PodPitch</span></a>
+      <a href="#method">How to count sources</a>
+    </div>
+  </header>
+  <main class="wrap">
+    <div class="intro">
+      <h1>AI Citation Source Mix Calculator</h1>
+      <p>See which kinds of sources shape an AI answer. Use one answer, or combine answers collected with the same prompt and model.</p>
+    </div>
+    <section class="worksheet" aria-label="Citation calculator">
+      <form id="counts">
+        <h2>Count the links</h2>
+        <p>Enter the number of citations in each category.</p>
+        <label class="field"><span>Company sites <small>Owned pages, docs, and blogs</small></span><input name="owned" type="number" required min="0" max="9999" step="1" value="0"></label>
+        <label class="field"><span>Editorial sources <small>Articles and independent research</small></span><input name="editorial" type="number" required min="0" max="9999" step="1" value="0"></label>
+        <label class="field"><span>Directories <small>Product listings and review sites</small></span><input name="directories" type="number" required min="0" max="9999" step="1" value="0"></label>
+        <label class="field"><span>Communities <small>Threads, social posts, and videos</small></span><input name="communities" type="number" required min="0" max="9999" step="1" value="0"></label>
+        <label class="field"><span>Other or unclear</span><input name="other" type="number" required min="0" max="9999" step="1" value="0"></label>
+        <div class="actions">
+          <button type="button" id="example">Load example</button>
+          <button type="reset">Clear</button>
+        </div>
+      </form>
+      <section class="results" aria-labelledby="mix-heading">
+        <h2 id="mix-heading">Source mix</h2>
+        <p id="total" aria-live="polite">Enter citation counts to see the mix.</p>
+        <ul class="breakdown">
+          <li data-source="owned"><span>Company sites</span><strong>0%</strong><div class="track" aria-hidden="true"><div class="bar"></div></div></li>
+          <li data-source="editorial"><span>Editorial sources</span><strong>0%</strong><div class="track" aria-hidden="true"><div class="bar"></div></div></li>
+          <li data-source="directories"><span>Directories</span><strong>0%</strong><div class="track" aria-hidden="true"><div class="bar"></div></div></li>
+          <li data-source="communities"><span>Communities</span><strong>0%</strong><div class="track" aria-hidden="true"><div class="bar"></div></div></li>
+          <li data-source="other"><span>Other or unclear</span><strong>0%</strong><div class="track" aria-hidden="true"><div class="bar"></div></div></li>
+        </ul>
+      </section>
+    </section>
+    <section class="method" id="method">
+      <h2>Count each source consistently</h2>
+      <ol>
+        <li><strong>Save the evidence.</strong> Record the exact prompt, model, date, answer text, and cited URLs.</li>
+        <li><strong>Count each destination once per answer.</strong> Two links to the same page count once. Two different pages on one site count separately.</li>
+        <li><strong>Classify the page you actually land on.</strong> A publication’s review belongs under Editorial. A product’s profile on a review marketplace belongs under Directories.</li>
+        <li><strong>Compare like with like.</strong> Keep the prompt, model, and counting rules consistent. Record the number of answers and total citations alongside each percentage.</li>
+      </ol>
+      <p>VisibilityOS tracks how brands and their sources appear in AI search answers. Read the <a href="https://visibilityos.co/research/ai-answer-visibility">VisibilityOS AI answer study</a> for an example of why repeated observations matter, or use the <a href="https://visibilityos-audit-plan.pages.dev/">audit plan builder</a> to prepare a prompt set.</p>
+    </section>
+  </main>
+  <footer class="wrap"><a href="https://visibilityos.co/">Visit VisibilityOS</a></footer>
+</body>
+</html>
