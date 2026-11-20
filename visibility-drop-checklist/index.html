@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VisibilityOS AI Search Drop Checklist</title>
+  <meta name="description" content="Find out what changed when your brand disappears from an AI answer. Use this VisibilityOS checklist to isolate missing mentions, links, and supporting evidence.">
+  <link rel="canonical" href="https://visibilityos-drop-checklist.prhero-neal.workers.dev/">
+  <style>
+    :root { color: #17382d; background: #eef5ec; font: 17px/1.65 ui-sans-serif, system-ui, sans-serif; }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    a { color: #165948; text-underline-offset: .22em; }
+    a:focus-visible { outline: 3px solid #ad5b1d; outline-offset: 4px; }
+    header, footer { padding: .9rem max(1rem, calc((100% - 57rem) / 2)); }
+    header { border-bottom: 1px solid #c4d5c8; font-weight: 700; }
+    header a { text-decoration: none; }
+    header span { font-weight: 500; }
+    main { width: min(57rem, calc(100% - 2rem)); margin: 0 auto; padding-block: 2.4rem; }
+    h1, h2, h3 { line-height: 1.13; letter-spacing: -.03em; }
+    h1 { margin: 0; font-size: clamp(2.35rem, 6.7vw, 4.5rem); max-width: 17ch; }
+    h2 { margin-top: 2rem; font-size: 1.55rem; }
+    h3 { margin: 0; font-size: 1.1rem; }
+    p, li { max-width: 72ch; }
+    .lead { font-size: 1.13rem; max-width: 60ch; }
+    .checks { margin: .75rem 0 0; padding: 0; list-style: none; }
+    .checks li { max-width: none; display: grid; grid-template-columns: minmax(10rem, 1fr) minmax(0, 2.3fr); align-items: baseline; gap: 1.1rem; border-top: 1px solid #a9c1b2; padding: .86rem 0; }
+    .checks li p { margin: 0; }
+    aside { padding: 1.1rem 1.2rem; background: #dbead8; border-left: .24rem solid #32715d; margin-top: 1.2rem; }
+    aside p { margin: .55rem 0 0; }
+    footer { border-top: 1px solid #c4d5c8; }
+    @media(max-width: 620px) {
+      main { padding-block: 1.7rem; }
+      .checks li { grid-template-columns: 1fr; gap: .3rem; }
+    }
+  </style>
+</head>
+<body>
+  <header><a href="https://visibilityos.co/">VisibilityOS <span>by PodPitch</span></a></header>
+  <main>
+    <h1>AI Search Drop Checklist</h1>
+    <p class="lead">When a familiar AI answer stops mentioning your brand, save the evidence and find out exactly what changed before you report a drop.</p>
+
+    <h2>What changed?</h2>
+    <ul class="checks">
+      <li><h3>The mention disappeared</h3><p>Find the brand in the answer body and any recommendations. Record whether it was present in the earlier answer, then repeat the exact prompt in a fresh session using the same model and browsing settings.</p></li>
+      <li><h3>The official link disappeared</h3><p>Compare the cited URLs. If the brand remains in the answer while its website disappears from the sources, record a link loss alongside continued brand presence.</p></li>
+      <li><h3>The source changed</h3><p>Open the new citation. Check whether the page supports the specific claim in the answer. Record the new URL and the sentence that supports or contradicts it.</p></li>
+      <li><h3>Several answers changed</h3><p>Group the affected prompts by buyer intent. Compare the number of matched prompts that gained, lost, or kept a mention. Include the size of the tested prompt set in your report.</p></li>
+    </ul>
+
+    <aside>
+      <h3>Worked example</h3>
+      <p>A comparison answer still names a software product but replaces its pricing page with a directory profile. Record the brand as present and the official link as lost. Check whether the directory actually supports the pricing claim before reporting an evidence problem.</p>
+    </aside>
+
+    <h2>When to report a pattern</h2>
+    <p>In the <a href="https://visibilityos.co/research/ai-answer-visibility">VisibilityOS AI answer study</a>, brand presence changed in 82 of 817 matched comparisons. Whether the answer linked to the brand changed in 79. Those counts describe the study’s sample and show why saving comparable repeats matters.</p>
+    <p>If you see the same loss recur, report which prompts changed, over which dates, and how often it appeared. Use the <a href="https://visibilityos-audit-plan.pages.dev/">AI search audit plan builder</a> to set up matched checks.</p>
+  </main>
+  <footer><a href="https://visibilityos.co/">Learn about VisibilityOS</a></footer>
+</body>
+</html>
