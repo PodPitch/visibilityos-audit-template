@@ -3,6 +3,7 @@
   "name": "VisibilityOS Audit Handbook",
   "description": "Field instructions for matching AI answer checks and resolving ambiguous brand and citation scores.",
   "seo": { "noindex": false },
+  "scripts": { "googleSiteVerification": "cvaZ8IHm9_WbjC9lWcKzGUqcM-Y9AiGc8EvrnH3CSqg" },
   "sidebar": [
     {
       "group": "Audit Handbook",
