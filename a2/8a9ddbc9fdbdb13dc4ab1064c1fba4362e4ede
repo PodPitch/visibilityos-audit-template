@@ -1,0 +1,27 @@
+study-reader/public/index.html
+  s_ae0062e82a1582::t_1e8ff754cd334c 37
+study-reader/public/sitemap.xml
+  s_ae0062e82a1582::t_1e8ff754cd334c 4
+study-reader/public/style.css
+  s_ae0062e82a1582::t_1e8ff754cd334c 37-42
+study-reader/public/walkthrough.html
+  s_ae0062e82a1582::t_1e8ff754cd334c 1-51
+study-reader/public/study-reader-walkthrough.vtt
+  s_ae0062e82a1582::t_9409688e3b1225 1-46
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "a28a9ddbc9fdbdb13dc4ab1064c1fba4362e4ede",
+  "prompts": {},
+  "sessions": {
+    "s_ae0062e82a1582": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a1f526-ced7-7172-9d12-9e737f344570",
+        "model": "gpt-6.2-sol"
+      },
+      "human_author": "nealshulman <neal@podpitch.com>"
+    }
+  }
+}
