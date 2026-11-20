@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VisibilityOS AI Audit Sample Size Planner | PodPitch</title>
+  <meta name="description" content="Estimate how many matched AI answers to compare when measuring changes in brand mentions and official links. Free planning tool from VisibilityOS by PodPitch.">
+  <link rel="canonical" href="https://visibilityos-audit-sample-size.pages.dev/">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.mjs"></script>
+</head>
+<body>
+  <header class="masthead">
+    <div class="wrap masthead-inner">
+      <a class="wordmark" href="https://visibilityos.co/">VisibilityOS<span> by PodPitch</span></a>
+      <a href="https://visibilityos.co/research/ai-answer-visibility">Read the research <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+  <main class="wrap">
+    <div class="intro">
+      <h1>AI audit sample size planner</h1>
+      <p>Find out how many matched AI answers to compare when you want to estimate how often a brand mention or official link changes.</p>
+    </div>
+    <div class="planner">
+      <form id="assumptions" aria-labelledby="assumptions-title">
+        <h2 id="assumptions-title">Set your assumptions</h2>
+        <div class="field">
+          <label for="rate">Expected change rate (%)</label>
+          <p id="rate-help">Use a pilot estimate or enter 50 if you're unsure.</p>
+          <input id="rate" name="rate" type="number" min="1" max="99" step="0.1" value="10" required aria-describedby="rate-help">
+        </div>
+        <div class="field">
+          <label for="margin">Margin of error (percentage points)</label>
+          <p id="margin-help">For example, 10% plus or minus 5 points spans 5% to 15%.</p>
+          <input id="margin" name="margin" type="number" min="1" max="30" step="0.1" value="5" required aria-describedby="margin-help">
+        </div>
+        <div class="field">
+          <label for="confidence">Confidence level</label>
+          <select id="confidence" name="confidence">
+            <option value="90">90%</option>
+            <option value="95" selected>95%</option>
+            <option value="99">99%</option>
+          </select>
+        </div>
+        <button type="reset">Reset example</button>
+      </form>
+      <section class="results" aria-labelledby="results-title">
+        <h2 id="results-title">Your collection target</h2>
+        <noscript><p>Enable JavaScript to calculate the target from your own assumptions.</p></noscript>
+        <div id="metrics" aria-live="polite" aria-atomic="true">
+          <p class="count" id="target">139</p>
+          <p class="unit" id="unit">matched pairs</p>
+          <p class="caption" id="interpretation">That’s 278 saved answers if each answer is used in only one pair.</p>
+        </div>
+        <div class="comparison" id="comparison">
+          <div class="bar-label"><span>Your estimate</span><span id="estimate-label">139</span></div>
+          <meter id="estimate-bar" min="0" max="385" value="139" aria-label="Pairs at your expected change rate"></meter>
+          <div class="bar-label"><span>If 50% of pairs change</span><span id="baseline-label">385</span></div>
+          <meter id="baseline-bar" min="0" max="385" value="385" aria-label="Pairs at a 50% change rate"></meter>
+        </div>
+        <p class="caution" id="caution">Budget for more runs if you expect missing answers or will repeat the same prompts.</p>
+      </section>
+    </div>
+    <section class="notes" aria-labelledby="method-title">
+      <div>
+        <h2 id="method-title">How to use the target</h2>
+        <p>Pick one outcome to track, such as a brand mention appearing or disappearing. A matched pair compares the same prompt, engine, settings and market across two collection rounds. Aim for a mix of distinct prompts. Repeated comparisons of the same prompts or adjacent days can be related and give you less information.</p>
+        <p>The VisibilityOS study observed 82 brand-presence changes across 817 matched pairs, about 10%. The calculator uses 10% as its starting assumption. Rates will vary across audits. <a href="https://visibilityos.co/research/ai-answer-visibility">See the study and method</a>.</p>
+      </div>
+      <div>
+        <h2>How the estimate works</h2>
+        <p>For an expected rate <var>p</var> and margin <var>e</var>, both as decimals, round <var>z</var>² × <var>p</var>(1 − <var>p</var>) ÷ <var>e</var>² up to a whole pair. The confidence level sets <var>z</var>. This approximation assumes independent pairs and can be unreliable when few changed or unchanged pairs are expected. Use it as a planning estimate. <a href="https://www.itl.nist.gov/div898/handbook/ppc/section3/ppc333.htm">NIST sample size guidance</a>.</p>
+        <p><a href="https://visibilityos-audit-plan.pages.dev/">Build your audit plan</a><br><a href="https://visibilityos-sample-coverage.firebaseapp.com/">Track completed comparisons</a></p>
+      </div>
+    </section>
+  </main>
+  <footer class="wrap">Published by <a href="https://visibilityos.co/">VisibilityOS by PodPitch</a>. The calculation runs in your browser.</footer>
+</body>
+</html>

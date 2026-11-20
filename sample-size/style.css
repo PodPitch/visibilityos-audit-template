@@ -1,0 +1,89 @@
+:root {
+  color-scheme: light;
+  --paper: #f8f7ef;
+  --ink: #171c19;
+  --muted: #49554b;
+  --line: #cbd2c3;
+  --pine: #183e32;
+  --lime: #d0ee79;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); line-height: 1.55; }
+a { color: inherit; text-underline-offset: .2em; }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 3px solid #2e7962;
+  outline-offset: 3px;
+}
+.wrap { width: min(70rem, calc(100% - 3rem)); margin-inline: auto; }
+.masthead { border-bottom: 1px solid var(--line); }
+.masthead-inner { padding-block: 1.1rem; display: flex; justify-content: space-between; align-items: center; gap: .75rem; }
+.wordmark { font-weight: 790; font-size: 1.18rem; letter-spacing: -.045em; text-decoration: none; }
+.wordmark span { color: var(--muted); font-size: .8rem; letter-spacing: 0; font-weight: 550; }
+.masthead-inner > a:last-child { font-size: .87rem; font-weight: 650; text-align: right; }
+.intro { padding-block: clamp(2.7rem, 6.3vw, 5.5rem) clamp(1.6rem, 3vw, 2.6rem); max-width: 58rem; }
+h1, h2, p { margin: 0; }
+h1 {
+  font-family: Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -.055em;
+  font-size: clamp(2.8rem, 7vw, 5.4rem);
+  line-height: 1.02;
+  text-wrap: balance;
+}
+.intro p { margin-top: 1rem; max-width: 40rem; font-size: clamp(1.03rem, 2vw, 1.2rem); color: var(--muted); }
+.planner { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--line); border-radius: .8rem; overflow: hidden; }
+.planner > * { padding: clamp(1.2rem, 3.6vw, 2.8rem); min-width: 0; }
+form { background: #fffef9; }
+h2 { font-size: 1.17rem; line-height: 1.3; letter-spacing: -.025em; }
+.field { margin-top: 1.1rem; }
+.field label { font-weight: 700; font-size: .98rem; display: block; }
+.field p { color: var(--muted); margin-top: .2rem; font-size: .87rem; }
+input, select, button { font: inherit; }
+input, select {
+  display: block;
+  width: min(100%, 15rem);
+  padding: .48rem .65rem;
+  margin-top: .4rem;
+  border: 1px solid #9cae9b;
+  border-radius: .35rem;
+  background: #fff;
+  color: var(--ink);
+}
+input:invalid { border-color: #a63424; }
+button {
+  border-radius: .35rem;
+  color: var(--pine);
+  background: #f0f3e6;
+  border: 1px solid #b8c6ad;
+  padding: .45rem .8rem;
+  margin-top: 1.35rem;
+  font-weight: 650;
+  cursor: pointer;
+}
+button:hover { background: #e5edda; }
+.results { background: var(--pine); color: white; }
+.results h2 { color: #e1ebdc; font-weight: 600; }
+.count { margin-top: .95rem; font-size: clamp(3.6rem, 8vw, 6.2rem); letter-spacing: -.09em; line-height: .96; font-weight: 760; color: var(--lime); font-variant-numeric: tabular-nums; }
+.unit { margin-top: .35rem; font-size: 1.2rem; font-weight: 650; }
+.caption { color: #dfeddf; margin-top: .45rem; font-size: .9rem; }
+.comparison { margin-top: 1.55rem; }
+.bar-label { margin-top: .72rem; display: flex; justify-content: space-between; gap: 1rem; color: #f2f6ee; font-size: .83rem; }
+meter { appearance: none; width: 100%; height: .52rem; display: block; margin-top: .28rem; }
+meter::-webkit-meter-bar { background: #456659; border: 0; }
+meter::-webkit-meter-optimum-value { background: var(--lime); border-radius: 1rem; }
+#baseline-bar::-webkit-meter-optimum-value { background: #95b9a2; }
+meter::-moz-meter-bar { background: var(--lime); }
+#baseline-bar::-moz-meter-bar { background: #95b9a2; }
+.caution { margin-top: 1.4rem; color: #e3efd9; border-top: 1px solid #547264; padding-top: .75rem; font-size: .85rem; }
+.notes { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-block: 2.15rem; }
+.notes p { margin-top: .6rem; color: var(--muted); font-size: .95rem; }
+.notes a, footer a { color: var(--pine); font-weight: 680; }
+footer { border-top: 1px solid var(--line); color: var(--muted); font-size: .83rem; padding-block: 1rem 2rem; }
+
+@media (max-width: 45rem) {
+  .wrap { width: calc(100% - 2rem); }
+  .planner, .notes { grid-template-columns: 1fr; }
+  .notes { gap: 1.3rem; }
+}
