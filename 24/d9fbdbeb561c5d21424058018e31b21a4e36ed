@@ -1,0 +1,19 @@
+prompt-mix-calculator/googlee8e85af81a139c7f.html
+  s_ae0062e82a1582::t_681bfe36409a52 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "24d9fbdbeb561c5d21424058018e31b21a4e36ed",
+  "prompts": {},
+  "sessions": {
+    "s_ae0062e82a1582": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a1f526-ced7-7172-9d12-9e737f344570",
+        "model": "gpt-6.2-sol"
+      },
+      "human_author": "nealshulman <neal@podpitch.com>"
+    }
+  }
+}
