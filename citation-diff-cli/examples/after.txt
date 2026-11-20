@@ -1,0 +1,3 @@
+https://harbor-ledger.example/help/export#formats
+https://reviews.example/bookkeeping
+https://guides.example/multi-location-finance

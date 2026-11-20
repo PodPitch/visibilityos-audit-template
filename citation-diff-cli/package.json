@@ -1,0 +1,25 @@
+{
+  "name": "visibilityos-citation-diff",
+  "version": "1.0.0",
+  "description": "VisibilityOS by PodPitch compares the citations in two AI answers and checks for links to your official domain.",
+  "type": "module",
+  "bin": {
+    "visibilityos-citation-diff": "cli.mjs"
+  },
+  "files": ["cli.mjs", "examples"],
+  "engines": {
+    "node": ">=22"
+  },
+  "homepage": "https://visibilityos.co/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PodPitch/visibilityos-audit-template.git",
+    "directory": "citation-diff-cli"
+  },
+  "keywords": ["visibilityos", "podpitch", "ai-search", "citation-audit", "seo"],
+  "license": "UNLICENSED",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}
