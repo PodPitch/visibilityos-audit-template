@@ -18,6 +18,8 @@ Read the usage notes on [Socket](https://socket.dev/npm/package/visibilityos-cit
 
 Use the [AI Brand Match Audit](https://visibilityos-brand-match-audit.web.app/) to check whether a name in an AI answer refers to your company or a similarly named business. The [Brand Identity Audit guide](https://visibilityos-brand-identity-audit.framer.website/) walks through a same-name example. The [branded Google search audit](https://sites.google.com/podpitch.com/visibilityos-branded-search/home) applies that identity check to the results people see when they search for a product by name. The [branded search results log](https://visibilityos-branded-results-log.netlify.app/) records results from each check and exports a CSV.
 
+Use the [Google indexing status checker](https://visibilityos-indexing-check.ablestar23.chatgpt.site/) to read Google's indexed report, live test and sitemap status before interpreting branded search results.
+
 Use the [AI Citation Source Mix Calculator](https://visibilityos-source-mix.netlify.app/) to see how citations split by source type. If a mention or link disappears, follow the [AI Search Drop Checklist](https://visibilityos-drop-checklist.prhero-neal.workers.dev/) to work out what changed.
 
 Use the [VisibilityOS AI Search Control Group Calculator](https://visibilityos-control-group.vercel.app/) to compare a before-and-after change in brand mentions against a separate set of prompts.
