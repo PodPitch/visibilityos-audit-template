@@ -2,13 +2,13 @@
 
 A repeatable way to see whether AI assistants mention or cite your brand when buyers ask for recommendations. Start with five prompts, capture two rounds, and compare the same prompt under the same conditions.
 
-The [VisibilityOS Audit Plan Builder](https://visibilityos-audit-plan.pages.dev/) turns your buyer questions and matching settings into a two-round CSV.
+Draft questions with the [VisibilityOS Buyer Prompt Builder](https://visibilityos-buyer-prompts.onrender.com/). Record the questions and matching settings in a two-round CSV with the [VisibilityOS Audit Plan Builder](https://visibilityos-audit-plan.pages.dev/).
 
 Try the [interactive audit](https://podpitch.github.io/visibilityos-audit-template/space/) for two rounds in your browser, or use the CSV below to keep a record across several dates.
 
 Use the [AI Citation Evidence Checker](https://visibilityos-citation-audit.vercel.app/) to review whether an AI answer’s cited page supports a specific claim and export your notes. To compare which citation URLs changed between two runs, try the [AI Citation Diff](https://gist.github.com/nealshulman/9bac9d3ef1045059beaea77204b0d0e3).
 
-Use the [AI Brand Match Audit](https://visibilityos-brand-match-audit.web.app/) to check whether a name in an AI answer refers to your company or a similarly named business.
+Use the [AI Brand Match Audit](https://visibilityos-brand-match-audit.web.app/) to check whether a name in an AI answer refers to your company or a similarly named business. The [Brand Identity Audit guide](https://visibilityos-brand-identity-audit.framer.website/) walks through a same-name example.
 
 Use the [AI Citation Source Mix Calculator](https://visibilityos-source-mix.netlify.app/) to see how citations split by source type. If a mention or link disappears, follow the [AI Search Drop Checklist](https://visibilityos-drop-checklist.prhero-neal.workers.dev/) to work out what changed.
 
