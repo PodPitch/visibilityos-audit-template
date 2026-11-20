@@ -1,0 +1,33 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "visibilityos-audit-assistant",
+  "version": "1.0.0",
+  "description": "Plan or review an AI search visibility audit using matched buyer prompts, brand mentions, and official links.",
+  "author": {
+    "name": "PodPitch, Inc.",
+    "url": "https://visibilityos.co/"
+  },
+  "homepage": "https://visibilityos.co/",
+  "repository": "https://github.com/PodPitch/visibilityos-audit-template",
+  "keywords": ["ai visibility", "search audit", "citation review"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "VisibilityOS Audit Assistant",
+        "shortDescription": "Plan and review AI audits",
+        "longDescription": "VisibilityOS by PodPitch helps PR and marketing teams design a repeatable AI search visibility audit. It drafts buyer questions, records conditions for matched repeats, and helps label brand mentions and links in answers you provide. It uses no external actions and does not fetch or monitor AI search results.",
+        "developerName": "PodPitch, Inc.",
+        "category": "Productivity",
+        "websiteURL": "https://visibilityos.co/",
+        "defaultPrompt": [
+          "Draft a five-question AI search audit for my product.",
+          "Compare two sets of answers and flag mentions gained or lost.",
+          "Help me tell whether this answer names my company or a similarly named one."
+        ],
+        "brandColor": "#183E32",
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/icon.png"
+      }
+    }
+  }
+}
